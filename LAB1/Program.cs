@@ -5,6 +5,7 @@ using System.Xml.Linq;
 
 namespace LAB1
 {
+    //TODO: RSDN
     class Program
     {
         static void Main(string[] args)
@@ -70,6 +71,7 @@ namespace LAB1
             Console.WriteLine("\nНажмите любую клавишу для завершения...");
             Console.ReadKey();
 
+            //TODO: RSDN
             PersonList List3 = new PersonList();
 
             // Пример использования метода ReadFromConsole
@@ -95,11 +97,6 @@ namespace LAB1
             Console.ReadKey();
 
         }
-        
-        
-        
-        
-
     }
 }
 

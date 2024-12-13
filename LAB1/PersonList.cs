@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace LAB1
 {
+    //TODO: rewrite
     public class PersonList
     {
+        //TODO: RSDN
         private List<Person> people;
 
         public PersonList()
