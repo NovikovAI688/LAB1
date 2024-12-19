@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
+using Model;
 
-namespace LAB1
+namespace Model
 {
     //TODO: rewrite
     public class PersonList

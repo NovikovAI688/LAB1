@@ -1,7 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
+﻿using Model;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
+
 
 namespace LAB1
 {
@@ -10,7 +11,6 @@ namespace LAB1
     {
         static void Main(string[] args)
         {
-            // Создаем два списка персон
             PersonList list1 = new PersonList();
             PersonList list2 = new PersonList();
 
@@ -71,33 +71,123 @@ namespace LAB1
             Console.WriteLine("\nНажмите любую клавишу для завершения...");
             Console.ReadKey();
 
-            //TODO: RSDN
-            PersonList List3 = new PersonList();
+            //TODO: RSDN +
+            PersonList list3 = new PersonList();
 
             // Пример использования метода ReadFromConsole
             Console.WriteLine("Введите данные для первого человека:");
             // создаем временного человека
             Person person1 = new Person("", "", 0, Sex.Male); 
-            person1.ReadFromConsole();
-            List3.Add(person1);
+            person1 = ReadFromConsole();
+            list3.Add(person1);
 
             // Пример использования метода GetRandomPerson
-            Person randomPerson = Person.GetRandomPerson();
-            List3.Add(randomPerson);
+            Person randomPerson = RandomPerson.GetRandomPerson();
+            list3.Add(randomPerson);
 
             // Вывод списка людей
             Console.WriteLine("\nСписок персон:");
-            for (int i = 0; i < List3.Count(); i++)
+            for (int i = 0; i < list3.Count(); i++)
             {
-                List3.Get(i).Print(); // используем новый метод Print
+                list3.Get(i).Print(); // используем новый метод Print
             }
 
             // Подождите ввода клавиши для завершения
             Console.WriteLine("\nНажмите любую клавишу для выхода...");
             Console.ReadKey();
 
+
+        }
+        //TODO: extract +
+        /// <summary>
+        /// Метод для чтения персоны с клавиатуры 
+        /// </summary>
+        public static Person ReadFromConsole()
+        {
+            Person person = new Person("", "", 0, Sex.Male);
+            // Ввод имени и фамилии 
+            while (true)
+            {
+                Console.Write("Введите имя: ");
+                string name = Console.ReadLine();
+                Console.Write("Введите фамилию: ");
+                string surname = Console.ReadLine();
+
+                if (Person.IsValidInput(name, surname))
+                {
+                    person.Name = Person.CapitalizeName(name);
+                    person.Surname = Person.CapitalizeSurname(surname);
+                    break;
+                }
+                Console.WriteLine("Ошибка: .");
+
+                //// Проверяем валидность имени и фамилии
+                //if (string.IsNullOrWhiteSpace(name))
+                //{
+                //    Console.WriteLine("Ошибка: Имя не может быть пустым.");
+                //    continue; // Запрашиваем ввод снова
+                //}
+
+                //if (string.IsNullOrWhiteSpace(surname))
+                //{
+                //    Console.WriteLine("Ошибка: Фамилия не может быть пустой.");
+                //    continue; // Запрашиваем ввод снова
+                //}
+
+                //if (!Regex.IsMatch(name, @"^[a-zA-Zа-яА-ЯёЁ\s\-]+$"))
+                //{
+                //    Console.WriteLine("Ошибка: Имя должно содержать только буквы (русские или английские) и пробелы.");
+                //    continue; // Запрашиваем ввод снова
+                //}
+
+                //if (!Regex.IsMatch(surname, @"^[a-zA-Zа-яА-ЯёЁ\s\-]+$"))
+                //{
+                //    Console.WriteLine("Ошибка: Фамилия должна содержать только буквы (русские или английские) и пробелы.");
+                //    continue; // Запрашиваем ввод снова
+                //}
+
+                //else 
+                //{
+                //    Console.WriteLine("Ошибка: Имя и фамилия должны быть на одном языке.");
+                //    continue; // Запрашиваем ввод снова
+                //}
+
+                //// Если все проверки пройдены, присваиваем значения объекту person
+                //person.Name = Person.CapitalizeName(name);
+                //person.Surname = Person.CapitalizeSurname(surname);
+                //break; // Выходим из цикла, если все проверки пройдены
+            }
+            
+            // Ввод возраста
+            while (true)
+            {
+                Console.Write("Введите возраст (0 - 120): ");
+                string ageInput = Console.ReadLine();
+                if (int.TryParse(ageInput, out int age) && age >= 0 && age <= 120)
+                {
+                    person.Age = age;
+                    break;
+                }
+                Console.WriteLine("Ошибка: возраст должен быть числом от 0 до 120.");
+            }
+
+            // Ввод пола
+            while (true)
+            {
+                Console.Write("Введите пол (Male/Female): ");
+                string sexInput = Console.ReadLine();
+                if (Enum.TryParse(typeof(Sex), sexInput, true, out var sex))
+                {
+                    person.Sex = (Sex)sex;
+                    break;
+                }
+                Console.WriteLine("Ошибка: введите корректный пол (Male/Female).");
+
+            }
+            return person;
         }
     }
+
 }
 
 
