@@ -150,6 +150,16 @@ namespace LAB1
             }
             return person;
         }
+        /// <summary>
+        /// Метод для вывода в консоль
+        /// </summary>
+        public void Print()
+        {
+            foreach (var person in people)
+            {
+                Console.WriteLine(person);
+            }
+        }
     }
 
 }

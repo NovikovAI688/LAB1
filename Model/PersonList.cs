@@ -2,30 +2,46 @@ using Model;
 
 namespace Model
 {
-    //TODO: rewrite
+    /// <summary>
+    /// Метод для списка персон
+    /// </summary>
     public class PersonList
     {
-        //TODO: RSDN
+        //TODO: RSDN +
+        /// <summary>
+        /// Список персон
+        /// </summary>
         private List<Person> people;
 
+        /// <summary>
+        /// Метод для добавления списка
+        /// </summary>
         public PersonList()
         {
             people = new List<Person>();
         }
 
-        // Метод для добавления элемента
+        /// <summary>
+        /// Метод для добавления элемента
+        /// </summary>
         public void Add(Person person)
         {
             people.Add(person);
         }
 
-        // Метод для удаления элемента
+        /// <summary>
+        /// Метод для удаления элемента
+        /// </summary>
+        /// <returns> Вовращает, без этого элемента</returns>
         public bool Remove(Person person)
         {
             return people.Remove(person);
         }
 
-        // Метод для удаления элемента по индексу
+        /// <summary>
+        /// Метод для удаления элемента по индексу
+        /// </summary>
+        /// <returns> Вовращает false, если индекс вне диапазона</returns>
         public bool RemoveAt(int index)
         {
             if (index < 0 || index >= people.Count)
@@ -37,7 +53,10 @@ namespace Model
             return true; // Успешно удален
         }
 
-        // Метод для поиска элемента по индексу
+        /// <summary>
+        /// Метод для поиска элемента по индексу
+        /// </summary>
+        /// <returns> Вовращает false, если индекс вне диапазона</returns>
         public Person Get(int index)
         {
             if (index < 0 || index >= people.Count)
@@ -48,29 +67,31 @@ namespace Model
             return people[index];
         }
 
-        // Метод для получения индекса элемента
+        /// <summary>
+        /// Метод для получения индекса элемента
+        /// </summary>
+        /// <returns> Вовращает индекс </returns>
         public int IndexOf(Person person)
         {
             return people.IndexOf(person);
         }
 
-        // Метод для очистки списка
+        /// <summary>
+        /// Метод для очистки списка
+        /// </summary>
+        /// <returns> Вовращает очищенный список </returns>
         public void Clear()
         {
             people.Clear();
         }
 
-        // Метод для получения количества элементов
+        /// <summary>
+        /// Метод для получения количества элементов
+        /// </summary>
+        /// <returns> Вовращает количесвто персон </returns>
         public int Count()
         {
             return people.Count;
-        }
-        public void Print()
-        {
-            foreach (var person in people)
-            {
-                Console.WriteLine(person);
-            }
         }
     }
 }
