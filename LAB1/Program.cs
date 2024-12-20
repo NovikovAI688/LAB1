@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace LAB1
 {
-    //TODO: RSDN
+    //TODO: RSDN +
     class Program
     {
         static void Main(string[] args)
@@ -95,17 +95,17 @@ namespace LAB1
             // Подождите ввода клавиши для завершения
             Console.WriteLine("\nНажмите любую клавишу для выхода...");
             Console.ReadKey();
-
-
         }
+
         //TODO: extract +
         /// <summary>
         /// Метод для чтения персоны с клавиатуры 
         /// </summary>
+        /// <returns> Вовращает персону</returns>
         public static Person ReadFromConsole()
         {
             Person person = new Person("", "", 0, Sex.Male);
-            // Ввод имени и фамилии 
+
             while (true)
             {
                 Console.Write("Введите имя: ");
@@ -119,44 +119,9 @@ namespace LAB1
                     person.Surname = Person.CapitalizeSurname(surname);
                     break;
                 }
-                Console.WriteLine("Ошибка: .");
-
-                //// Проверяем валидность имени и фамилии
-                //if (string.IsNullOrWhiteSpace(name))
-                //{
-                //    Console.WriteLine("Ошибка: Имя не может быть пустым.");
-                //    continue; // Запрашиваем ввод снова
-                //}
-
-                //if (string.IsNullOrWhiteSpace(surname))
-                //{
-                //    Console.WriteLine("Ошибка: Фамилия не может быть пустой.");
-                //    continue; // Запрашиваем ввод снова
-                //}
-
-                //if (!Regex.IsMatch(name, @"^[a-zA-Zа-яА-ЯёЁ\s\-]+$"))
-                //{
-                //    Console.WriteLine("Ошибка: Имя должно содержать только буквы (русские или английские) и пробелы.");
-                //    continue; // Запрашиваем ввод снова
-                //}
-
-                //if (!Regex.IsMatch(surname, @"^[a-zA-Zа-яА-ЯёЁ\s\-]+$"))
-                //{
-                //    Console.WriteLine("Ошибка: Фамилия должна содержать только буквы (русские или английские) и пробелы.");
-                //    continue; // Запрашиваем ввод снова
-                //}
-
-                //else 
-                //{
-                //    Console.WriteLine("Ошибка: Имя и фамилия должны быть на одном языке.");
-                //    continue; // Запрашиваем ввод снова
-                //}
-
-                //// Если все проверки пройдены, присваиваем значения объекту person
-                //person.Name = Person.CapitalizeName(name);
-                //person.Surname = Person.CapitalizeSurname(surname);
-                //break; // Выходим из цикла, если все проверки пройдены
-            }
+                Console.WriteLine("Ошибка:ячейки фамилия и имя не должны быть пустыми," +
+                                 "должны содержать только буквы и на одном языке.");
+           }
             
             // Ввод возраста
             while (true)
@@ -182,7 +147,6 @@ namespace LAB1
                     break;
                 }
                 Console.WriteLine("Ошибка: введите корректный пол (Male/Female).");
-
             }
             return person;
         }
