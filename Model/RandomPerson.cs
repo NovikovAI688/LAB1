@@ -1,6 +1,9 @@
 ﻿namespace Model
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Класс случайной персоны
+    /// </summary>
     public class RandomPerson
     {
         /// <summary>
