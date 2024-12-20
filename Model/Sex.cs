@@ -5,10 +5,16 @@
     /// </summary>
     public enum Sex
     {
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Пол человека: мужчина
+        /// </summary>
         Male,
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Пол человека: девушка
+        /// </summary>
         Female
     }
 }
