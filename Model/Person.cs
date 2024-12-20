@@ -3,18 +3,23 @@
 
 namespace Model
 {
-    //TODO: XML +
     /// <summary>
     /// Класс персон
     /// </summary>
     public class Person
     {
+        //TODO: XML
         public string Name { get;  set; }
+
+        //TODO: XML
         public string Surname { get;  set; }
+
+        //TODO: XML
         public int Age { get; set; }
+
+        //TODO: XML
         public Sex Sex { get; set; }
 
-        //TODO: RSDN +
         /// <summary>
         /// Cоздает персону
         /// </summary>
@@ -29,6 +34,7 @@ namespace Model
             Age = age;
             Sex = sex;
         }
+
         /// <summary>
         /// Информация о персоне
         /// </summary>
@@ -38,6 +44,7 @@ namespace Model
             return ($"Имя: {Name}, Фамилия: {Surname}," +
                     $" Возраст: {Age}, Пол: {Sex}");
         }
+
         //TODO: duplication
         /// <summary>
         /// Проверка на пустую строку и наличие только русских и английских символов.
@@ -59,6 +66,7 @@ namespace Model
         /// <returns>Возвращает true, если строка валидная, иначе false</returns>
         public static bool SameLanguage(string name, string surname)
         {
+            //TODO: RSDN
             bool name_ru = Regex.IsMatch(name, @"^[а-яА-ЯёЁ\s\-]+$");
             bool surname_ru = Regex.IsMatch(surname, @"^[а-яА-ЯёЁ\s\-]+$");
 
@@ -68,6 +76,7 @@ namespace Model
             return (name_ru && surname_ru) || (name_en && surname_en);
         }
 
+        //TODO: duplication
         /// <summary>
         /// Информация о персоне
         /// </summary>
@@ -78,6 +87,7 @@ namespace Model
             return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name.ToLower());
         }
 
+        //TODO: duplication
         /// <summary>
         /// Информация о персоне
         /// </summary>
@@ -88,7 +98,7 @@ namespace Model
             return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(surname.ToLower());
         }
 
-        //TODO: extract +
+        //TODO: extract
         /// <summary>
         /// Метод для вывода персоны на экран
         /// </summary>
@@ -96,6 +106,5 @@ namespace Model
         {
             Console.WriteLine($"Имя: {Name}, Фамилия: {Surname}, Возраст: {Age}, Пол: {Sex}");
         }      
-    }
-    
+    }    
 }

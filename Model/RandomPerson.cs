@@ -1,5 +1,6 @@
 ﻿namespace Model
 {
+    //TODO: XML
     public class RandomPerson
     {
         /// <summary>
@@ -37,36 +38,17 @@
 
             Random random = new Random();
 
-            string name;
             Sex sex = (Sex)random.Next(0, 2);
-            switch (sex)
-            {
-                case Sex.Male:
-                    name = maleNames[random.Next(maleNames.Length)];
-                    break;
-                case Sex.Female:
-                    name = femaleNames[random.Next(femaleNames.Length)];
-                    break;
-                default:
-                    return new Person("", "", 0, Sex.Male);
-            }
-
-            string surname;
-            switch (sex)
-            {
-                case Sex.Male:
-                    surname = maleSurnames[random.Next(maleSurnames.Length)];
-                    break;
-                case Sex.Female:
-                    surname = femaleSurnames[random.Next(femaleSurnames.Length)];
-                    break;
-                default:
-                    return new Person("", "", 0, Sex.Male);
-            }
-
+            var name = sex == Sex.Male
+                ? maleNames[random.Next(maleNames.Length)]
+                : femaleNames[random.Next(femaleNames.Length)];
+            var surname = sex == Sex.Male
+                ? maleNames[random.Next(maleNames.Length)]
+                : femaleSurnames[random.Next(femaleSurnames.Length)];
+            
+            //TODO: get from person
             int age = random.Next(0, 120);
             return new Person(name, surname, age, sex);
         }
-
     }
 }
