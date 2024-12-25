@@ -41,22 +41,24 @@ namespace Model
         /// <summary>
         /// Метод для удаления элемента по индексу
         /// </summary>
-        /// <returns> Вовращает false, если индекс вне диапазона</returns>
+        /// <returns> Вовращает false, если индекс вне диапазона
+        ///           true, если успешно удален</returns>
         public bool RemoveAt(int index)
         {
             if (index < 0 || index >= people.Count)
             {
-                return false; // Возвращаем false, если индекс вне диапазона
+                return false; 
             }
 
             people.RemoveAt(index);
-            return true; // Успешно удален
+            return true; 
         }
 
         /// <summary>
         /// Метод для поиска элемента по индексу
         /// </summary>
-        /// <returns> Вовращает false, если индекс вне диапазона</returns>
+        /// <returns> Вовращает false, если индекс вне диапазона
+        ///           true, если найден индекс персоны</returns>
         public Person Get(int index)
         {
             if (index < 0 || index >= people.Count)
