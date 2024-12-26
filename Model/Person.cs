@@ -57,7 +57,6 @@ namespace Model
                     $" Возраст: {Age}, Пол: {Sex}");
         }
 
-        //TODO: duplication
         /// <summary>
         /// Проверка на пустую строку и наличие только русских и английских символов.
         /// </summary>
@@ -71,6 +70,7 @@ namespace Model
                 && Regex.IsMatch(surname, @"^[a-zA-Zа-яА-ЯёЁ\s\-]+$")
                 && SameLanguage(name, surname);
         }
+
         /// <summary>
         /// Проверка на пустую строку и наличие только русских и английских символов.
         /// </summary>
@@ -93,22 +93,13 @@ namespace Model
         /// Информация о персоне
         /// </summary>
         /// <returns> Вовращает имя  персоны, в правильном регистре</returns>
-        public static string CapitalizeName(string name)
+        public static string CapitalizeString(string capitilizingString)
         {
             // Приведение строки к правильному регистру для имени и фамилии
-            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name.ToLower());
+            return System.Globalization.CultureInfo.
+                CurrentCulture.TextInfo.ToTitleCase(capitilizingString.ToLower());
         }
 
-        //TODO: duplication
-        /// <summary>
-        /// Информация о персоне
-        /// </summary>
-        /// <returns> Вовращает фамилию персоны, в правильном регистре</returns>
-        public static string CapitalizeSurname(string surname)
-        {
-            // Приведение строки к правильному регистру для имени и фамилии
-            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(surname.ToLower());
-        }
         /// <summary>
         /// Минимальный возраст
         /// </summary>

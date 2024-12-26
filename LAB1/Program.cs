@@ -92,6 +92,10 @@ namespace LAB1
             // Подождите ввода клавиши для завершения
             Console.WriteLine("\nНажмите любую клавишу для выхода...");
             Console.ReadKey();
+
+            var tmpPerson = new Person("Иванов", "Иван", 12, Sex.Male);
+            tmpPerson.Surname = null;
+
         }
 
         //TODO: extract +
@@ -112,8 +116,8 @@ namespace LAB1
 
                 if (Person.IsValidInput(name, surname))
                 {
-                    person.Name = Person.CapitalizeName(name);
-                    person.Surname = Person.CapitalizeSurname(surname);
+                    person.Name = Person.CapitalizeString(name);
+                    person.Surname = Person.CapitalizeString(surname);
                     break;
                 }
                 Console.WriteLine("Ошибка:ячейки фамилия и имя не должны быть пустыми," +
@@ -147,12 +151,13 @@ namespace LAB1
             }
             return person;
         }
+
         /// <summary>
         /// Метод для получения количества элементов
         /// </summary>
-        public void Print()
+        public void Print(Person person)
         {
-            Console.WriteLine($"Имя: {Name}, Фамилия: {Surname}, Возраст: {Age}, Пол: {Sex}");
+            Console.WriteLine(person.ToString());
         }
     }
 
