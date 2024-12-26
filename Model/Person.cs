@@ -8,16 +8,28 @@ namespace Model
     /// </summary>
     public class Person
     {
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Имя
+        /// </summary>
         public string Name { get;  set; }
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Фамилия
+        /// </summary>
         public string Surname { get;  set; }
 
-        //TODO: XML
-        public int Age { get; set; }
+        //TODO: XML +
+        /// <summary>
+        /// Возраст
+        /// </summary>
+        public int Age { get; set; }    
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Пол
+        /// </summary>
         public Sex Sex { get; set; }
 
         /// <summary>
@@ -97,14 +109,13 @@ namespace Model
             // Приведение строки к правильному регистру для имени и фамилии
             return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(surname.ToLower());
         }
-
-        //TODO: extract
         /// <summary>
-        /// Метод для вывода персоны на экран
+        /// Минимальный возраст
         /// </summary>
-        public void Print()
-        {
-            Console.WriteLine($"Имя: {Name}, Фамилия: {Surname}, Возраст: {Age}, Пол: {Sex}");
-        }      
+        public const int minAge = 0;
+        /// <summary>
+        /// Максимальный возраст
+        /// </summary>
+        public const int maxAge = 120;
     }    
 }

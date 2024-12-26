@@ -1,8 +1,5 @@
 ﻿using Model;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
 using System.Xml.Linq;
-
 
 namespace LAB1
 {
@@ -89,9 +86,9 @@ namespace LAB1
             Console.WriteLine("\nСписок персон:");
             for (int i = 0; i < list3.Count(); i++)
             {
-                list3.Get(i).Print(); // используем новый метод Print
+                list3.Get(i);
+                list3.Print();
             }
-
             // Подождите ввода клавиши для завершения
             Console.WriteLine("\nНажмите любую клавишу для выхода...");
             Console.ReadKey();
@@ -122,13 +119,13 @@ namespace LAB1
                 Console.WriteLine("Ошибка:ячейки фамилия и имя не должны быть пустыми," +
                                  "должны содержать только буквы и на одном языке.");
            }
-            
+
             // Ввод возраста
             while (true)
             {
                 Console.Write("Введите возраст (0 - 120): ");
                 string ageInput = Console.ReadLine();
-                if (int.TryParse(ageInput, out int age) && age >= 0 && age <= 120)
+                if (int.TryParse(ageInput, out int age) && age >= Person.minAge && age <= Person.maxAge)
                 {
                     person.Age = age;
                     break;
@@ -151,14 +148,11 @@ namespace LAB1
             return person;
         }
         /// <summary>
-        /// Метод для вывода в консоль
+        /// Метод для получения количества элементов
         /// </summary>
         public void Print()
         {
-            foreach (var person in people)
-            {
-                Console.WriteLine(person);
-            }
+            Console.WriteLine($"Имя: {Name}, Фамилия: {Surname}, Возраст: {Age}, Пол: {Sex}");
         }
     }
 

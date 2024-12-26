@@ -1,5 +1,3 @@
-using Model;
-
 namespace Model
 {
     /// <summary>
@@ -94,6 +92,14 @@ namespace Model
         public int Count()
         {
             return people.Count;
+        }
+
+        /// <summary>
+        /// Метод для получения количества элементов
+        /// </summary>
+        public void Print()
+        {
+            Console.WriteLine ($"Имя: {Name}, Фамилия: {Surname}, Возраст: {Age}, Пол: {Sex}");
         }
     }
 }

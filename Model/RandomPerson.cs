@@ -49,8 +49,8 @@
                 ? maleNames[random.Next(maleNames.Length)]
                 : femaleSurnames[random.Next(femaleSurnames.Length)];
             
-            //TODO: get from person
-            int age = random.Next(0, 120);
+            //TODO: get from person +
+            int age = random.Next(Person.minAge, Person.maxAge);
             return new Person(name, surname, age, sex);
         }
     }
