@@ -92,10 +92,6 @@ namespace LAB1
             // Подождите ввода клавиши для завершения
             Console.WriteLine("\nНажмите любую клавишу для выхода...");
             Console.ReadKey();
-
-            var tmpPerson = new Person("Иванов", "Иван", 12, Sex.Male);
-            tmpPerson.Surname = null;
-
         }
 
         //TODO: extract +
@@ -113,42 +109,24 @@ namespace LAB1
                 string name = Console.ReadLine();
                 Console.Write("Введите фамилию: ");
                 string surname = Console.ReadLine();
-
-                if (Person.IsValidInput(name, surname))
-                {
-                    person.Name = Person.CapitalizeString(name);
-                    person.Surname = Person.CapitalizeString(surname);
-                    break;
-                }
-                Console.WriteLine("Ошибка:ячейки фамилия и имя не должны быть пустыми," +
-                                 "должны содержать только буквы и на одном языке.");
-           }
+                break;
+            }
 
             // Ввод возраста
             while (true)
             {
                 Console.Write("Введите возраст (0 - 120): ");
                 string ageInput = Console.ReadLine();
-                if (int.TryParse(ageInput, out int age) && age >= Person.minAge && age <= Person.maxAge)
-                {
-                    person.Age = age;
-                    break;
-                }
-                Console.WriteLine("Ошибка: возраст должен быть числом от 0 до 120.");
+                break;
             }
-
-            // Ввод пола
+                // Ввод пола
             while (true)
             {
                 Console.Write("Введите пол (Male/Female): ");
                 string sexInput = Console.ReadLine();
-                if (Enum.TryParse(typeof(Sex), sexInput, true, out var sex))
-                {
-                    person.Sex = (Sex)sex;
-                    break;
-                }
-                Console.WriteLine("Ошибка: введите корректный пол (Male/Female).");
+                break;
             }
+
             return person;
         }
 

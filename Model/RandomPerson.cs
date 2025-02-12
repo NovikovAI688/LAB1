@@ -29,13 +29,11 @@
             string[] maleSurnames = new string[]
             {
                 "Potter", "Granger", "Black", "Malfoy",
-                "Weasley", "Dursley", "Riddle",
-                "Krum", "Snape", "Lovegood", "Lestrange"
+                "Weasley", "Dursley", "Riddle"
             };
+
             string[] femaleSurnames = new string[]
             {
-                "Potter", "Granger", "Black", "Malfoy",
-                "Weasley", "Dursley", "Riddle",
                 "Krum", "Snape", "Lovegood", "Lestrange"
             };
 

@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Reflection;
+using System.Text.RegularExpressions;
 
 
 namespace Model
@@ -12,25 +14,25 @@ namespace Model
         /// <summary>
         /// Имя
         /// </summary>
-        public string Name { get;  set; }
+        public string _name { get;  set; }
 
         //TODO: XML +
         /// <summary>
         /// Фамилия
         /// </summary>
-        public string Surname { get;  set; }
+        private string _surname { get;  set; }
 
         //TODO: XML +
         /// <summary>
         /// Возраст
         /// </summary>
-        public int Age { get; set; }    
+        private int _age { get; set; }
 
         //TODO: XML +
         /// <summary>
         /// Пол
         /// </summary>
-        public Sex Sex { get; set; }
+        private Sex _sex { get; set; }
 
         /// <summary>
         /// Cоздает персону
@@ -41,10 +43,115 @@ namespace Model
         /// <param name="sex">Пол персоны</param>
         public Person(string name, string surname, int age, Sex sex)
         {
-            Name = name;
-            Surname = surname;
-            Age = age;
-            Sex = sex;
+            _name = name;
+            _surname = surname;
+            _age = age;
+            _sex = sex;
+        }
+
+        /// <summary>
+        /// Задание имени
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (SameLanguage(_name, _surname)|| IsValidInput(_name, _surname))
+                {
+                    _name = CapitalizeString(_name);
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        "Ошибка: ячейки фамилия и имя не должны быть пустыми," +
+                        " должны содержать только буквы и на одном языке.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Задание фамилии
+        /// </summary>
+        public string Surname
+        {
+            get
+            {
+                return _surname;
+            }
+            set
+            {
+                if (SameLanguage(_name, _surname) || IsValidInput(_name, _surname))
+                {
+                    _surname = CapitalizeString(_surname);
+                }
+                else
+                {
+                    throw new ArgumentException(
+                        "Ошибка: ячейки фамилия и имя не должны быть пустыми," +
+                        " должны содержать только буквы и на одном языке.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Минимальный возраст
+        /// </summary>
+        public const int minAge = 0;
+        /// <summary>
+        /// Максимальный возраст
+        /// </summary>
+        public const int maxAge = 120;
+
+        /// <summary>
+        /// Задание возраста.
+        /// </summary>
+        public int Age
+        {
+            get
+            {
+                return _age;
+            }
+
+            set
+            {
+                if (value >= minAge && value <= maxAge)
+                {
+                    _age = value;
+                }
+                else
+                {
+                    throw new ArgumentException($"Возраст должен находиться " +
+                        $"в пределах от {minAge} года до {maxAge} лет");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Задание гендера.
+        /// </summary>
+        public Sex Sex
+        {
+            get
+            {
+                return _sex;
+            }
+
+            set
+            {
+                string sexInput = Console.ReadLine();
+                if (Enum.TryParse(typeof(Sex), sexInput, true, out var sex))
+                {
+                    _sex = (Sex)sex;
+                }
+                else
+                {
+                    throw new ArgumentException("Ошибка: введите корректный пол (Male/Female).");
+                }
+            }
         }
 
         /// <summary>
@@ -53,8 +160,8 @@ namespace Model
         /// <returns> Вовращает имя и фамилию персоны, скольно ему лет и какого он пола</returns>
         public override string ToString() 
         {
-            return ($"Имя: {Name}, Фамилия: {Surname}," +
-                    $" Возраст: {Age}, Пол: {Sex}");
+            return ($"Имя: {_name}, Фамилия: {_surname}," +
+                    $" Возраст: {_age}, Пол: {_sex}");
         }
 
         /// <summary>
@@ -88,7 +195,7 @@ namespace Model
             return (name_ru && surname_ru) || (name_en && surname_en);
         }
 
-        //TODO: duplication
+        //TODO: duplication +
         /// <summary>
         /// Информация о персоне
         /// </summary>
@@ -99,14 +206,5 @@ namespace Model
             return System.Globalization.CultureInfo.
                 CurrentCulture.TextInfo.ToTitleCase(capitilizingString.ToLower());
         }
-
-        /// <summary>
-        /// Минимальный возраст
-        /// </summary>
-        public const int minAge = 0;
-        /// <summary>
-        /// Максимальный возраст
-        /// </summary>
-        public const int maxAge = 120;
     }    
 }

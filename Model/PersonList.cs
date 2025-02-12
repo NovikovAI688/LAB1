@@ -97,9 +97,14 @@ namespace Model
         /// <summary>
         /// Метод для получения количества элементов
         /// </summary>
-        public void Print()
+        public string Print()
         {
-            Console.WriteLine ($"Имя: {Name}, Фамилия: {Surname}, Возраст: {Age}, Пол: {Sex}");
+            string infoPerson = default;
+            foreach (Person person in people) 
+            {
+                infoPerson += person.ToString();
+            }
+            return infoPerson;
         }
     }
 }
