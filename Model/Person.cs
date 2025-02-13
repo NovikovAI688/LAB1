@@ -14,7 +14,7 @@ namespace Model
         /// <summary>
         /// Имя
         /// </summary>
-        public string _name { get;  set; }
+        private string _name { get;  set; }
 
         //TODO: XML +
         /// <summary>
@@ -43,10 +43,10 @@ namespace Model
         /// <param name="sex">Пол персоны</param>
         public Person(string name, string surname, int age, Sex sex)
         {
-            _name = name;
-            _surname = surname;
-            _age = age;
-            _sex = sex;
+            Name = name;
+            Surname = surname;
+            Age = age;
+            Sex = sex;
         }
 
         /// <summary>
@@ -60,9 +60,9 @@ namespace Model
             }
             set
             {
-                if (SameLanguage(_name, _surname)|| IsValidInput(_name, _surname))
+                if (IsValidInput(value, "Мама"))
                 {
-                    _name = CapitalizeString(_name);
+                    _name = CapitalizeString(value);
                 }
                 else
                 {
@@ -84,9 +84,9 @@ namespace Model
             }
             set
             {
-                if (SameLanguage(_name, _surname) || IsValidInput(_name, _surname))
+                if (IsValidInput(Name, value))
                 {
-                    _surname = CapitalizeString(_surname);
+                    _surname = CapitalizeString(value);
                 }
                 else
                 {
@@ -142,15 +142,7 @@ namespace Model
 
             set
             {
-                string sexInput = Console.ReadLine();
-                if (Enum.TryParse(typeof(Sex), sexInput, true, out var sex))
-                {
-                    _sex = (Sex)sex;
-                }
-                else
-                {
-                    throw new ArgumentException("Ошибка: введите корректный пол (Male/Female).");
-                }
+                _sex = value;
             }
         }
 
@@ -173,8 +165,6 @@ namespace Model
         {
             return !string.IsNullOrWhiteSpace(name)
                 && !string.IsNullOrWhiteSpace(surname)
-                && Regex.IsMatch(name, @"^[a-zA-Zа-яА-ЯёЁ\s\-]+$")
-                && Regex.IsMatch(surname, @"^[a-zA-Zа-яА-ЯёЁ\s\-]+$")
                 && SameLanguage(name, surname);
         }
 
@@ -202,7 +192,6 @@ namespace Model
         /// <returns> Вовращает имя  персоны, в правильном регистре</returns>
         public static string CapitalizeString(string capitilizingString)
         {
-            // Приведение строки к правильному регистру для имени и фамилии
             return System.Globalization.CultureInfo.
                 CurrentCulture.TextInfo.ToTitleCase(capitilizingString.ToLower());
         }

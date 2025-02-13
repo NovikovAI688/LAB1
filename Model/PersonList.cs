@@ -1,3 +1,5 @@
+using System;
+
 namespace Model
 {
     /// <summary>
@@ -14,17 +16,14 @@ namespace Model
         /// <summary>
         /// Метод для добавления списка
         /// </summary>
-        public PersonList()
-        {
-            people = new List<Person>();
-        }
+        public List<Person> ListPerson { get; } = new List<Person>();   
 
         /// <summary>
         /// Метод для добавления элемента
         /// </summary>
         public void Add(Person person)
         {
-            people.Add(person);
+            ListPerson.Add(person);
         }
 
         /// <summary>
@@ -33,7 +32,7 @@ namespace Model
         /// <returns> Вовращает, без этого элемента</returns>
         public bool Remove(Person person)
         {
-            return people.Remove(person);
+            return ListPerson.Remove(person);
         }
 
         /// <summary>
@@ -43,12 +42,12 @@ namespace Model
         ///           true, если успешно удален</returns>
         public bool RemoveAt(int index)
         {
-            if (index < 0 || index >= people.Count)
+            if (index < 0 || index >= ListPerson.Count)
             {
                 return false; 
             }
 
-            people.RemoveAt(index);
+            ListPerson.RemoveAt(index);
             return true; 
         }
 
@@ -59,12 +58,12 @@ namespace Model
         ///           true, если найден индекс персоны</returns>
         public Person Get(int index)
         {
-            if (index < 0 || index >= people.Count)
+            if (index < 0 || index >= ListPerson.Count)
             {
                throw new ArgumentOutOfRangeException("Индекс вне диапазона");
             }
 
-            return people[index];
+            return ListPerson[index];
         }
 
         /// <summary>
@@ -73,7 +72,7 @@ namespace Model
         /// <returns> Вовращает индекс </returns>
         public int IndexOf(Person person)
         {
-            return people.IndexOf(person);
+            return ListPerson.IndexOf(person);
         }
 
         /// <summary>
@@ -82,7 +81,7 @@ namespace Model
         /// <returns> Вовращает очищенный список </returns>
         public void Clear()
         {
-            people.Clear();
+            ListPerson.Clear();
         }
 
         /// <summary>
@@ -91,20 +90,18 @@ namespace Model
         /// <returns> Вовращает количесвто персон </returns>
         public int Count()
         {
-            return people.Count;
+            return ListPerson.Count;
         }
 
         /// <summary>
         /// Метод для получения количества элементов
         /// </summary>
-        public string Print()
+        public void Print()
         {
-            string infoPerson = default;
-            foreach (Person person in people) 
+            foreach (Person onePerson in ListPerson)
             {
-                infoPerson += person.ToString();
+                Console.WriteLine(onePerson.ToString());
             }
-            return infoPerson;
         }
     }
 }

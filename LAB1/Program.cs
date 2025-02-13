@@ -11,7 +11,7 @@ namespace LAB1
             PersonList list1 = new PersonList();
             PersonList list2 = new PersonList();
 
-            list1.Add(new Person("Атрём", "Кирякин", 26, Sex.Male));
+            list1.Add(new Person("Атрем", "Кирякин", 26, Sex.Male));
             list1.Add(new Person("Виктория", "Тайдонова", 22, Sex.Female));
             list1.Add(new Person("Егор", "Бухаров", 17, Sex.Male));
 
@@ -23,7 +23,7 @@ namespace LAB1
             Console.WriteLine("Список 1:");
             list1.Print();
             Console.WriteLine("\nНажмите любую клавишу для продолжения...");
-            Console.ReadKey();
+            Console.ReadKey(true);
 
             Console.WriteLine("\nСписок 2:");
             list2.Print();
@@ -74,8 +74,8 @@ namespace LAB1
             // Пример использования метода ReadFromConsole
             Console.WriteLine("Введите данные для первого человека:");
             // создаем временного человека
-            Person person1 = new Person("", "", 0, Sex.Male); 
-            person1 = ReadFromConsole();
+        
+            Person person1 = ReadFromConsole();
             list3.Add(person1);
 
             // Пример использования метода GetRandomPerson
@@ -101,41 +101,74 @@ namespace LAB1
         /// <returns> Вовращает персону</returns>
         public static Person ReadFromConsole()
         {
-            Person person = new Person("", "", 0, Sex.Male);
+            Person person = new Person("Иван", "Иванов", 1, Sex.Male);
 
             while (true)
             {
                 Console.Write("Введите имя: ");
-                string name = Console.ReadLine();
+                try
+                {
+                    string NamePerson = Console.ReadLine();
+                    person.Name = NamePerson;
+                    break;
+                }
+                catch (ArgumentException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+            while (true)
+            {             
                 Console.Write("Введите фамилию: ");
-                string surname = Console.ReadLine();
-                break;
+                try
+                {
+                    string SurnamePerson = Console.ReadLine();
+                    person.Surname = SurnamePerson;
+                    break;
+                }
+                catch (ArgumentException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
 
             // Ввод возраста
             while (true)
             {
                 Console.Write("Введите возраст (0 - 120): ");
-                string ageInput = Console.ReadLine();
-                break;
+                try
+                {
+                    int AgePerson = Convert.ToInt32(Console.ReadLine());
+                    person.Age = AgePerson;
+                    break;
+                }
+                catch (ArgumentException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
                 // Ввод пола
             while (true)
             {
                 Console.Write("Введите пол (Male/Female): ");
-                string sexInput = Console.ReadLine();
-                break;
+                string SexPerson = Console.ReadLine();
+                if (SexPerson == "Male")
+                {
+                    person.Sex = Sex.Male;
+                    break;
+                }
+                if (SexPerson == "Female")
+                {
+                    person.Sex = Sex.Female;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка: введите корректный пол (Male/Female).");
+                }
             }
-
             return person;
-        }
-
-        /// <summary>
-        /// Метод для получения количества элементов
-        /// </summary>
-        public void Print(Person person)
-        {
-            Console.WriteLine(person.ToString());
         }
     }
 
