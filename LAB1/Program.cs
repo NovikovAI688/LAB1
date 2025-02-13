@@ -109,7 +109,7 @@ namespace LAB1
         /// <returns> Вовращает персону</returns>
         public static Person ReadFromConsole()
         {
-            Person person = new Person("Иван", "Иванов", 1, Sex.Male);
+            Person person = new Person(string.Empty, string.Empty, 1, Sex.Male);
 
             while (true)
             {

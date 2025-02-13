@@ -13,12 +13,12 @@ namespace Model
         /// <summary>
         /// Имя
         /// </summary>
-        private string _name;
+        private string _name = string.Empty;
 
         /// <summary>
         /// Фамилия
         /// </summary>
-        private string _surname;
+        private string _surname = string.Empty;
 
         /// <summary>
         /// Возраст
@@ -56,16 +56,7 @@ namespace Model
             }
             set
             {
-                if (IsValidInput(value, "Мама"))
-                {
-                    _name = CapitalizeString(value);
-                }
-                else
-                {
-                    throw new ArgumentException(
-                        "Ошибка: ячейки фамилия и имя не должны быть пустыми," +
-                        " должны содержать только буквы и на одном языке.");
-                }
+                _name = CheckForSequence(_surname, value);
             }
         }
 
@@ -80,16 +71,7 @@ namespace Model
             }
             set
             {
-                if (IsValidInput(Name, value))
-                {
-                    _surname = CapitalizeString(value);
-                }
-                else
-                {
-                    throw new ArgumentException(
-                        "Ошибка: ячейки фамилия и имя не должны быть пустыми," +
-                        " должны содержать только буквы и на одном языке.");
-                }
+                _surname = CheckForSequence(_name, value);
             }
         }
 
@@ -155,33 +137,51 @@ namespace Model
                     $" Возраст: {_age}, Пол: {_sex}");
         }
 
+
         /// <summary>
         /// Проверка на пустую строку и наличие только русских и английских символов.
         /// </summary>
         /// <param name="input">Имя или фамилия для проверки</param>
         /// <returns>Возвращает true, если строка валидная, иначе false</returns>
-        public static bool IsValidInput(string name, string surname)
+        public static bool SameLanguage(string firstString, string secondString)
         {
-            return !string.IsNullOrWhiteSpace(name)
-                && !string.IsNullOrWhiteSpace(surname)
-                && SameLanguage(name, surname);
+            //TODO: RSDN +
+            bool nameRu = Regex.IsMatch(firstString, @"^[а-яА-ЯёЁ\s\-]+$");
+            bool surnameRu = Regex.IsMatch(secondString, @"^[а-яА-ЯёЁ\s\-]+$");
+
+            bool nameEn = Regex.IsMatch(firstString, @"^[a-zA-Z\s\-]+$");
+            bool surnameEn = Regex.IsMatch(secondString, @"^[a-zA-Z\s\-]+$");
+
+            return (nameRu && surnameRu) || (nameEn && surnameEn);
         }
 
         /// <summary>
-        /// Проверка на пустую строку и наличие только русских и английских символов.
+        /// 
         /// </summary>
-        /// <param name="input">Имя или фамилия для проверки</param>
-        /// <returns>Возвращает true, если строка валидная, иначе false</returns>
-        public static bool SameLanguage(string name, string surname)
+        /// <param name="firstString"></param>
+        /// <param name="secondString"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        private static string CheckForSequence(string firstString, string secondString)
         {
-            //TODO: RSDN +
-            bool nameRu = Regex.IsMatch(name, @"^[а-яА-ЯёЁ\s\-]+$");
-            bool surnameRu = Regex.IsMatch(surname, @"^[а-яА-ЯёЁ\s\-]+$");
-
-            bool nameEn = Regex.IsMatch(name, @"^[a-zA-Z\s\-]+$");
-            bool surnameEn = Regex.IsMatch(surname, @"^[a-zA-Z\s\-]+$");
-
-            return (nameRu && surnameRu) || (nameEn && surnameEn);
+            if (!(secondString == null && secondString.Contains(" ")))
+            {
+                if (firstString == string.Empty)
+                {
+                    return CapitalizeString(secondString);
+                }
+                else
+                {
+                    if (SameLanguage(firstString, secondString))
+                    {
+                        return CapitalizeString(secondString);
+                    }
+                }
+            }
+            
+            throw new ArgumentException(
+                    "Ошибка: ячейки фамилия и имя не должны быть пустыми," +
+                    " должны содержать только буквы и на одном языке.");
         }
 
         /// <summary>
