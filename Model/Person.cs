@@ -93,17 +93,17 @@ namespace Model
             }
         }
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Минимальный возраст
         /// </summary>
-        public const int minAge = 0;
+        public const int MinAge = 0;
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Максимальный возраст
         /// </summary>
-        public const int maxAge = 120;
+        public const int MaxAge = 120;
 
         /// <summary>
         /// Задание возраста.
@@ -117,19 +117,18 @@ namespace Model
 
             set
             {
-                if (value >= minAge && value <= maxAge)
+                if (value >= MinAge && value <= MaxAge)
                 {
                     _age = value;
                 }
                 else
                 {
                     throw new ArgumentException($"Возраст должен находиться " +
-                        $"в пределах от {minAge} года до {maxAge} лет");
+                        $"в пределах от {MinAge} года до {MaxAge} лет");
                 }
             }
         }
 
-        //TODO: autoproperty
         /// <summary>
         /// Задание гендера.
         /// </summary>
@@ -175,14 +174,14 @@ namespace Model
         /// <returns>Возвращает true, если строка валидная, иначе false</returns>
         public static bool SameLanguage(string name, string surname)
         {
-            //TODO: RSDN
-            bool name_ru = Regex.IsMatch(name, @"^[а-яА-ЯёЁ\s\-]+$");
-            bool surname_ru = Regex.IsMatch(surname, @"^[а-яА-ЯёЁ\s\-]+$");
+            //TODO: RSDN +
+            bool nameRu = Regex.IsMatch(name, @"^[а-яА-ЯёЁ\s\-]+$");
+            bool surnameRu = Regex.IsMatch(surname, @"^[а-яА-ЯёЁ\s\-]+$");
 
-            bool name_en = Regex.IsMatch(name, @"^[a-zA-Z\s\-]+$");
-            bool surname_en = Regex.IsMatch(surname, @"^[a-zA-Z\s\-]+$");
+            bool nameEn = Regex.IsMatch(name, @"^[a-zA-Z\s\-]+$");
+            bool surnameEn = Regex.IsMatch(surname, @"^[a-zA-Z\s\-]+$");
 
-            return (name_ru && surname_ru) || (name_en && surname_en);
+            return (nameRu && surnameRu) || (nameEn && surnameEn);
         }
 
         /// <summary>

@@ -3,13 +3,19 @@ using System.Xml.Linq;
 
 namespace LAB1
 {
-    //TODO: RSDN
-    //TODO: XML
-    class Program
+    //TODO: RSDN +
+    //TODO: XML +
+    /// <summary>
+    /// Операции с персонами
+    /// </summary>
+    public class Program
     {
-        //TODO: RSDN
-        //TODO: XML
-        static void Main(string[] args)
+        //TODO: RSDN +
+        //TODO: XML +
+        /// <summary>
+        /// Создание списков 
+        /// </summary>
+        public static void Main(string[] args)
         {
             PersonList list1 = new PersonList();
             PersonList list2 = new PersonList();

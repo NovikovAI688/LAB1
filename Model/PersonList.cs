@@ -7,11 +7,11 @@ namespace Model
     /// </summary>
     public class PersonList
     {
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Список персон
         /// </summary>
-        private List<Person> people;
+        private List<Person> _people;
 
         /// <summary>
         /// Метод для добавления списка
