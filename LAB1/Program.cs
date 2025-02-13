@@ -3,9 +3,12 @@ using System.Xml.Linq;
 
 namespace LAB1
 {
-    //TODO: RSDN +
+    //TODO: RSDN
+    //TODO: XML
     class Program
     {
+        //TODO: RSDN
+        //TODO: XML
         static void Main(string[] args)
         {
             PersonList list1 = new PersonList();
@@ -68,7 +71,6 @@ namespace LAB1
             Console.WriteLine("\nНажмите любую клавишу для завершения...");
             Console.ReadKey();
 
-            //TODO: RSDN +
             PersonList list3 = new PersonList();
 
             // Пример использования метода ReadFromConsole
@@ -79,6 +81,7 @@ namespace LAB1
             list3.Add(person1);
 
             // Пример использования метода GetRandomPerson
+            //TODO: BUG:
             Person randomPerson = RandomPerson.GetRandomPerson();
             list3.Add(randomPerson);
 
@@ -94,7 +97,6 @@ namespace LAB1
             Console.ReadKey();
         }
 
-        //TODO: extract +
         /// <summary>
         /// Метод для чтения персоны с клавиатуры 
         /// </summary>
@@ -108,6 +110,8 @@ namespace LAB1
                 Console.Write("Введите имя: ");
                 try
                 {
+
+                    //TODO: RSDN
                     string NamePerson = Console.ReadLine();
                     person.Name = NamePerson;
                     break;

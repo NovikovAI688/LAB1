@@ -10,29 +10,25 @@ namespace Model
     /// </summary>
     public class Person
     {
-        //TODO: XML +
         /// <summary>
         /// Имя
         /// </summary>
-        private string _name { get;  set; }
+        private string _name;
 
-        //TODO: XML +
         /// <summary>
         /// Фамилия
         /// </summary>
-        private string _surname { get;  set; }
+        private string _surname;
 
-        //TODO: XML +
         /// <summary>
         /// Возраст
         /// </summary>
-        private int _age { get; set; }
+        private int _age;
 
-        //TODO: XML +
         /// <summary>
         /// Пол
         /// </summary>
-        private Sex _sex { get; set; }
+        private Sex _sex;
 
         /// <summary>
         /// Cоздает персону
@@ -97,10 +93,13 @@ namespace Model
             }
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Минимальный возраст
         /// </summary>
         public const int minAge = 0;
+
+        //TODO: RSDN
         /// <summary>
         /// Максимальный возраст
         /// </summary>
@@ -130,6 +129,7 @@ namespace Model
             }
         }
 
+        //TODO: autoproperty
         /// <summary>
         /// Задание гендера.
         /// </summary>
@@ -185,7 +185,6 @@ namespace Model
             return (name_ru && surname_ru) || (name_en && surname_en);
         }
 
-        //TODO: duplication +
         /// <summary>
         /// Информация о персоне
         /// </summary>

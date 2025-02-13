@@ -7,7 +7,7 @@ namespace Model
     /// </summary>
     public class PersonList
     {
-        //TODO: RSDN +
+        //TODO: RSDN
         /// <summary>
         /// Список персон
         /// </summary>
