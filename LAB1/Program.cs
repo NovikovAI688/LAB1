@@ -87,7 +87,7 @@ namespace LAB1
             list3.Add(person1);
 
             // Пример использования метода GetRandomPerson
-            //TODO: BUG:
+            //TODO: BUG: +
             Person randomPerson = RandomPerson.GetRandomPerson();
             list3.Add(randomPerson);
 
@@ -109,17 +109,15 @@ namespace LAB1
         /// <returns> Вовращает персону</returns>
         public static Person ReadFromConsole()
         {
-            Person person = new Person(string.Empty, string.Empty, 1, Sex.Male);
+            Person person = new Person(" ", " ", 0, Sex.Male);
 
             while (true)
             {
                 Console.Write("Введите имя: ");
                 try
                 {
-
-                    //TODO: RSDN
-                    string NamePerson = Console.ReadLine();
-                    person.Name = NamePerson;
+                    //TODO: RSDN +
+                    person.Name = Console.ReadLine();
                     break;
                 }
                 catch (ArgumentException e)
@@ -133,8 +131,7 @@ namespace LAB1
                 Console.Write("Введите фамилию: ");
                 try
                 {
-                    string SurnamePerson = Console.ReadLine();
-                    person.Surname = SurnamePerson;
+                    person.Surname = Console.ReadLine();
                     break;
                 }
                 catch (ArgumentException e)
@@ -143,7 +140,6 @@ namespace LAB1
                 }
             }
 
-            // Ввод возраста
             while (true)
             {
                 Console.Write("Введите возраст (0 - 120): ");
@@ -153,9 +149,13 @@ namespace LAB1
                     person.Age = AgePerson;
                     break;
                 }
-                catch (ArgumentException e)
+                catch (IndexOutOfRangeException a)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine(a.Message);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Значение должно быть введено");
                 }
             }
                 // Ввод пола

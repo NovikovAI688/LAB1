@@ -99,13 +99,15 @@ namespace Model
 
             set
             {
-                if (value >= MinAge && value <= MaxAge)
+                if (value >= MinAge && value <= MaxAge && value != null)
                 {
                     _age = value;
                 }
                 else
                 {
-                    throw new ArgumentException($"Возраст должен находиться " +
+                    throw new IndexOutOfRangeException(
+                        $"Поле не может быть пустым. " +
+                        $"Возраст должен находиться " +
                         $"в пределах от {MinAge} года до {MaxAge} лет");
                 }
             }
@@ -164,9 +166,9 @@ namespace Model
         /// <exception cref="ArgumentException"></exception>
         private static string CheckForSequence(string firstString, string secondString)
         {
-            if (!(secondString == null && secondString.Contains(" ")))
+            if (!string.IsNullOrEmpty(secondString))
             {
-                if (firstString == string.Empty)
+                if (!(secondString == null && secondString.Contains(" ")))
                 {
                     return CapitalizeString(secondString);
                 }
@@ -178,7 +180,6 @@ namespace Model
                     }
                 }
             }
-            
             throw new ArgumentException(
                     "Ошибка: ячейки фамилия и имя не должны быть пустыми," +
                     " должны содержать только буквы и на одном языке.");
