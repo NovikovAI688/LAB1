@@ -99,82 +99,101 @@ namespace LAB1
         }
 
         /// <summary>
+        /// Метод распаковки actionList
+        /// </summary>
+        /// <param name="propertyHandelerDto">actionList</param>
+        public static void PersonPropertiesHandler(PropertyHandlerDTO propertyHandelerDto)
+        {
+            var personField = propertyHandelerDto.PropertyName;
+            var personTypes = propertyHandelerDto.ExceptionTypes;
+            var personAction = propertyHandelerDto.PropertyHandlingAction;
+            Console.WriteLine($"Введите {personField} персоны:");
+            while (true)
+            {
+                try
+                {
+                    personAction.Invoke();
+                    break;
+                }
+                catch (Exception e)
+                {
+                    if (personTypes.Contains(e.GetType()))
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine($"Введите {personField} заново");
+                        continue;
+                    }
+                    throw e;
+                }
+            }
+        }
+
+        /// <summary>
         /// Метод для чтения персоны с клавиатуры 
         /// </summary>
         /// <returns> Вовращает персону</returns>
         public static Person ReadFromConsole()
         {
             Person person = new Person(" ", " ", 0, Sex.Male);
-            //TODO: duplication
-            while (true)
+            //TODO: duplication +
+            var actionList = new List<PropertyHandlerDTO>
             {
-                Console.Write("Введите имя: ");
-                try
-                {
-                    person.Name = Console.ReadLine();
-                    break;
-                }
-                catch (ArgumentException e)
-                {
-                    Console.WriteLine(e.Message);
-                }
+                new PropertyHandlerDTO("имя",
+                    new List<Type>
+                        {
+                           typeof(ArgumentException),
+                        },
+                    () => { person.Name = Console.ReadLine(); }),
+                 new PropertyHandlerDTO("фамилию",
+                    new List<Type>
+                        {
+                           typeof(ArgumentException),
+                        },
+                    () => { person.Surname = Console.ReadLine(); }),
+                  new PropertyHandlerDTO("возраст",
+                    new List<Type>
+                        {
+                           typeof(IndexOutOfRangeException),
+                           typeof(FormatException),
+                        },
+                    () => { person.Age = Convert.ToInt32(Console.ReadLine()); }),
+                   new PropertyHandlerDTO("пол",
+                    new List<Type>
+                        {
+                           typeof(ArgumentNullException),
+                           typeof(ArgumentException),
+                        },
+                    () => { string[] sex_male_list = ["Male", "M", "1"];
+                            string[] sex_female_list = ["Female", "F", "0"];
+                            string SexPerson = Console.ReadLine();
+                            if (sex_male_list.Contains(SexPerson.ToLower()))
+                            {
+                                person.Sex = Sex.Male;
+                            }
+                            else if (sex_female_list.Contains(SexPerson.ToLower()))
+                            {
+                                person.Sex  = Sex.Female;
+                            }
+                            else
+                            {
+                                throw new ArgumentException("Для мужчин значения пола могут иметь значения 'Male', 'M', '1'\n" +
+                                                            "Для женщин значения пола могут иметь значения 'Female', 'F', '0'");
+                            }
+                            })
+
+        };
+
+            for (int i = 0; i < actionList.Count; i++)
+            {
+                PersonPropertiesHandler(actionList[i]);
             }
 
-            while (true)
-            {             
-                Console.Write("Введите фамилию: ");
-                try
-                {
-                    person.Surname = Console.ReadLine();
-                    break;
-                }
-                catch (ArgumentException e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-            }
-
-            while (true)
-            {
-                Console.Write("Введите возраст (0 - 120): ");
-                try
-                {
-                    int AgePerson = Convert.ToInt32(Console.ReadLine());
-                    person.Age = AgePerson;
-                    break;
-                }
-                catch (IndexOutOfRangeException a)
-                {
-                    Console.WriteLine(a.Message);
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Значение должно быть введено");
-                }
-            }
-
-            while (true)
-            {
-                Console.Write("Введите пол (Male/Female): ");
-                string SexPerson = Console.ReadLine();
-                //TODO: user input
-                if (SexPerson == "Male")
-                {
-                    person.Sex = Sex.Male;
-                    break;
-                }
-                if (SexPerson == "Female")
-                {
-                    person.Sex = Sex.Female;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Ошибка: введите корректный пол (Male/Female).");
-                }
-            }
+            Console.WriteLine(person.ToString());
             return person;
         }
+
+
+
     }
 
 }
