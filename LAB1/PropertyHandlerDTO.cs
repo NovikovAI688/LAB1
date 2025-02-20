@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LAB1
+﻿namespace LAB1
 {
-    //TODO: XML +
     /// <summary>
     /// Класс параметров атрибутов для персон
     /// </summary>

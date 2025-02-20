@@ -175,27 +175,27 @@ namespace LAB1
                     { 
                         string[] sexMaleList = ["Male", "M", "1", "М", "м"];                            
                         string[] sexFemaleList = ["Female", "F", "0"];
-                            string sexPerson = Console.ReadLine();
-                            if (sexMaleList.Contains(sexPerson.ToLower()))
-                            {
-                                person.Sex = Sex.Male;
-                            }
-                            else if (sexFemaleList.Contains(sexPerson.ToLower()))
-                            {
-                                person.Sex  = Sex.Female;
-                            }
-                            else
-                            {
-                                var maleMessage = string.Join(", ", 
-                                    sexMaleList.Select(x => $"'{x}'"));
-                                var femaleMessage = string.Join(", ", 
-                                    sexFemaleList.Select(x => $"'{x}'"));
-                                throw new ArgumentException(
-                                    "Для мужчин значения пола " +
-                                    $"могут иметь значения {maleMessage}\n" +
-                                    "Для женщин значения пола " +
-                                    $"могут иметь значения {femaleMessage}");
-                            }
+                        string sexPerson = Console.ReadLine();
+                        if (sexMaleList.Contains(sexPerson.ToLower()))
+                        {
+                            person.Sex = Sex.Male;
+                        }
+                        else if (sexFemaleList.Contains(sexPerson.ToLower()))
+                        {
+                            person.Sex  = Sex.Female;
+                        }
+                        else
+                        {
+                            var maleMessage = string.Join(", ", 
+                                sexMaleList.Select(x => $"'{x}'"));
+                            var femaleMessage = string.Join(", ", 
+                                sexFemaleList.Select(x => $"'{x}'"));
+                            throw new ArgumentException(
+                                "Для мужчин значения пола " +
+                                $"могут иметь значения {maleMessage}\n" +
+                                "Для женщин значения пола " +
+                                $"могут иметь значения {femaleMessage}");
+                        }
                     })
 
             };
