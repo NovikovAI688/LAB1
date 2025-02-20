@@ -163,7 +163,8 @@ namespace Model
         /// <exception cref="ArgumentException"></exception>
         private static string CheckForSequence(string firstString, string secondString)
         {
-            if (!(string.IsNullOrEmpty(secondString) && secondString.Contains(" ")))
+            if (!(string.IsNullOrEmpty(secondString) 
+                && secondString.Contains(" ")))
             {
                 if (firstString == string.Empty)
                 {

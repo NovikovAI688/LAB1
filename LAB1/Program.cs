@@ -135,20 +135,22 @@ namespace LAB1
         public static Person ReadFromConsole()
         {
             Person person = new Person(" ", " ", 0, Sex.Male);
-            //TODO: duplication +
             var actionList = new List<PropertyHandlerDTO>
             {
                 new PropertyHandlerDTO("имя",
                     new List<Type>
-                        {
-                           typeof(ArgumentException),
-                        },
-                    () => { person.Name = Console.ReadLine(); }),
-                 new PropertyHandlerDTO("фамилию",
+                    {
+                       typeof(ArgumentException),
+                    },
+                    () => 
+                    { 
+                        person.Name = Console.ReadLine(); 
+                    }),
+                new PropertyHandlerDTO("фамилию",
                     new List<Type>
-                        {
-                           typeof(ArgumentException),
-                        },
+                    {
+                       typeof(ArgumentException),
+                    },
                     () => { person.Surname = Console.ReadLine(); }),
                   new PropertyHandlerDTO("возраст от 0 до 120",
                     new List<Type>
@@ -163,21 +165,30 @@ namespace LAB1
                            typeof(ArgumentNullException),
                            typeof(ArgumentException),
                         },
-                    () => { string[] sex_male_list = ["Male", "M", "1"];
-                            string[] sex_female_list = ["Female", "F", "0"];
-                            string SexPerson = Console.ReadLine();
-                            if (sex_male_list.Contains(SexPerson.ToLower()))
+                    () => 
+                    { 
+                        string[] sexMaleList = ["Male", "M", "1", "М", "м"];                            
+                        string[] sexFemaleList = ["Female", "F", "0"];
+                            string sexPerson = Console.ReadLine();
+                            if (sexMaleList.Contains(sexPerson.ToLower()))
                             {
                                 person.Sex = Sex.Male;
                             }
-                            else if (sex_female_list.Contains(SexPerson.ToLower()))
+                            else if (sexFemaleList.Contains(sexPerson.ToLower()))
                             {
                                 person.Sex  = Sex.Female;
                             }
                             else
                             {
-                                throw new ArgumentException("Для мужчин значения пола могут иметь значения 'Male', 'M', '1'\n" +
-                                                            "Для женщин значения пола могут иметь значения 'Female', 'F', '0'");
+                                var maleMessage = string.Join(", ", 
+                                    sexMaleList.Select(x => $"'{x}'"));
+                                var femaleMessage = string.Join(", ", 
+                                    sexFemaleList.Select(x => $"'{x}'"));
+                                throw new ArgumentException(
+                                    "Для мужчин значения пола " +
+                                    $"могут иметь значения {maleMessage}\n" +
+                                    "Для женщин значения пола " +
+                                    $"могут иметь значения {femaleMessage}");
                             }
                             })
 

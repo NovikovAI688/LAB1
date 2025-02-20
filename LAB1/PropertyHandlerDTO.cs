@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LAB1
 {
+    //TODO: XML
     public class PropertyHandlerDTO
     {
         /// <summary>
@@ -29,7 +30,9 @@ namespace LAB1
         /// <param name="properyName">Значение атрибута</param>
         /// <param name="exceptionTypes">Список исключений атрибутов</param>
         /// <param name="propertyHandlingAction"> Делегат для выполнения ввода атрибутов</param>
-        public PropertyHandlerDTO(string properyName, List<Type> exceptionTypes, Action propertyHandlingAction)
+        public PropertyHandlerDTO(string properyName, 
+            List<Type> exceptionTypes, 
+            Action propertyHandlingAction)
         {
             PropertyName = properyName;
             PropertyHandlingAction = propertyHandlingAction;
