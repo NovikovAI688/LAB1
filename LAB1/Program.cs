@@ -16,7 +16,7 @@ namespace LAB1
             PersonList list1 = new PersonList();
             PersonList list2 = new PersonList();
 
-            list1.Add(new Person("Атрем", "Кирякин", 26, Sex.Male));
+            list1.Add(new Person("Артем", "Кирякин", 26, Sex.Male));
             list1.Add(new Person("Виктория", "Тайдонова", 22, Sex.Female));
             list1.Add(new Person("Егор", "Бухаров", 17, Sex.Male));
 
@@ -150,14 +150,14 @@ namespace LAB1
                            typeof(ArgumentException),
                         },
                     () => { person.Surname = Console.ReadLine(); }),
-                  new PropertyHandlerDTO("возраст",
+                  new PropertyHandlerDTO("возраст от 0 до 120",
                     new List<Type>
                         {
                            typeof(IndexOutOfRangeException),
                            typeof(FormatException),
                         },
                     () => { person.Age = Convert.ToInt32(Console.ReadLine()); }),
-                   new PropertyHandlerDTO("пол",
+                   new PropertyHandlerDTO("пол Male/Female (1/0)",
                     new List<Type>
                         {
                            typeof(ArgumentNullException),
