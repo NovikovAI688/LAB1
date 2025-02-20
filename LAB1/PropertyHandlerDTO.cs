@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LAB1
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Класс параметров атрибутов для персон
+    /// </summary>
     public class PropertyHandlerDTO
     {
         /// <summary>

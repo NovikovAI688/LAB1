@@ -151,20 +151,26 @@ namespace LAB1
                     {
                        typeof(ArgumentException),
                     },
-                    () => { person.Surname = Console.ReadLine(); }),
-                  new PropertyHandlerDTO("возраст от 0 до 120",
+                    () => 
+                    { 
+                       person.Surname = Console.ReadLine(); 
+                    }),
+                new PropertyHandlerDTO("возраст от 0 до 120",
                     new List<Type>
-                        {
-                           typeof(IndexOutOfRangeException),
-                           typeof(FormatException),
-                        },
-                    () => { person.Age = Convert.ToInt32(Console.ReadLine()); }),
-                   new PropertyHandlerDTO("пол Male/Female (1/0)",
+                    {
+                       typeof(IndexOutOfRangeException),
+                       typeof(FormatException),
+                    },
+                    () =>
+                    { 
+                       person.Age = Convert.ToInt32(Console.ReadLine()); 
+                    }),
+                new PropertyHandlerDTO("пол Male/Female (1/0)",
                     new List<Type>
-                        {
-                           typeof(ArgumentNullException),
-                           typeof(ArgumentException),
-                        },
+                    {
+                        typeof(ArgumentNullException),
+                        typeof(ArgumentException),
+                    },
                     () => 
                     { 
                         string[] sexMaleList = ["Male", "M", "1", "М", "м"];                            
@@ -190,9 +196,9 @@ namespace LAB1
                                     "Для женщин значения пола " +
                                     $"могут иметь значения {femaleMessage}");
                             }
-                            })
+                    })
 
-        };
+            };
 
             for (int i = 0; i < actionList.Count; i++)
             {
@@ -202,9 +208,6 @@ namespace LAB1
             Console.WriteLine(person.ToString());
             return person;
         }
-
-
-
     }
 
 }
