@@ -102,7 +102,7 @@ namespace LAB1
         /// Метод распаковки actionList
         /// </summary>
         /// <param name="propertyHandelerDto">actionList</param>
-        public static void PersonPropertiesHandler(PropertyHandlerDTO propertyHandelerDto)
+        public static void PersonHandler(PropertyHandlerDTO propertyHandelerDto)
         {
             var personField = propertyHandelerDto.PropertyName;
             var personTypes = propertyHandelerDto.ExceptionTypes;
@@ -185,7 +185,7 @@ namespace LAB1
 
             for (int i = 0; i < actionList.Count; i++)
             {
-                PersonPropertiesHandler(actionList[i]);
+                PersonHandler(actionList[i]);
             }
 
             Console.WriteLine(person.ToString());
