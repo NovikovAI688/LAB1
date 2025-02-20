@@ -75,13 +75,11 @@ namespace Model
             }
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Минимальный возраст
         /// </summary>
         public const int MinAge = 0;
 
-        //TODO: RSDN +
         /// <summary>
         /// Максимальный возраст
         /// </summary>
@@ -147,7 +145,6 @@ namespace Model
         /// <returns>Возвращает true, если строка валидная, иначе false</returns>
         public static bool SameLanguage(string firstString, string secondString)
         {
-            //TODO: RSDN +
             bool nameRu = Regex.IsMatch(firstString, @"^[а-яА-ЯёЁ\s\-]+$");
             bool surnameRu = Regex.IsMatch(secondString, @"^[а-яА-ЯёЁ\s\-]+$");
 
@@ -166,9 +163,9 @@ namespace Model
         /// <exception cref="ArgumentException"></exception>
         private static string CheckForSequence(string firstString, string secondString)
         {
-            if (!string.IsNullOrEmpty(secondString))
+            if (!(string.IsNullOrEmpty(secondString) && secondString.Contains(" ")))
             {
-                if (!(secondString == null && secondString.Contains(" ")))
+                if (firstString == string.Empty)
                 {
                     return CapitalizeString(secondString);
                 }

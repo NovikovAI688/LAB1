@@ -3,15 +3,11 @@ using System.Xml.Linq;
 
 namespace LAB1
 {
-    //TODO: RSDN +
-    //TODO: XML +
     /// <summary>
     /// Операции с персонами
     /// </summary>
     public class Program
     {
-        //TODO: RSDN +
-        //TODO: XML +
         /// <summary>
         /// Создание списков 
         /// </summary>
@@ -87,7 +83,6 @@ namespace LAB1
             list3.Add(person1);
 
             // Пример использования метода GetRandomPerson
-            //TODO: BUG: +
             Person randomPerson = RandomPerson.GetRandomPerson();
             list3.Add(randomPerson);
 
@@ -110,13 +105,12 @@ namespace LAB1
         public static Person ReadFromConsole()
         {
             Person person = new Person(" ", " ", 0, Sex.Male);
-
+            //TODO: duplication
             while (true)
             {
                 Console.Write("Введите имя: ");
                 try
                 {
-                    //TODO: RSDN +
                     person.Name = Console.ReadLine();
                     break;
                 }
@@ -158,11 +152,12 @@ namespace LAB1
                     Console.WriteLine("Значение должно быть введено");
                 }
             }
-                // Ввод пола
+
             while (true)
             {
                 Console.Write("Введите пол (Male/Female): ");
                 string SexPerson = Console.ReadLine();
+                //TODO: user input
                 if (SexPerson == "Male")
                 {
                     person.Sex = Sex.Male;
