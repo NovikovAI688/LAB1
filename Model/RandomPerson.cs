@@ -9,7 +9,7 @@
         /// Генерирует случайного человека
         /// </summary>
         /// <returns>Персона со случайными данными</returns>
-        public static Person GetRandomPerson()
+        public static PersonBase GetRandomPerson()
         {
             string[] maleNames = new string[]
             {
@@ -46,8 +46,8 @@
                 ? maleNames[random.Next(maleNames.Length)]
                 : femaleSurnames[random.Next(femaleSurnames.Length)];
             
-            int age = random.Next(Person.MinAge, Person.MaxAge);
-            return new Person(name, surname, age, sex);
+            int age = random.Next(PersonBase.MinAge, PersonBase.MaxAge);
+            return new PersonBase(name, surname, age, sex);
         }
     }
 }

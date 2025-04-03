@@ -8,7 +8,7 @@ namespace Model
     /// <summary>
     /// Класс персон
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя
@@ -37,13 +37,18 @@ namespace Model
         /// <param name="Surname">Фамилия персоны</param>
         /// <param name="age">Количество лет персоны</param>
         /// <param name="sex">Пол персоны</param>
-        public Person(string name, string surname, int age, Sex sex)
+        public PersonBase(string name, string surname, int age, Sex sex)
         {
             Name = name;
             Surname = surname;
             Age = age;
             Sex = sex;
         }
+
+        /// <summary>
+        /// Абстрактный метод для получения информации о персоне
+        /// </summary>
+        public abstract string GetPersonInfo();
 
         /// <summary>
         /// Задание имени

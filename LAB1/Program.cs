@@ -13,16 +13,26 @@ namespace LAB1
         /// </summary>
         public static void Main(string[] args)
         {
+            Adult parent1 = new Adult("Артем", "Кирякин", 26, Sex.Male, "7224 054367", "Married", null, "Company A");
+            Adult parent2 = new Adult("Виктория", "Тайдонова", 23, Sex.Female, "7682 631587", "Married", parent1, "Company B");
+
+            List<Adult> parents = new List<Adult> { parent1, parent2 };
+            Child child = new Child("Егор", "Бухаров", 3, Sex.Male, parents, "СОШ 21");
+
+            Console.WriteLine(parent1.GetPersonInfo());
+            Console.WriteLine(parent2.GetPersonInfo());
+            Console.WriteLine(child.GetPersonInfo());
+
             PersonList list1 = new PersonList();
             PersonList list2 = new PersonList();
 
-            list1.Add(new Person("Артем", "Кирякин", 26, Sex.Male));
-            list1.Add(new Person("Виктория", "Тайдонова", 22, Sex.Female));
-            list1.Add(new Person("Егор", "Бухаров", 17, Sex.Male));
+            list1.Add(new PersonBase("Артем", "Кирякин", 26, Sex.Male));
+            list1.Add(new PersonBase("Виктория", "Тайдонова", 22, Sex.Female));
+            list1.Add(new PersonBase("Егор", "Бухаров", 17, Sex.Male));
 
-            list2.Add(new Person("Михаил", "Шлапак", 28, Sex.Male));
-            list2.Add(new Person("Александр", "Ушаков", 33, Sex.Male));
-            list2.Add(new Person("Павел", "Арефьев", 24, Sex.Male));
+            list2.Add(new PersonBase("Михаил", "Шлапак", 28, Sex.Male));
+            list2.Add(new PersonBase("Александр", "Ушаков", 33, Sex.Male));
+            list2.Add(new PersonBase("Павел", "Арефьев", 24, Sex.Male));
 
             // Выводим содержимое каждого списка
             Console.WriteLine("Список 1:");
@@ -36,14 +46,14 @@ namespace LAB1
             Console.ReadKey();
 
             // Добавляем нового человека в первый список
-            list1.Add(new Person("Мария", "Николаева", 29, Sex.Female));
+            list1.Add(new PersonBase("Мария", "Николаева", 29, Sex.Female));
             Console.WriteLine("\nПосле добавления нового человека в первый список:");
             list1.Print();
             Console.WriteLine("\nНажмите любую клавишу для продолжения...");
             Console.ReadKey();
 
             // Копируем второго человека из первого списка во второй
-            Person personCopy = list1.Get(1); //   (второй элемент)
+            PersonBase personCopy = list1.Get(1); //   (второй элемент)
             list2.Add(personCopy);
             Console.WriteLine("\nПосле копирования второго человека из первого списка во второй:");
             Console.WriteLine("\nСписок 1:");
@@ -78,12 +88,12 @@ namespace LAB1
             // Пример использования метода ReadFromConsole
             Console.WriteLine("Введите данные для первого человека:");
             // создаем временного человека
-        
-            Person person1 = ReadFromConsole();
+
+            PersonBase person1 = ReadFromConsole();
             list3.Add(person1);
 
             // Пример использования метода GetRandomPerson
-            Person randomPerson = RandomPerson.GetRandomPerson();
+            PersonBase randomPerson = RandomPerson.GetRandomPerson();
             list3.Add(randomPerson);
 
             // Вывод списка людей
@@ -132,9 +142,9 @@ namespace LAB1
         /// Метод для чтения персоны с клавиатуры 
         /// </summary>
         /// <returns> Вовращает персону</returns>
-        public static Person ReadFromConsole()
+        public static PersonBase ReadFromConsole()
         {
-            Person person = new Person(" ", " ", 0, Sex.Male);
+            PersonBase person = new PersonBase(" ", " ", 0, Sex.Male);
             var actionList = new List<PropertyHandlerDTO>
             {
                 new PropertyHandlerDTO("имя",

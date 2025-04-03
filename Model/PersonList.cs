@@ -10,17 +10,17 @@ namespace Model
         /// <summary>
         /// Список персон
         /// </summary>
-        private List<Person> _people;
+        private List<PersonBase> _people;
 
         /// <summary>
         /// Метод для добавления списка
         /// </summary>
-        public List<Person> ListPerson { get; } = new List<Person>();   
+        public List<PersonBase> ListPerson { get; } = new List<PersonBase>();   
 
         /// <summary>
         /// Метод для добавления элемента
         /// </summary>
-        public void Add(Person person)
+        public void Add(PersonBase person)
         {
             ListPerson.Add(person);
         }
@@ -29,7 +29,7 @@ namespace Model
         /// Метод для удаления элемента
         /// </summary>
         /// <returns> Вовращает, без этого элемента</returns>
-        public bool Remove(Person person)
+        public bool Remove(PersonBase person)
         {
             return ListPerson.Remove(person);
         }
@@ -55,7 +55,7 @@ namespace Model
         /// </summary>
         /// <returns> Вовращает false, если индекс вне диапазона
         ///           true, если найден индекс персоны</returns>
-        public Person Get(int index)
+        public PersonBase Get(int index)
         {
             if (index < 0 || index >= ListPerson.Count)
             {
@@ -69,7 +69,7 @@ namespace Model
         /// Метод для получения индекса элемента
         /// </summary>
         /// <returns> Вовращает индекс </returns>
-        public int IndexOf(Person person)
+        public int IndexOf(PersonBase person)
         {
             return ListPerson.IndexOf(person);
         }
@@ -97,7 +97,7 @@ namespace Model
         /// </summary>
         public void Print()
         {
-            foreach (Person onePerson in ListPerson)
+            foreach (PersonBase onePerson in ListPerson)
             {
                 Console.WriteLine(onePerson.ToString());
             }
