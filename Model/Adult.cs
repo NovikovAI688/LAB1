@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //TODO: XML
     public class Adult: PersonBase
     {
         /// <summary>
@@ -25,6 +26,7 @@ namespace Model
         /// </summary>
         private Adult _partner;
 
+        //BUG:
         /// <summary>
         /// Муж или жена
         /// </summary>

@@ -45,6 +45,7 @@ namespace Model
             Sex = sex;
         }
 
+        //TODO: rename
         /// <summary>
         /// Абстрактный метод для получения информации о персоне
         /// </summary>
@@ -102,7 +103,7 @@ namespace Model
 
             set
             {
-                if (value >= MinAge && value <= MaxAge && value != null)
+                if (value >= MinAge && value <= MaxAge)
                 {
                     _age = value;
                 }
@@ -116,6 +117,7 @@ namespace Model
             }
         }
 
+        //TODO: to autoproperty
         /// <summary>
         /// Задание гендера.
         /// </summary>
@@ -138,8 +140,8 @@ namespace Model
         /// <returns> Вовращает имя и фамилию персоны, скольно ему лет и какого он пола</returns>
         public string GetInfo() 
         {
-            return ($"Имя: {_name}, Фамилия: {_surname}," +
-                    $" Возраст: {_age}, Пол: {_sex}");
+            return $"Имя: {_name}, Фамилия: {_surname}," +
+                    $" Возраст: {_age}, Пол: {_sex}";
         }
 
 

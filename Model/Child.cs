@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    //TODO: XML
     public class Child : PersonBase
     {
         /// <summary>
@@ -146,6 +147,7 @@ namespace Model
             }
         }
 
+        //TODO: remove
         /// <summary>
         /// Пол на рандом
         /// </summary>
@@ -164,6 +166,7 @@ namespace Model
             }
         }
 
+        //TODO: remove
         /// <summary>
         /// Рандом (ребенок)
         /// </summary>
