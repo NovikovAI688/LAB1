@@ -32,7 +32,7 @@ namespace Model
         /// <summary>
         /// Максимальный возраст ребенка
         /// </summary>
-        private const int MaxAge = 16;
+        private const int MaxAge = 167;
 
         /// <summary>
         /// Отец ребенка
