@@ -47,7 +47,7 @@
                 : femaleSurnames[random.Next(femaleSurnames.Length)];
             
             int age = random.Next(PersonBase.MinAge, PersonBase.MaxAge);
-            return new PersonBase(name, surname, age, sex);
+            return new Person(name, surname, age, sex);
         }
     }
 }
