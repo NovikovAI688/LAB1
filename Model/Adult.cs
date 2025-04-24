@@ -8,9 +8,18 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Взрослый
+    /// </summary>
     public class Adult: PersonBase
     {
+
+        /// <summary>
+        /// Возраст взрослого
+        /// </summary>
+        private int _ageAdult;
+
         /// <summary>
         /// Номер пасспорта
         /// </summary>
@@ -19,7 +28,7 @@ namespace Model
         /// <summary>
         /// В браке или холост
         /// </summary>
-        private string _familyStatus;
+        private bool _familyStatus;
 
         /// <summary>
         /// Муж или жена
@@ -30,17 +39,43 @@ namespace Model
         /// <summary>
         /// Муж или жена
         /// </summary>
-        private Adult _workPlace;
+        private string _workPlace;
 
         /// <summary>
         /// Минимальный возраст для взрослого
         /// </summary>
-        private const int MinAge = 18;
+        private const int _minAge = 18;
 
         /// <summary>
         /// Максимальный возраст для взрослого
         /// </summary>
-        protected const int MaxAge = 120;
+        private const int _maxAge = 120;
+
+        /// <summary>
+        /// Задание возраста взрослого.
+        /// </summary>
+        public int AgeAdult
+        {
+            get
+            {
+                return _ageAdult;
+            }
+
+            set
+            {
+                if (value >= Adult._minAge && value <= Adult._maxAge)
+                {
+                    _ageAdult = value;
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException(
+                        $"Возраст слишком маленький. " +
+                        $"Возраст взрослого должен находиться " +
+                        $"в пределах от {Adult._minAge} года до {Adult._maxAge} лет");
+                }
+            }
+        }
 
         /// <summary>
         /// Пасспортные данные
@@ -50,7 +85,6 @@ namespace Model
             get => _passportData;
             set
             {
-                
                 _passportData = value;
             }
         }
@@ -80,6 +114,25 @@ namespace Model
         }
 
         /// <summary>
+        /// Ввод мужа или жены
+        /// </summary>
+        public bool FamilyStatus
+        {
+            get => _familyStatus;
+            set
+            {
+                if (FamilyStatus == true)
+                {
+                    _familyStatus = "в браке";
+                }
+                else
+                {
+                    _familyStatus = "не в браке";
+                }
+            }
+        }
+
+        /// <summary>
         /// Пример
         /// </summary>
         /// <param name="name">Имя человека.</param>
@@ -90,12 +143,16 @@ namespace Model
         /// <param name="partner">Муж/жена.</param>
         /// <param name="workPlace">Место работы.</param>
         public Adult(string name, string surname, int age,
-            Sex sex, string passportData, Adult partner,
+            Sex sex, string passportData,
             string workPlace) : base(name, surname, age, sex)
         {
             PassportData = passportData;
             WorkPlace = workPlace;
-            Partner = partner;
+        }
+
+        public Adult() : this("Biba", "Boba", 25, Sex.Male, "1111111111", "NTC")
+        { 
+            
         }
 
         /// <summary>
@@ -112,79 +169,6 @@ namespace Model
             return $"{base.Name}, Возраст: {base.Age}, Номер пасспорта: {PassportData}, " +
                    $"{partnerInfo}, Место работы: {workplaceInfo}";
         }
-
-        /// <summary>
-        /// Method which allows to enter a random adult.
-        /// </summary>
-        /// <returns>Information about an adult.</returns>
-        /// <param name="gender">Start gender.</param>
-        public static Adult GetRandomPerson
-            (Sex sex = Sex.Male)
-        {
-            string[] maleNames =
-            {
-                 "John", "Carl", "Rick", "Mattew",
-                "Nicholas", "Robert", "Samuel",
-                "Stan", "Kenny", "Severus", "Jake"
-             };
-
-            string[] femaleNames =
-            {
-                 "Lyla", "Samanta", "Kate", "Kira",
-                "Amelia", "Julia", "Anastasia",
-                "Sindy", "Luna", "Violet", "Anna"
-             };
-
-            string[] surnames =
-            {
-                 "Potter", "Granger", "Black", "Malfoy",
-                "Weasley", "Dursley", "Riddle", "Krum", 
-                "Snape", "Lovegood", "Lestrange"
-             };
-
-            string[] employers =
-            {
-                 "Rosseti", "RusHydro",
-                 "Rosatom", "NTC",
-                 "1xBet", "Megafon",
-                 "Tinkoff", "Gazprom"
-             };
-
-            Random random = new Random();
-
-            sex = (Sex)random.Next(0, 2);
-            var name = sex == Sex.Male
-                ? maleNames[random.Next(maleNames.Length)]
-                : femaleNames[random.Next(femaleNames.Length)];
-            var surname = sex == Sex.Male
-                ? maleNames[random.Next(maleNames.Length)]
-                : surnames[random.Next(surnames.Length)];
-
-            int age = random.Next(PersonBase.MinAge, PersonBase.MaxAge);
-
-            Adult tmpPartner = null;
-            var familyStatus = random.Next(0, 2);
-            if (familyStatus == 1)
-            {
-                tmpPartner = new Adult();
-
-                tmpPartner.Name = sex == Sex.Female
-                    ? maleNames[random.Next(maleNames.Length)]
-                    : femaleNames[random.Next(femaleNames.Length)];
-
-                tmpPartner.Surname = surnames[random.Next(surnames.Length)];
-            }
-
-            var workPlace = random.Next(0, 2);
-            string tmpWorkPlace = workPlace == 1
-                ? workPlace[random.Next(workPlace.Lenght)]
-                : null;
-
-            return new Adult(name, surname, age, sex,
-                tmpPartner, tmpWorkPlace);
-        }
-
-
     }
 }
     

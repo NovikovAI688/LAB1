@@ -45,12 +45,6 @@ namespace Model
             Sex = sex;
         }
 
-        //TODO: rename
-        /// <summary>
-        /// Абстрактный метод для получения информации о персоне
-        /// </summary>
-        public abstract string GetPersonInfo();
-
         /// <summary>
         /// Задание имени
         /// </summary>
@@ -117,7 +111,7 @@ namespace Model
             }
         }
 
-        //TODO: to autoproperty
+        //TODO: to autoproperty ?
         /// <summary>
         /// Задание гендера.
         /// </summary>
