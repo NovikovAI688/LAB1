@@ -28,7 +28,7 @@ namespace Model
         /// <summary>
         /// В браке или холост
         /// </summary>
-        private bool _familyStatus;
+        //private bool _familyStatus;
 
         /// <summary>
         /// Муж или жена
@@ -118,18 +118,7 @@ namespace Model
         /// </summary>
         public bool FamilyStatus
         {
-            get => _familyStatus;
-            set
-            {
-                if (FamilyStatus == true)
-                {
-                    _familyStatus = "в браке";
-                }
-                else
-                {
-                    _familyStatus = "не в браке";
-                }
-            }
+            get; set;
         }
 
         /// <summary>

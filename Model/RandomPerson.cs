@@ -12,8 +12,7 @@ namespace Model
         /// </summary>
         /// <returns>Информация о взрослом</returns>
         /// <param name="sex">Пол </param>
-        public static Adult GetRandomPerson
-            (Sex sex = Sex.Male)
+        public static Adult GetRandomPerson(Sex sex = Sex.Male)
         {
             string[] maleNames =
             {
