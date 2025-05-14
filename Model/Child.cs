@@ -110,13 +110,13 @@ namespace Model
         /// <summary>
         /// Create an instance of class Child.
         /// </summary>
-        /// <param name="name">Name of the person.</param>
-        /// <param name="surname">Surname of the person.</param>
-        /// <param name="age">Age of the person.</param>
-        /// <param name="sex">Gender of the person.</param>
-        /// <param name="father">Child's father.</param>
-        /// <param name="mother">Child's mother.</param>
-        /// <param name="school">Child's school.</param>
+        /// <param name="name">Имя.</param>
+        /// <param name="surname">Фамилия.</param>
+        /// <param name="AgeChild">Возраст.</param>
+        /// <param name="sex">Пол.</param>
+        /// <param name="father">Папа.</param>
+        /// <param name="mother">Мама.</param>
+        /// <param name="school">Шокла.</param>
         public Child(string name, string surname, int AgeChild,
             Sex sex, Adult father, Adult mother,
             string school) : base(name, surname, AgeChild, sex)
