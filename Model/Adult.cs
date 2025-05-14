@@ -21,14 +21,14 @@ namespace Model
         private int _ageAdult;
 
         /// <summary>
-        /// Номер пасспорта
+        /// Серия пасспорта
         /// </summary>
-        private string _passportData;
+        private int _passportSeria;
 
         /// <summary>
-        /// В браке или холост
+        /// Номер пасспорта
         /// </summary>
-        //private bool _familyStatus;
+        private int _passportNumber;
 
         /// <summary>
         /// Муж или жена
@@ -72,20 +72,33 @@ namespace Model
                     throw new IndexOutOfRangeException(
                         $"Возраст слишком маленький. " +
                         $"Возраст взрослого должен находиться " +
-                        $"в пределах от {Adult._minAge} года до {Adult._maxAge} лет");
+                        $"в пределах от {Adult._minAge} года" +
+                        $"до {Adult._maxAge} лет");
                 }
             }
         }
 
         /// <summary>
-        /// Пасспортные данные
+        /// Пасспортные данные(серия)
         /// </summary>
-        public string PassportData
+        public int PassportSeria
         {
-            get => _passportData;
+            get => _passportSeria;
             set
             {
-                _passportData = value;
+                _passportSeria = value;
+            }
+        }
+
+        /// <summary>
+        /// Пасспортные данные(номер)
+        /// </summary>
+        public int PassportNumber
+        {
+            get => _passportNumber;
+            set
+            {
+                _passportNumber = value;
             }
         }
 
@@ -106,10 +119,16 @@ namespace Model
         /// </summary>
         public Adult Partner
         {
-            get => _partner;
+            get
+            {
+                return _partner;
+            }
             set
             {
-                _partner = value;
+                if (FamilyStatus = true)
+                {
+                    _partner = value;
+                }
             }
         }
 
@@ -128,18 +147,25 @@ namespace Model
         /// <param name="surname">Фамилия человека.</param>
         /// <param name="age">Возраст человека.</param>
         /// <param name="sex">Пол человека.</param>
-        /// <param name="passportData">Номер пасспорта.</param>
+        /// <param name="passportSeria">Серия пасспорта.</param>
+        /// <param name="passportNumber">Номер пасспорта.</param>
         /// <param name="partner">Муж/жена.</param>
         /// <param name="workPlace">Место работы.</param>
         public Adult(string name, string surname, int age,
-            Sex sex, string passportData,
+            Sex sex, int passportSeria, int passportNumber, bool familyStatus,
             string workPlace) : base(name, surname, age, sex)
         {
-            PassportData = passportData;
+            PassportSeria = passportSeria;
+            PassportNumber = passportNumber;
             WorkPlace = workPlace;
+            FamilyStatus = familyStatus;
         }
 
-        public Adult() : this("Biba", "Boba", 25, Sex.Male, "1111111111", "NTC")
+        /// <summary>
+        /// Default
+        /// </summary>
+        public Adult() : this("Biba", "Boba", 25, Sex.Male, 5801,
+                              114821,false, "NTC")
         { 
             
         }
@@ -147,7 +173,7 @@ namespace Model
         /// <summary>
         /// вывод информации о человеке
         /// </summary>
-        public override string GetPersonInfo()
+        public override string GetInfo()
         {
             string partnerInfo = Partner != null 
                 ? $"Замужем/женат на: {Partner.Name}" 
@@ -155,7 +181,9 @@ namespace Model
             string workplaceInfo = !string.IsNullOrEmpty(WorkPlace)
                 ? WorkPlace 
                 : "Безработный";
-            return $"{base.Name}, Возраст: {base.Age}, Номер пасспорта: {PassportData}, " +
+            return $"{base.Name}, Возраст: {base.Age}," +
+                   $"Серия пасспорта: {PassportSeria}," +
+                   $"Номер пасспорта: {PassportNumber}, " +
                    $"{partnerInfo}, Место работы: {workplaceInfo}";
         }
     }

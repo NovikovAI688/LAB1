@@ -132,7 +132,7 @@ namespace Model
         /// Информация о персоне
         /// </summary>
         /// <returns> Вовращает имя и фамилию персоны, скольно ему лет и какого он пола</returns>
-        public string GetInfo() 
+        public virtual string GetInfo() 
         {
             return $"Имя: {_name}, Фамилия: {_surname}," +
                     $" Возраст: {_age}, Пол: {_sex}";

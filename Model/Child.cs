@@ -101,7 +101,8 @@ namespace Model
                     throw new IndexOutOfRangeException(
                         $"Возраст слишком большой. " +
                         $"Возраст ребенка должен находиться " +
-                        $"в пределах от {Child._minAge} года до {Child._maxAge} лет");
+                        $"в пределах от {Child._minAge} года до " +
+                        $"{Child._maxAge} лет");
                 }
             }
         }
@@ -126,9 +127,9 @@ namespace Model
         }
 
         /// <summary>
-        /// Ребенок без параметров
+        /// Default child
         /// </summary>
-        public Child() : this("Unknown", "Unknown", 11,
+        public Child() : this("Mikey", "Mouse", 11,
             Sex.Male, null, null, null)
         {
             

@@ -41,7 +41,12 @@ namespace Model
                  "Rosatom", "NTC",
                  "1xBet", "Megafon",
                  "Tinkoff", "Gazprom"
-             };
+            };
+
+            bool[] familyStatusList =
+            {
+                 true,false
+            };
 
             Random random = new Random();
 
@@ -55,15 +60,20 @@ namespace Model
 
             int age = random.Next(PersonBase.MinAge, PersonBase.MaxAge);
 
-            var workPlace = random.Next(0, 2);
-            string tmpWorkPlace = workPlaceList[random.Next(workPlaceList.Length)];
+            string tmpWorkPlace = workPlaceList
+                                  [random.Next(workPlaceList.Length)];
 
             Adult tmpPartner = null;
-            var familyStatus = random.Next(0, 2);
-            if (familyStatus == 1)
+            bool tmpfamilyStatus = familyStatusList
+                                   [random.Next(familyStatusList.Length)];
+
+            int passportSeria = random.Next(0001, 9999);
+            int passportNumber = random.Next(000001, 999999);
+
+            if (tmpfamilyStatus)
             {
                 tmpPartner = new Adult(name, surname, 19, sex,
-                familyStatus, tmpWorkPlace);
+                passportSeria, passportNumber, tmpfamilyStatus, tmpWorkPlace);
 
                 tmpPartner.Name = sex == Sex.Female
                     ? maleNames[random.Next(maleNames.Length)]
@@ -73,10 +83,10 @@ namespace Model
             }
             else
             {
-                
+                tmpPartner = null;
             }
-                return new Adult(name, surname, age, sex,
-                    familyStatus, tmpWorkPlace);
+                return new Adult(name, surname, age, sex, passportSeria,
+                                 passportNumber, tmpfamilyStatus,tmpWorkPlace);
         }
 
         //TODO: remove +
@@ -140,7 +150,7 @@ namespace Model
 
             var tmpSurname = surnames[random.Next(surnames.Length)];
 
-            var tmpAge = random.NextDouble(AgeChild);
+            var tmpAge = random.Next(0,17);
 
             Adult tmpFather = GetRandomParent(Sex.Male);
 
