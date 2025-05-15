@@ -41,45 +41,33 @@ namespace Model
         /// </summary>
         private string _workPlace;
 
-        /// <summary>
-        /// Минимальный возраст для взрослого
-        /// </summary>
-        private const int _minAge = 18;
 
-        /// <summary>
-        /// Максимальный возраст для взрослого
-        /// </summary>
-        private const int _maxAge = 120;
 
-        /// <summary>
-        /// Minimum age.
-        /// </summary>
-        protected override int MinAge { get; } = _minAge;
-
+        public int MinAge => _minAge;
         /// <summary>
         /// Maximum age.
         /// </summary>
-        protected override int MaxAge { get; } = _maxAge;
+        public int MaxAge => base.MaxAge;
 
         /// <summary>
         /// мин серия
         /// </summary>
-        private const int _minPassportSeria = 1000;
+        public  const int _minPassportSeria = 1000;
 
         /// <summary>
         /// макс серия
         /// </summary>
-        private const int _maxPassportSeria = 9999;
+        public const int _maxPassportSeria = 9999;
 
         /// <summary>
         /// мин номер
         /// </summary>
-        private const int _minPassportNumber = 100000;
+        public const int _minPassportNumber = 100000;
 
         /// <summary>
         /// макс номер
         /// </summary>
-        private const int _maxPassportNumber = 999999;
+        public const int _maxPassportNumber = 999999;
 
         /// <summary>
         /// Задание возраста взрослого.
@@ -93,7 +81,7 @@ namespace Model
 
             set
             {
-                if (value >= Adult._minAge && value <= Adult._maxAge)
+                if (value >= MinAge && value <= MaxAge)
                 {
                     _ageAdult = value;
                 }
@@ -102,8 +90,8 @@ namespace Model
                     throw new IndexOutOfRangeException(
                         $"Возраст слишком маленький. " +
                         $"Возраст взрослого должен находиться " +
-                        $"в пределах от {Adult._minAge} года" +
-                        $"до {Adult._maxAge} лет");
+                        $"в пределах от {MinAge} года" +
+                        $"до {MaxAge} лет");
                 }
             }
         }
@@ -196,6 +184,14 @@ namespace Model
         }
 
         /// <summary>
+        /// Дефолт образ
+        /// </summary>
+        public Adult() : this("", "",0,Sex.Male,1563,569847,"") 
+        {
+
+        }
+        
+         /// <summary>
         /// Пример
         /// </summary>
         /// <param name="name">Имя человека.</param>
@@ -207,13 +203,13 @@ namespace Model
         /// <param name="partner">Муж/жена.</param>
         /// <param name="workPlace">Место работы.</param>
         public Adult(string name, string surname, int age,
-            Sex sex, int passportSeria, int passportNumber, Adult partner,
+            Sex sex, int passportSeria, int passportNumber,
             string workPlace) : base(name, surname, age, sex)
         {
             PassportSeria = passportSeria;
             PassportNumber = passportNumber;
             WorkPlace = workPlace;
-            Partner = partner;
+            _minAge = 18;
         }
 
 

@@ -15,6 +15,8 @@ namespace Model
         /// <param name="sex">Пол </param>
         public static Adult GetRandomAdult(Sex sex = Sex.Male)
         {
+            Adult adult = new Adult();
+            Child child = new Child();
             string[] maleNames =
             {
                  "John", "Carl", "Rick", "Mattew",
@@ -66,16 +68,16 @@ namespace Model
             }
 
             string surname = surnames[random.Next(surnames.Length)];
-            int age = random.Next(_minAge, _maxAge);
-            int passportSeria = random.Next(_minPassportSeria, _maxPassportSeria);
-            int passportNumber = random.Next(_minPassportNumber, _maxPassportNumber);
+            int age = random.Next(child.MinAge, adult.MaxAge);
+            int passportSeria = random.Next(Adult._minPassportSeria, Adult._maxPassportSeria);
+            int passportNumber = random.Next(Adult._minPassportNumber, Adult._maxPassportNumber);
             string workPlace = workPlaceList[random.Next(workPlaceList.Length)];
 
             Adult partner = null;
             int marriegeStatus = random.Next(0, 2);
             if (marriegeStatus == 0)
             {
-                partner = new Adult("","",0, Sex.Male,4568,548956,"","");
+                partner = new Adult("","",0, Sex.Male,4568,548956,"");
                 if (sex == Sex.Male)
                 {
                     partner.Sex = Sex.Female;
@@ -95,7 +97,7 @@ namespace Model
             }
 
             return new Adult(name, surname, age, sex,
-                            passportSeria, passportNumber, partner, workPlace);
+                            passportSeria, passportNumber, workPlace);
         }
 
 
@@ -134,6 +136,7 @@ namespace Model
         /// <returns>Инфа о ребенке</returns>
         public static Child GetRandomChild()
         {
+            Child child = new Child();
             string[] maleNames =
             {
                  "Liam", "Noah", "Oliver", "Elijah", "James",
@@ -168,12 +171,10 @@ namespace Model
                 case Sex.Female:
                     name = femaleNames[random.Next(femaleNames.Length)];
                     break;
-                default:
-                    break;
             }
 
             string surname = surnames[random.Next(surnames.Length)];
-            int age = random.Next(_minAge, _maxAge);
+            int age = random.Next(child.MinAge, child.MaxAge);
 
             string school = schools[random.Next(schools.Length)];
 

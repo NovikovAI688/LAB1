@@ -32,25 +32,16 @@ namespace Model
         /// </summary>
         private string _school;
 
-        /// <summary>
-        /// Минимальный возраст ребенка
-        /// </summary>
-        private const int _minAge = 0;
 
         /// <summary>
-        /// Максимальный возраст ребенка
+        /// Минимальный возраст.
         /// </summary>
-        private const int _maxAge = 17;
+        public int MinAge => base.MinAge;
 
         /// <summary>
-        /// Minimum age.
+        /// Максимальный возраст.
         /// </summary>
-        protected override int MinAge { get; } = _minAge;
-
-        /// <summary>
-        /// Maximum age.
-        /// </summary>
-        protected override int MaxAge { get; } = _maxAge;
+        public int MaxAge => _maxAge;
         /// <summary>
         /// Отец ребенка
         /// </summary>
@@ -101,7 +92,7 @@ namespace Model
 
             set
             {
-                if (value >= Child._minAge && value <= Child._maxAge)
+                if (value >= MinAge && value <= MaxAge)
                 {
                     _ageChild = value;
                 }
@@ -110,14 +101,14 @@ namespace Model
                     throw new IndexOutOfRangeException(
                         $"Возраст слишком большой. " +
                         $"Возраст ребенка должен находиться " +
-                        $"в пределах от {Child._minAge} года до " +
-                        $"{Child._maxAge} лет");
+                        $"в пределах от {MinAge} года до " +
+                        $"{MaxAge} лет");
                 }
             }
         }
 
         /// <summary>
-        /// Create an instance of class Child.
+        /// Образ ребенка.
         /// </summary>
         /// <param name="name">Имя.</param>
         /// <param name="surname">Фамилия.</param>
@@ -133,6 +124,7 @@ namespace Model
             Father = father;
             Mother = mother;
             School = school;
+            _maxAge = 17;
         }
 
         /// <summary>
@@ -173,9 +165,9 @@ namespace Model
             {
                 return Sex == Sex.Female
                     ? $"{GetInfo()} \n{schoolStatus}" +
-                        $"\nUnfortunately, she is an orphan"
+                        $"\nОна сирота"
                     : $"{GetInfo()} \n{schoolStatus}" +
-                        $"\nUnfortunately, he is an orphan";
+                        $"\nОн сирота";
             }
             else
             {

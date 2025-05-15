@@ -76,14 +76,24 @@ namespace Model
         }
 
         /// <summary>
-        /// Minimum age.
+        /// Минимальный возраст.
         /// </summary>
-        protected abstract int MinAge { get; }
+        protected int _minAge = 0;
 
         /// <summary>
-        /// Maximum age.
+        /// Максимальный возраст.
         /// </summary>
-        protected abstract int MaxAge { get; }
+        protected int _maxAge = 120;
+
+        /// <summary>
+        /// Минимальный возраст.
+        /// </summary>
+        public virtual int MinAge => _minAge;
+
+        /// <summary>
+        /// Максимальный возраст.
+        /// </summary>
+        public virtual int MaxAge => _maxAge;
 
         /// <summary>
         /// Задание возраста.
