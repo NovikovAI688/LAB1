@@ -121,23 +121,12 @@ namespace Model
             }
         }
 
-        //TODO: to autoproperty
+        //TODO: to autoproperty +
         /// <summary>
         /// Задание гендера.
         /// </summary>
-        public Sex Sex
-        {
-            get
-            {
-                return _sex;
-            }
-
-            set
-            {
-                _sex = value;
-            }
-        }
-
+        public Sex Sex { get; set; }
+           
         /// <summary>
         /// Информация о персоне
         /// </summary>
