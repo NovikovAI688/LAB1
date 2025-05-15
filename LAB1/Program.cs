@@ -21,8 +21,8 @@ namespace LAB1
             for (var i = 0; i < 7; i++)
             {
                 PersonBase randomPerson = random.Next(0, 2) == 0
-                    ? Adult.GetRandomAdult()
-                    : Child.GetRandomChild();
+                    ? RandomPerson.GetRandomAdult()
+                    : RandomPerson.GetRandomChild();
                 personList.Add(randomPerson);
             }
 
@@ -33,9 +33,9 @@ namespace LAB1
         /// <summary>
         /// Отобразить список.
         /// </summary>
-        /// <param name="personList">PersonList.</param>
+        /// <param name="personList">Список.</param>
         /// <exception cref="NullReferenceException">
-        /// Incorrect input.</exception>
+        /// Неправильн.</exception>
         public static void PrintList(PersonList personList)
         {
             if (personList.Length == 0)
