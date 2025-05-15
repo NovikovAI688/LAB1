@@ -10,7 +10,7 @@ namespace Model
         /// <summary>
         /// Список персон
         /// </summary>
-        private List<PersonBase> _people;
+        private PersonBase[] _personList = new PersonBase[0];
 
         /// <summary>
         /// Метод для добавления списка
