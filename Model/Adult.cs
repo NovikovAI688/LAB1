@@ -25,19 +25,16 @@
         /// </summary>
         private Adult _partner;
 
-        //TODO: XML+
         /// <summary>
         /// Место работы
         /// </summary>
         private string _workPlace;
 
-        //TODO: XML+
         /// <summary>
         /// Минимальный возраст
         /// </summary>
         public int MinAge => _minAge;
 
-        //TODO: XML+
         /// <summary>
         /// Максимальный возраст
         /// </summary>

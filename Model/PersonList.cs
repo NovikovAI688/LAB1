@@ -7,12 +7,6 @@ namespace Model
     /// </summary>
     public class PersonList
     {
-        //TODO: remove
-        /// <summary>
-        /// Список персон
-        /// </summary>
-        private PersonBase[] _personList = new PersonBase[0];
-
         /// <summary>
         /// Метод для добавления списка
         /// </summary>

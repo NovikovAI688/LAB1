@@ -180,7 +180,6 @@ namespace Model
             Adult mother = GetRandomParent(1);
             Adult father = GetRandomParent(0);
 
-            //BUG:+
             return new Child(name, surname, age, sex,
                             father,mother, school);
         }

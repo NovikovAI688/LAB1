@@ -121,7 +121,6 @@ namespace Model
             }
         }
 
-        //TODO: to autoproperty +
         /// <summary>
         /// Задание гендера.
         /// </summary>
