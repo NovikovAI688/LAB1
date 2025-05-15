@@ -21,11 +21,47 @@ namespace LAB1
             for (int i = 0; i <= 7; i++)
             {
                 PersonBase rndPerson = rnd.Next(2) == 0
-                    ? (PersonBase)Adult.GetRandomPerson(Sex.Male)
-                    : (PersonBase)Child.GetRandomPerson();
+                    ? Adult.GetRandomPerson()
+                    : Child.GetRandomPerson();
                 listOfPeople.Add(rndPerson);
             }
         }
+
+        var person = PersonList.SearchPersonByIndex(3);
+            switch (person)
+            {
+                case Adult adult:
+                    Console.WriteLine($"\n{adult.GetNameSurname()} " +
+                        $"({adult.Age} age) prefers {adult.GetFavoriteDrink()}");
+                    break;
+                case Child child:
+                    Console.WriteLine($"\n{child.GetNameSurname()}" +
+                        $"({child.Age} age) has a model of {child.GetShipCollection()}");
+                    break;
+                default:
+                    break;
+            }
+
+        /// <summary>
+        /// Print personList.
+        /// </summary>
+        /// <param name="personList">PersonList.</param>
+        /// <exception cref="NullReferenceException">
+        /// Incorrect input.</exception>
+        public static void PrintList(PersonList personList)
+        {
+            if (personList.Length == 0)
+            {
+                throw new NullReferenceException("List is empty.");
+            }
+            else
+            {
+                for (int i = 0; i < personList.Length; i++)
+                {
+                    var tmpPerson = personList.SearchPersonByIndex(i);
+                    Console.WriteLine($"\n{tmpPerson.GetInfo()}");
+                }
+            }
 
         /// <summary>
         /// Метод распаковки actionList

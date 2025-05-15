@@ -40,8 +40,17 @@ namespace Model
         /// <summary>
         /// Максимальный возраст ребенка
         /// </summary>
-        private const int _maxAge = 16;
+        private const int _maxAge = 17;
 
+        /// <summary>
+        /// Minimum age.
+        /// </summary>
+        protected override int MinAge { get; } = _minAge;
+
+        /// <summary>
+        /// Maximum age.
+        /// </summary>
+        protected override int MaxAge { get; } = _maxAge;
         /// <summary>
         /// Отец ребенка
         /// </summary>
@@ -160,8 +169,20 @@ namespace Model
                 schoolStatus = $"Учиться в {School}-ой школе";
             }
 
-            return $"{GetInfo()};\n {fatherStatus}; {motherStatus};" +
+            if (Mother == null && Father == null)
+            {
+                return Sex == Sex.Female
+                    ? $"{GetInfo()} \n{schoolStatus}" +
+                        $"\nUnfortunately, she is an orphan"
+                    : $"{GetInfo()} \n{schoolStatus}" +
+                        $"\nUnfortunately, he is an orphan";
+            }
+            else
+            {
+
+                return $"{GetInfo()};\n {fatherStatus}; {motherStatus};" +
                 $" {schoolStatus}\n";
+            }
         }
 
         /// <summary>

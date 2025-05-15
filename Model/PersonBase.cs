@@ -76,14 +76,14 @@ namespace Model
         }
 
         /// <summary>
-        /// Минимальный возраст
+        /// Minimum age.
         /// </summary>
-        public const int MinAge = 0;
+        protected abstract int MinAge { get; }
 
         /// <summary>
-        /// Максимальный возраст
+        /// Maximum age.
         /// </summary>
-        public const int MaxAge = 120;
+        protected abstract int MaxAge { get; }
 
         /// <summary>
         /// Задание возраста.
@@ -138,6 +138,11 @@ namespace Model
                     $" Возраст: {_age}, Пол: {_sex}";
         }
 
+        /// <summary>
+        /// Имя и фамилия.
+        /// </summary>
+        /// <returns>Имя и фамилия.</returns>
+        public string GetNameSurname() => $"{Name} {Surname}";
 
         /// <summary>
         /// Проверка на пустую строку и наличие только русских и английских символов.

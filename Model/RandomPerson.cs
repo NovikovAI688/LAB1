@@ -1,4 +1,5 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using System.Reflection;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Model
 {
@@ -12,7 +13,7 @@ namespace Model
         /// </summary>
         /// <returns>Информация о взрослом</returns>
         /// <param name="sex">Пол </param>
-        public static Adult GetRandomPerson(Sex sex = Sex.Male)
+        public static Adult GetRandomAdult(Sex sex = Sex.Male)
         {
             string[] maleNames =
             {
@@ -43,68 +44,87 @@ namespace Model
                  "Tinkoff", "Gazprom"
             };
 
-            bool[] familyStatusList =
+            var random = new Random();
+            string name = string.Empty;
+
+            if (sex == Sex.Male)
             {
-                 true,false
-            };
-
-            Random random = new Random();
-
-            sex = (Sex)random.Next(0, 2);
-            var name = sex == Sex.Male
-                ? maleNames[random.Next(maleNames.Length)]
-                : femaleNames[random.Next(femaleNames.Length)];
-            var surname = sex == Sex.Male
-                ? maleNames[random.Next(maleNames.Length)]
-                : surnames[random.Next(surnames.Length)];
-
-            int age = random.Next(PersonBase.MinAge, PersonBase.MaxAge);
-
-            string tmpWorkPlace = workPlaceList
-                                  [random.Next(workPlaceList.Length)];
-
-            Adult tmpPartner = null;
-            bool tmpfamilyStatus = familyStatusList
-                                   [random.Next(familyStatusList.Length)];
-
-            int passportSeria = random.Next(0001, 9999);
-            int passportNumber = random.Next(000001, 999999);
-
-            if (tmpfamilyStatus)
-            {
-                tmpPartner = new Adult(name, surname, 19, sex,
-                passportSeria, passportNumber, tmpfamilyStatus, tmpWorkPlace);
-
-                tmpPartner.Name = sex == Sex.Female
-                    ? maleNames[random.Next(maleNames.Length)]
-                    : femaleNames[random.Next(femaleNames.Length)];
-
-                tmpPartner.Surname = surnames[random.Next(surnames.Length)];
+                var tmpNumber = random.Next(0, 2);
+                sex = tmpNumber == 0
+                    ? Sex.Male
+                    : Sex.Female;
             }
-            else
+
+            switch (sex)
             {
-                tmpPartner = null;
+                case Sex.Male:
+                    name = maleNames[random.Next(maleNames.Length)];
+                    break;
+                case Sex.Female:
+                    name = femaleNames[random.Next(femaleNames.Length)];
+                    break;
             }
-                return new Adult(name, surname, age, sex, passportSeria,
-                                 passportNumber, tmpfamilyStatus,tmpWorkPlace);
+
+            string surname = surnames[random.Next(surnames.Length)];
+            int age = random.Next(_minAge, _maxAge);
+            int passportSeria = random.Next(_minPassportSeria, _maxPassportSeria);
+            int passportNumber = random.Next(_minPassportNumber, _maxPassportNumber);
+            string workPlace = workPlaceList[random.Next(workPlaceList.Length)];
+
+            Adult partner = null;
+            int marriegeStatus = random.Next(0, 2);
+            if (marriegeStatus == 0)
+            {
+                partner = new Adult("","",0, Sex.Male,4568,548956,"","");
+                if (sex == Sex.Male)
+                {
+                    partner.Sex = Sex.Female;
+                    partner.Name = femaleNames
+                        [random.Next(femaleNames.Length)];
+
+                }
+                else
+                {
+                    partner.Sex = Sex.Male;
+                    partner.Name = maleNames
+                        [random.Next(maleNames.Length)];
+                }
+
+                partner.Surname = surnames
+                    [random.Next(surnames.Length)];
+            }
+
+            return new Adult(name, surname, age, sex,
+                            passportSeria, passportNumber, partner, workPlace);
         }
+
 
         //TODO: remove +
         /// <summary>
         /// Пол на рандом родителей
         /// </summary>
         /// <param name="sex">Рандомный пол.</param>
-        public static Adult GetRandomParent(Sex sex)
+        private static Adult GetRandomParent(int numberParent)
         {
             var random = new Random();
             var parentStatus = random.Next(0, 2);
-            if (parentStatus == 1)
+
+            if (parentStatus == 0)
             {
                 return null;
             }
             else
             {
-                return  GetRandomPerson(sex);
+                switch (numberParent)
+                {
+                    case 0:
+                        return GetRandomAdult(Sex.Male);
+                    case 1:
+                        return GetRandomAdult(Sex.Female);
+                    default:
+                        throw new ArgumentException
+                            ("Номера [0; 1].");
+                }
             }
         }
         //TODO: remove +
@@ -112,7 +132,7 @@ namespace Model
         /// Рандом (ребенок)
         /// </summary>
         /// <returns>Инфа о ребенке</returns>
-        public static Child GetRandomPerson()
+        public static Child GetRandomChild()
         {
             string[] maleNames =
             {
@@ -138,31 +158,30 @@ namespace Model
             };
 
             var random = new Random();
-            var tmpNumber = random.Next(0, 2);
+            string name = string.Empty;
+            var sex = (Sex)random.Next(0, 2);
+            switch (sex)
+            {
+                case Sex.Male:
+                    name = maleNames[random.Next(maleNames.Length)];
+                    break;
+                case Sex.Female:
+                    name = femaleNames[random.Next(femaleNames.Length)];
+                    break;
+                default:
+                    break;
+            }
 
-            Sex tmpSex = tmpNumber == 1
-                ? Sex.Male
-                : Sex.Female;
+            string surname = surnames[random.Next(surnames.Length)];
+            int age = random.Next(_minAge, _maxAge);
 
-            string tmpName = tmpSex == Sex.Male
-                ? maleNames[random.Next(maleNames.Length)]
-                : femaleNames[random.Next(femaleNames.Length)];
+            string school = schools[random.Next(schools.Length)];
 
-            var tmpSurname = surnames[random.Next(surnames.Length)];
+            Adult mother = GetRandomParent(1);
+            Adult father = GetRandomParent(0);
 
-            var tmpAge = random.Next(0,17);
-
-            Adult tmpFather = GetRandomParent(Sex.Male);
-
-            Adult tmpMother = GetRandomParent(Sex.Female);
-
-            var schoolStatus = random.Next(0, 2);
-            string tmpSchool = schoolStatus == 1
-                ? schools[random.Next(schools.Length)]
-                : null;
-
-            return new Child(tmpName, tmpSurname, tmpAge, tmpSex,
-                tmpFather, tmpMother, tmpSchool);
+            return new Child(name, surname, age, sex,
+                            mother, father, school);
         }
     }
 }

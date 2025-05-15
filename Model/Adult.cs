@@ -35,7 +35,7 @@ namespace Model
         /// </summary>
         private Adult _partner;
 
-        //BUG:
+        //BUG: +
         /// <summary>
         /// Муж или жена
         /// </summary>
@@ -50,6 +50,36 @@ namespace Model
         /// Максимальный возраст для взрослого
         /// </summary>
         private const int _maxAge = 120;
+
+        /// <summary>
+        /// Minimum age.
+        /// </summary>
+        protected override int MinAge { get; } = _minAge;
+
+        /// <summary>
+        /// Maximum age.
+        /// </summary>
+        protected override int MaxAge { get; } = _maxAge;
+
+        /// <summary>
+        /// мин серия
+        /// </summary>
+        private const int _minPassportSeria = 1000;
+
+        /// <summary>
+        /// макс серия
+        /// </summary>
+        private const int _maxPassportSeria = 9999;
+
+        /// <summary>
+        /// мин номер
+        /// </summary>
+        private const int _minPassportNumber = 100000;
+
+        /// <summary>
+        /// макс номер
+        /// </summary>
+        private const int _maxPassportNumber = 999999;
 
         /// <summary>
         /// Задание возраста взрослого.
@@ -86,7 +116,17 @@ namespace Model
             get => _passportSeria;
             set
             {
-                _passportSeria = value;
+                if (value >= _minPassportSeria && value <= _maxPassportSeria)
+                {
+                    _passportSeria = value;
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException(
+                        $"Серия пасспорта находится " +
+                        $"в пределах от {_minPassportSeria} " +
+                        $"до {_passportSeria}");
+                }
             }
         }
 
@@ -98,7 +138,17 @@ namespace Model
             get => _passportNumber;
             set
             {
-                _passportNumber = value;
+                if (value >= _minPassportNumber && value <= _maxPassportNumber)
+                {
+                    _passportNumber = value;
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException(
+                        $"Номер пасспорта находится " +
+                        $"в пределах от {_minPassportNumber} " +
+                        $"до {_passportNumber}");
+                }
             }
         }
 
@@ -115,6 +165,20 @@ namespace Model
         }
 
         /// <summary>
+        /// Check gender of adult's partner.
+        /// </summary>
+        /// <param name="partner">Partner.</param>
+        /// <exception cref="ArgumentException">Incorrect input.</exception>
+        private void CheckPartnerGender(Adult partner)
+        {
+            if (partner != null && partner.Sex == Sex)
+            {
+                throw new ArgumentException
+                    ("Не могут быть одного пола");
+            }
+        }
+
+        /// <summary>
         /// Ввод мужа или жены
         /// </summary>
         public Adult Partner
@@ -125,19 +189,10 @@ namespace Model
             }
             set
             {
-                if (FamilyStatus = true)
-                {
-                    _partner = value;
-                }
+                CheckPartnerGender(value);
+                _partner = value;
+                
             }
-        }
-
-        /// <summary>
-        /// Ввод мужа или жены
-        /// </summary>
-        public bool FamilyStatus
-        {
-            get; set;
         }
 
         /// <summary>
@@ -152,23 +207,15 @@ namespace Model
         /// <param name="partner">Муж/жена.</param>
         /// <param name="workPlace">Место работы.</param>
         public Adult(string name, string surname, int age,
-            Sex sex, int passportSeria, int passportNumber, bool familyStatus,
+            Sex sex, int passportSeria, int passportNumber, Adult partner,
             string workPlace) : base(name, surname, age, sex)
         {
             PassportSeria = passportSeria;
             PassportNumber = passportNumber;
             WorkPlace = workPlace;
-            FamilyStatus = familyStatus;
+            Partner = partner;
         }
 
-        /// <summary>
-        /// Default
-        /// </summary>
-        public Adult() : this("Biba", "Boba", 25, Sex.Male, 5801,
-                              114821,false, "NTC")
-        { 
-            
-        }
 
         /// <summary>
         /// вывод информации о человеке
@@ -186,6 +233,7 @@ namespace Model
                    $"Номер пасспорта: {PassportNumber}, " +
                    $"{partnerInfo}, Место работы: {workplaceInfo}";
         }
+
     }
 }
     
