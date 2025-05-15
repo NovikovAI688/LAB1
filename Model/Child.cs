@@ -131,7 +131,7 @@ namespace Model
         /// Default child
         /// </summary>
         public Child() : this("Mikey", "Mouse", 11,
-            Sex.Male, null, null, null)
+            Sex.Male, null,null,"" )
         {
             
         }
