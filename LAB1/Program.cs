@@ -38,7 +38,7 @@ namespace LAB1
         /// Неправильн.</exception>
         public static void PrintList(PersonList personList)
         {
-            if (personList.Count()==0)
+            if (personList.Count() == 0)
             {
                 throw new NullReferenceException("Список пуст");
             }

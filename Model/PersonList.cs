@@ -7,6 +7,7 @@ namespace Model
     /// </summary>
     public class PersonList
     {
+        //TODO: remove
         /// <summary>
         /// Список персон
         /// </summary>

@@ -69,6 +69,7 @@ namespace Model
 
             string surname = surnames[random.Next(surnames.Length)];
             int age = random.Next(child.MinAge, adult.MaxAge);
+            //TODO: RSDN
             int passportSeria = random.Next(Adult._minPassportSeria, Adult._maxPassportSeria);
             int passportNumber = random.Next(Adult._minPassportNumber, Adult._maxPassportNumber);
             string workPlace = workPlaceList[random.Next(workPlaceList.Length)];
@@ -77,7 +78,7 @@ namespace Model
             int marriegeStatus = random.Next(0, 2);
             if (marriegeStatus == 0)
             {
-                partner = new Adult("","",0, Sex.Male,4568,548956,"");
+                partner = new Adult("", "",0, Sex.Male, 4568, 548956, "");
                 if (sex == Sex.Male)
                 {
                     partner.Sex = Sex.Female;
@@ -100,8 +101,6 @@ namespace Model
                             passportSeria, passportNumber, workPlace);
         }
 
-
-        //TODO: remove +
         /// <summary>
         /// Пол на рандом родителей
         /// </summary>
@@ -129,7 +128,7 @@ namespace Model
                 }
             }
         }
-        //TODO: remove +
+
         /// <summary>
         /// Рандом (ребенок)
         /// </summary>
@@ -181,6 +180,7 @@ namespace Model
             Adult mother = GetRandomParent(1);
             Adult father = GetRandomParent(0);
 
+            //BUG:
             return new Child(name, surname, age, sex,
                             mother, father, school);
         }

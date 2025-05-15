@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+﻿namespace Model
 {
-    //TODO: XML +
     /// <summary>
     /// Взрослый
     /// </summary>
     public class Adult: PersonBase
     {
-
         /// <summary>
         /// Возраст взрослого
         /// </summary>
@@ -35,15 +25,16 @@ namespace Model
         /// </summary>
         private Adult _partner;
 
-        //BUG: +
+        //TODO: XML
         /// <summary>
         /// Муж или жена
         /// </summary>
         private string _workPlace;
-
-
-
+        
+        //TODO: XML
         public int MinAge => _minAge;
+
+        //TODO: XML
         /// <summary>
         /// Maximum age.
         /// </summary>

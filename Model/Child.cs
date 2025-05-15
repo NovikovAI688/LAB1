@@ -32,7 +32,6 @@ namespace Model
         /// </summary>
         private string _school;
 
-
         /// <summary>
         /// Минимальный возраст.
         /// </summary>
@@ -42,6 +41,7 @@ namespace Model
         /// Максимальный возраст.
         /// </summary>
         public int MaxAge => _maxAge;
+
         /// <summary>
         /// Отец ребенка
         /// </summary>
