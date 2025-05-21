@@ -215,12 +215,11 @@
             string workplaceInfo = !string.IsNullOrEmpty(WorkPlace)
                 ? WorkPlace 
                 : "Безработный";
-            return $"{base.Name}, Возраст: {base.Age}," +
+            return $"{GetPersonInfo()}" +
                    $"Серия пасспорта: {PassportSeria}," +
                    $"Номер пасспорта: {PassportNumber}, " +
                    $"{partnerInfo}, Место работы: {workplaceInfo}";
         }
-
     }
 }
     

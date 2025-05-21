@@ -50,7 +50,7 @@ namespace Model
             get => _father;
             set
             {
-                CheckParentGender(value, Sex.Female);
+               // CheckParentGender(value, Sex.Female);
                 _father = value;
             }
         }
@@ -63,7 +63,7 @@ namespace Model
             get => _mother;
             set
             {
-                CheckParentGender(value, Sex.Male);
+                //CheckParentGender(value, Sex.Male);
                 _mother = value;
             }
         }
@@ -128,7 +128,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Default child
+        /// Дефолт для ребенка
         /// </summary>
         public Child() : this("Mikey", "Mouse", 11,
             Sex.Male, null,null,"" )
@@ -147,12 +147,12 @@ namespace Model
 
             if (Father != null)
             {
-                fatherStatus = $"Отец: {Father.GetInfo()}";
+                fatherStatus = $"Отец: {Father.GetPersonInfo()}";
             }
 
             if (Mother != null)
             {
-                motherStatus = $"Мама: {Mother.GetInfo()}";
+                motherStatus = $"Мама: {Mother.GetPersonInfo()}";
             }
 
             var schoolStatus = "Не обучается в школе";
@@ -164,35 +164,35 @@ namespace Model
             if (Mother == null && Father == null)
             {
                 return Sex == Sex.Female
-                    ? $"{GetInfo()} \n{schoolStatus}" +
+                    ? $"{GetPersonInfo()} \n{schoolStatus}" +
                         $"\nОна сирота"
-                    : $"{GetInfo()} \n{schoolStatus}" +
+                    : $"{GetPersonInfo()} \n{schoolStatus}" +
                         $"\nОн сирота";
             }
             else
             {
 
-                return $"{GetInfo()};\n {fatherStatus}; {motherStatus};" +
+                return $"{GetPersonInfo()};\n {fatherStatus}; {motherStatus};" +
                 $" {schoolStatus}\n";
             }
         }
 
-        /// <summary>
-        /// Проверка пола.
-        /// </summary>
-        /// <param name="parent">Взрослый</param>
-        /// <param name="gender">Пол взрослого</param>
-        /// <exception cref="ArgumentException">Взрослый должен
-        /// быть другого пола</exception>
-        private static void CheckParentGender
-            (Adult parent, Sex sex)
-        {
-            if (parent != null && parent.Sex == sex)
-            {
-                throw new ArgumentException
-                    ("Пол родителя должен быть другим");
-            }
-        }
+        ///// <summary>
+        ///// Проверка пола.
+        ///// </summary>
+        ///// <param name="parent">Взрослый</param>
+        ///// <param name="gender">Пол взрослого</param>
+        ///// <exception cref="ArgumentException">Взрослый должен
+        ///// быть другого пола</exception>
+        //private static void CheckParentGender
+        //    (Adult parent, Sex sex)
+        //{
+        //    if (parent != null && parent.Sex == sex)
+        //    {
+        //        throw new ArgumentException
+        //            ("Пол родителя должен быть другим");
+        //    }
+        //}
     }
 }
 

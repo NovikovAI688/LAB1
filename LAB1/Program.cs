@@ -47,7 +47,7 @@ namespace LAB1
                 for (int i = 0; i < personList.Count(); i++)
                 {
                     var tmpPerson = personList.Get(i);
-                    Console.WriteLine($"\n{tmpPerson.GetInfo()}");
+                    Console.WriteLine($"\n{tmpPerson.GetPersonInfo()}");
                 }
             }
         }

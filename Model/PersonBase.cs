@@ -130,10 +130,28 @@ namespace Model
         /// Информация о персоне
         /// </summary>
         /// <returns> Вовращает имя и фамилию персоны, скольно ему лет и какого он пола</returns>
-        public virtual string GetInfo() 
+        public virtual string GetPersonInfo() 
         {
             return $"Имя: {_name}, Фамилия: {_surname}," +
                     $" Возраст: {_age}, Пол: {_sex}";
+        }
+
+        /// <summary>
+        /// Получает вывод информации о человеке.
+        /// </summary>
+        public abstract string GetInfo();
+
+        protected string CheckValue(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException
+                    ("\nЗаполните поле.");
+            }
+            else
+            {
+                return value;
+            }
         }
 
         /// <summary>
