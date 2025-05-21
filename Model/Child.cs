@@ -50,7 +50,7 @@ namespace Model
             get => _father;
             set
             {
-               // CheckParentGender(value, Sex.Female);
+                //CheckParentGender(value, Sex.Female);
                 _father = value;
             }
         }

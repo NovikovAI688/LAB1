@@ -13,7 +13,7 @@ namespace Model
         /// </summary>
         /// <returns>Информация о взрослом</returns>
         /// <param name="sex">Пол </param>
-        public static Adult GetRandomAdult(Sex sex = Sex.Male)
+        public static Adult GetRandomAdult(Sex sex = Sex.Default)
         {
             Adult adult = new Adult();
             Child child = new Child();
@@ -49,7 +49,7 @@ namespace Model
             var random = new Random();
             string name = string.Empty;
 
-            if (sex == Sex.Male)
+            if (sex == Sex.Default)
             {
                 var tmpNumber = random.Next(0, 2);
                 sex = tmpNumber == 0
@@ -65,32 +65,38 @@ namespace Model
                 case Sex.Female:
                     name = femaleNames[random.Next(femaleNames.Length)];
                     break;
+                case Sex.Default:
+                    break;
+                default:
+                    break;
             }
 
             string surname = surnames[random.Next(surnames.Length)];
             int age = random.Next(child.MinAge, adult.MaxAge);
-            //TODO: RSDN
-            int passportSeria = random.Next(Adult._minPassportSeria, Adult._maxPassportSeria);
-            int passportNumber = random.Next(Adult._minPassportNumber, Adult._maxPassportNumber);
+            //TODO: RSDN +
+            int passportSeria = random.Next(Adult._minPassportSeria,
+                                            Adult._maxPassportSeria);
+            int passportNumber = random.Next(Adult._minPassportNumber,
+                                             Adult._maxPassportNumber);
             string workPlace = workPlaceList[random.Next(workPlaceList.Length)];
 
             Adult partner = null;
             int marriegeStatus = random.Next(0, 2);
             if (marriegeStatus == 0)
             {
-                partner = new Adult("", "",0, Sex.Male, 4568, 548956, "");
+                partner = new Adult();
                 if (sex == Sex.Male)
-                {
-                    partner.Sex = Sex.Female;
-                    partner.Name = femaleNames
-                        [random.Next(femaleNames.Length)];
-
-                }
-                else
                 {
                     partner.Sex = Sex.Male;
                     partner.Name = maleNames
                         [random.Next(maleNames.Length)];
+
+                }
+                else
+                {
+                    partner.Sex = Sex.Female;
+                    partner.Name = femaleNames
+                        [random.Next(femaleNames.Length)];
                 }
 
                 partner.Surname = surnames
@@ -170,6 +176,10 @@ namespace Model
                 case Sex.Female:
                     name = femaleNames[random.Next(femaleNames.Length)];
                     break;
+                case Sex.Default:
+                    break;
+                default:
+                    break; ;
             }
 
             string surname = surnames[random.Next(surnames.Length)];

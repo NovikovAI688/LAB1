@@ -215,7 +215,7 @@
             string workplaceInfo = !string.IsNullOrEmpty(WorkPlace)
                 ? WorkPlace 
                 : "Безработный";
-            return $"{GetPersonInfo()}" +
+            return $"{GetPersonInfo()}, " +
                    $"Серия пасспорта: {PassportSeria}," +
                    $"Номер пасспорта: {PassportNumber}, " +
                    $"{partnerInfo}, Место работы: {workplaceInfo}";

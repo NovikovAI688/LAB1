@@ -13,6 +13,11 @@
         /// <summary>
         /// Пол человека: девушка
         /// </summary>
-        Female
+        Female,
+
+        // <summary>
+        /// Пол человека: дефолт
+        /// </summary>
+        Default
     }
 }
