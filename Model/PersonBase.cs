@@ -125,7 +125,11 @@ namespace Model
         /// <summary>
         /// Задание гендера.
         /// </summary>
-        public Sex Sex { get; set; }
+        public Sex Sex
+        {
+            get => _sex;
+            set => _sex = value;
+        }
            
         /// <summary>
         /// Информация о персоне

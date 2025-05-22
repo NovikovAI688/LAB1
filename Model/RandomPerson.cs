@@ -73,7 +73,7 @@ namespace Model
 
             string surname = surnames[random.Next(surnames.Length)];
             int age = random.Next(child.MinAge, adult.MaxAge);
-            
+            //TODO: RSDN +
             int passportSeria = random.Next(Adult._minPassportSeria,
                                             Adult._maxPassportSeria);
             int passportNumber = random.Next(Adult._minPassportNumber,
