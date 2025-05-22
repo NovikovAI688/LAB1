@@ -66,6 +66,7 @@ namespace Model
         /// Выводит информацию о элементе.
         /// </summary>
         public override string Info =>
+            //TODO: rewrite
             $"\nХарактеристики кондерсатора:\n" +
             $"Емкость = {Capacity} F\n" +
             $"Частота = {Frequency} Hz";

@@ -21,6 +21,7 @@ namespace LAB3
             {
                 switch (SelectElement())
                 {
+                    //TODO: RSDN
                     case 1:
                         {
                             elemetList.Add(ShowImpedance(
@@ -66,6 +67,7 @@ namespace LAB3
             return passiveElementBase;
         }
 
+        //TODO: rewrite
         /// <summary>
         /// Округленеие результата.
         /// </summary>
@@ -105,6 +107,7 @@ namespace LAB3
                            ("Введите число.");
                     }
 
+                    //TODO: to const
                     if (tmpChoice < 1 || tmpChoice > 4)
                     {
                         throw new IndexOutOfRangeException
@@ -139,6 +142,7 @@ namespace LAB3
             PassiveElementBase elementObject = new Resistor();
             switch (passiveElementType)
             {
+                //TODO: RSDN
                 case PassiveElementType.Resistor:
                     {
                         elementObject = new Resistor();
