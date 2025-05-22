@@ -45,6 +45,5 @@ namespace Model
                 return value;
             }
         }
-
     }
 }
