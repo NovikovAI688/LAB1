@@ -18,7 +18,7 @@ namespace LAB1
             var personList = new PersonList();
             var random = new Random();
 
-            for (var i = 0; i < 7; i++)
+            for (var i = 0; i < 10000; i++)
             {
                 PersonBase randomPerson = random.Next(0, 2) == 0
                     ? RandomPerson.GetRandomAdult()
