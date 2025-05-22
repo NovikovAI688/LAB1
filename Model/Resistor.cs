@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Model
+{
+    /// <summary>
+    /// Класс резисторы.
+    /// </summary>
+    public class Resistor : PassiveElementBase
+    {
+        /// <summary>
+        /// Сопротивление резистора.
+        /// </summary>
+        private double _resistance;
+
+        /// <summary>
+        /// Значение сопротивления.
+        /// </summary>
+        public double Resistance
+        {
+            get => _resistance;
+            set => _resistance = CheckValue(value);
+        }
+
+        /// <summary>
+        /// Расчет комплексного сопротивления.
+        /// </summary>
+        public override Complex Impedance =>
+            new Complex(Resistance, 0);
+
+        /// <summary>
+        /// Выводит информацию о элементе.
+        /// </summary>
+        public override string Info =>
+            $"\nСharacteristics of the resistor:\n" +
+            $"Resistance = {Resistance} Ohm";
+    }
+}
