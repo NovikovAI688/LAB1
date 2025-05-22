@@ -25,7 +25,6 @@ namespace Model
         /// </summary>
         private int _age;
 
-        //BUG:
         /// <summary>
         /// Пол
         /// </summary>
