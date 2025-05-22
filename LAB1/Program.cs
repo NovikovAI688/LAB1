@@ -21,7 +21,6 @@ namespace LAB3
             {
                 switch (SelectElement())
                 {
-                    //TODO: RSDN +
                     case 1:
                     {
                         elemetList.Add(ShowImpedance(
@@ -46,9 +45,6 @@ namespace LAB3
                     {
                         return;
                     }
-
-                    default:
-                    break;
                 }
             }
         }
@@ -67,7 +63,6 @@ namespace LAB3
             return passiveElementBase;
         }
 
-        //TODO: rewrite +
         /// <summary>
         /// Округленеие результата.
         /// </summary>
@@ -85,16 +80,7 @@ namespace LAB3
                 $" + ({imaginaryResistance})j Ом");
         }
 
-        /// <summary>
-        /// Минимальное значение.
-        /// </summary>
-        private const int _minValueChoise = 1;
-
-        /// <summary>
-        /// Минимальное значение.
-        /// </summary>
-        private const int _maxValueChoise = 4;
-
+        
         /// <summary>
         /// Цикл для выбора.
         /// </summary>
@@ -117,11 +103,14 @@ namespace LAB3
                            ("Введите число.");
                     }
 
-                    //TODO: to const +
-                    if (tmpChoice < _minValueChoise || tmpChoice > _maxValueChoise)
+                    
+                    const int minValueChoise = 1;
+                    const int maxValueChoise = 4;
+
+                    if (tmpChoice < minValueChoise || tmpChoice > maxValueChoise)
                     {
                         throw new IndexOutOfRangeException
-                             ($"Число в диапазоне {_minValueChoise}; {_maxValueChoise}.");
+                             ($"Число в диапазоне {minValueChoise}; {maxValueChoise}.");
                     }
 
                     chosenPassiveElement = tmpChoice;
@@ -152,7 +141,6 @@ namespace LAB3
             PassiveElementBase elementObject = new Resistor();
             switch (passiveElementType)
             {
-                //TODO: RSDN +
                 case PassiveElementType.Resistor:
                 {
                     elementObject = new Resistor();
@@ -168,11 +156,6 @@ namespace LAB3
                 case PassiveElementType.Capacitor:
                 {
                     elementObject = new Capacitor();
-                    break;
-                }
-
-                default:
-                {
                     break;
                 }
             }
