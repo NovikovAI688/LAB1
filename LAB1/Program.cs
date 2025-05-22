@@ -28,7 +28,25 @@ namespace LAB1
 
             Console.WriteLine("\nСписок:");
             PrintList(personList);
+
+            var person = personList.Get(3);
+            switch (person)
+            {
+                case Adult adult:
+                    Console.WriteLine($"\n{adult.GetNameSurname()} " +
+                        $"({adult.Age} age) prefers {adult.GetFavoriteDrink()}");
+                    break;
+                case Child child:
+                    Console.WriteLine($"\n{child.GetNameSurname()}" +
+                        $"({child.Age} age) has a model of {child.GetPlays()}");
+                    break;
+                default:
+                    break;
+            }
+            _ = Console.ReadKey();
         }
+
+
 
         /// <summary>
         /// Отобразить список.
@@ -51,6 +69,7 @@ namespace LAB1
                 }
             }
         }
+
     }
 }
 

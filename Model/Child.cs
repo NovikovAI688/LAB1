@@ -176,23 +176,21 @@ namespace Model
                 $" {schoolStatus}\n";
             }
         }
-
-        ///// <summary>
-        ///// Проверка пола.
-        ///// </summary>
-        ///// <param name="parent">Взрослый</param>
-        ///// <param name="gender">Пол взрослого</param>
-        ///// <exception cref="ArgumentException">Взрослый должен
-        ///// быть другого пола</exception>
-        //private static void CheckParentGender
-        //    (Adult parent, Sex sex)
-        //{
-        //    if (parent != null && parent.Sex == sex)
-        //    {
-        //        throw new ArgumentException
-        //            ("Пол родителя должен быть другим");
-        //    }
-        //}
+        /// <summary>
+        /// Спец метод для ребенка.
+        /// </summary>
+        /// <returns>Игрушка</returns>
+        public string GetPlays()
+        {
+            string[] playModels = new string[]
+            {
+                "Слон", "Лев", "Тигр",
+                "Олень", "Рыба", "Лань", "Крокодил"
+            };
+            var random = new Random();
+            string model = playModels[random.Next(playModels.Length)];
+            return model;
+        }
     }
 }
 

@@ -220,6 +220,21 @@
                    $"Номер пасспорта: {PassportNumber}, " +
                    $"{partnerInfo}, Место работы: {workplaceInfo}";
         }
+        /// <summary>
+        /// Специальный метод для взрослого.
+        /// </summary>
+        /// <returns>Напиток.</returns>
+        public string GetFavoriteDrink()
+        {
+            string[] drinkNames = new string[]
+            {
+                "Beer", "Wine", "Brandy",
+                "Gin", "Rum", "Whiskey"
+            };
+            var random = new Random();
+            string drink = drinkNames[random.Next(drinkNames.Length)];
+            return drink;
+        }
     }
 }
     
