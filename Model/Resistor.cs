@@ -36,7 +36,7 @@ namespace Model
         /// Выводит информацию о элементе.
         /// </summary>
         public override string Info =>
-            $"\nСharacteristics of the resistor:\n" +
-            $"Resistance = {Resistance} Ohm";
+            $"\nХарактеристики резистора:\n" +
+            $"Сопротивление = {Resistance} Ом";
     }
 }

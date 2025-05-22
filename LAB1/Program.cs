@@ -13,6 +13,9 @@ namespace LAB3
         /// </summary>
         public static void Main()
         {
+            /// <summary>
+            /// Список элементов.
+            /// </summary>
             var elemetList = new List<PassiveElementBase>();
             while (true)
             {
@@ -38,19 +41,7 @@ namespace LAB3
                                 EnterValues(PassiveElementType.Capacitor)));
                             break;
                         }
-
                     case 4:
-                        {
-                            foreach (var tmpElement in elemetList)
-                            {
-                                Console.WriteLine(tmpElement.Info);
-                                RoundImpedance(tmpElement, 4);
-                            }
-
-                            break;
-                        }
-
-                    case 5:
                         {
                             return;
                         }
@@ -114,10 +105,10 @@ namespace LAB3
                            ("Введите число.");
                     }
 
-                    if (tmpChoice < 1 || tmpChoice > 5)
+                    if (tmpChoice < 1 || tmpChoice > 4)
                     {
                         throw new IndexOutOfRangeException
-                            ("Число в диапазоне [1; 5].");
+                            ("Число в диапазоне [1; 4].");
                     }
 
                     chosenPassiveElement = tmpChoice;
@@ -125,7 +116,7 @@ namespace LAB3
 
                     "\nПожалуйста, введите число:\n" +
                     "1 - резистор, 2 - катушка индуктивности, 3 - конденсатор," +
-                    " 4 - вывести список, 5 - выход:"
+                    "4 - выход:"
                 )
             };
 

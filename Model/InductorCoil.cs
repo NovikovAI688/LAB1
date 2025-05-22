@@ -69,8 +69,8 @@ namespace Model
         /// Выводит информацию о элементе.
         /// </summary>
         public override string Info =>
-            $"\nСharacteristics of the inductor coil:\n" +
-            $"Inductance = {Inductance} H\n" +
-            $"Frequency = {Frequency} Hz";
+            $"\nХарактеристики катушки индуктивности:\n" +
+            $"Индукция = {Inductance} H\n" +
+            $"Частота = {Frequency} Hz";
     }
 }

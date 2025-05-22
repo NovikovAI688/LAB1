@@ -60,14 +60,14 @@ namespace Model
         /// Расчет комплексного сопротивления.
         /// </summary>
         public override Complex Impedance =>
-            new Complex(0, -1 / (2 * Math.PI * Frequency * Capacity));
+            new Complex(0, (1 / (2 * Math.PI * Frequency * Capacity)));
 
         /// <summary>
         /// Выводит информацию о элементе.
         /// </summary>
         public override string Info =>
-            $"\nСharacteristics of the capacitor:\n" +
-            $"Capacity = {Capacity} F\n" +
-            $"Frequency = {Frequency} Hz";
+            $"\nХарактеристики кондерсатора:\n" +
+            $"Емкость = {Capacity} F\n" +
+            $"Частота = {Frequency} Hz";
     }
 }
