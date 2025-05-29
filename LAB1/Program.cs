@@ -1,7 +1,7 @@
 ﻿using Model;
 using System.Xml.Linq;
 
-namespace LAB3
+namespace LAB4
 {
     /// <summary>
     /// Класс программы.
