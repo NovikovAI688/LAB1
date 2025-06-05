@@ -27,6 +27,15 @@ namespace Model
         }
 
         /// <summary>
+        /// Resistor's constructor.
+        /// </summary>
+        /// <param name="resistance">resistance.</param>
+        public Resistor(double resistance)
+        {
+            Resistance = resistance;
+        }
+
+        /// <summary>
         /// Расчет комплексного сопротивления.
         /// </summary>
         public override Complex Impedance =>

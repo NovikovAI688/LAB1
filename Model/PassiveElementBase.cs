@@ -4,9 +4,17 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Model
 {
+    /// <summary>
+    /// Типы для XmlSerializer.
+    /// </summary>
+    [XmlInclude(typeof(Resistor))]
+    [XmlInclude(typeof(Capacitor))]
+    [XmlInclude(typeof(InductorCoil))]
+
     /// <summary>
     /// Класс базового пасивного элемента.
     /// </summary>
@@ -15,7 +23,7 @@ namespace Model
         /// <summary>
         /// Минимальное значение.
         /// </summary>
-        private const int _minValue = 0;
+        private const double _minValue = 0.0001;
 
         /// <summary>
         /// Расчет комплексного сопротивления.
