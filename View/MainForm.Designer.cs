@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,57 +29,76 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            panel1 = new Panel();
-            label1 = new Label();
+            button2 = new Button();
             button1 = new Button();
+            dataGridView1 = new DataGridView();
+            label1 = new Label();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Location = new Point(70, 55);
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Location = new Point(61, 41);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(369, 218);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(286, 237);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // panel1
+            // button2
             // 
-            panel1.Location = new Point(70, 324);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(397, 206);
-            panel1.TabIndex = 1;
+            button2.Location = new Point(186, 191);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 5;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(21, 192);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(82, 22);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(21, 21);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(609, 55);
+            label1.Location = new Point(533, 41);
             label1.Name = "label1";
-            label1.Size = new Size(72, 20);
+            label1.Size = new Size(57, 15);
             label1.TabIndex = 2;
             label1.Text = "Резистор";
             // 
-            // button1
+            // MainForm
             // 
-            button1.Location = new Point(696, 273);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 3;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // Form1
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
-            Controls.Add(button1);
+            ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Controls.Add(panel1);
             Controls.Add(groupBox1);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Form1";
+            groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -87,8 +106,9 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Panel panel1;
         private Label label1;
         private Button button1;
+        private Button button2;
+        private DataGridView dataGridView1;
     }
 }
