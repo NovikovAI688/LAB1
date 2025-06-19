@@ -12,14 +12,14 @@ using System.Windows.Forms;
 namespace View
 {
     /// <summary>
-    /// Класс CapacitorUserControl.
+    /// Класс ResistorUserControl.
     /// </summary>
-    public partial class CapacitorUserControl : ElementBaseUserControl
+    public partial class ResistorUserControl : ElementBaseUserControl
     {
         /// <summary>
-        /// CapacitorUserControl конструктор.
+        /// ResistorUserControl конструктор.
         /// </summary>
-        public CapacitorUserControl()
+        public ResistorUserControl()
         {
             InitializeComponent();
         }
@@ -30,25 +30,20 @@ namespace View
         /// <returns>Элемент.</returns>
         public override PassiveElementBase GetElement()
         {
-            var newCapacitor = new Capacitor();
+            var newResistor = new Resistor();
 
             var actions = new List<Action>()
             {
                 () =>
                 {
-                    newCapacitor.Capacity = Convert.ToDouble
-                    (textBoxCapacity.Text.DotToComma());
-                },
-                () =>
-                {
-                    newCapacitor.Frequency = Convert.ToDouble
-                    (textBoxFrequency.Text.DotToComma());
+                    newResistor.Resistance =
+                    Convert.ToDouble(resistanceTextBox.Text.DotToComma());
                 }
             };
 
             InputParameters(actions);
 
-            return newCapacitor;
+            return newResistor;
         }
     }
 }

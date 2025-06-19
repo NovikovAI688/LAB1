@@ -12,14 +12,14 @@ using System.Windows.Forms;
 namespace View
 {
     /// <summary>
-    /// Класс CapacitorUserControl.
+    /// Класс InductorCoilUserControl.
     /// </summary>
-    public partial class CapacitorUserControl : ElementBaseUserControl
+    public partial class InductorCoilUserControl : ElementBaseUserControl
     {
         /// <summary>
-        /// CapacitorUserControl конструктор.
+        /// ImpedanceUserControl конструктор.
         /// </summary>
-        public CapacitorUserControl()
+        public InductorCoilUserControl()
         {
             InitializeComponent();
         }
@@ -30,25 +30,25 @@ namespace View
         /// <returns>Элемент.</returns>
         public override PassiveElementBase GetElement()
         {
-            var newCapacitor = new Capacitor();
+            var newInductorCoil = new InductorCoil();
 
             var actions = new List<Action>()
             {
                 () =>
                 {
-                    newCapacitor.Capacity = Convert.ToDouble
-                    (textBoxCapacity.Text.DotToComma());
+                    newInductorCoil.Inductance =
+                    Convert.ToDouble(textBoxInductance.Text.DotToComma());
                 },
                 () =>
                 {
-                    newCapacitor.Frequency = Convert.ToDouble
-                    (textBoxFrequency.Text.DotToComma());
+                    newInductorCoil.Frequency =
+                    Convert.ToDouble(textBoxFrequency.Text.DotToComma());
                 }
             };
 
             InputParameters(actions);
 
-            return newCapacitor;
+            return newInductorCoil;
         }
     }
 }
