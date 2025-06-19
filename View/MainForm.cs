@@ -30,17 +30,17 @@ namespace View
         /// <param name="e">Аргумент.</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var newEnterForm = new AddForm();
+            var newAddForm = new AddForm();
 
-            newEnterForm.Show();
+            newAddForm.Show();
 
-            newEnterForm.ElementEventHandler += (_, args) =>
+            newAddForm.ElementEventHandler += (_, args) =>
             {
                 _elementList.Add(args.PassiveElement);
                 ElementDataGridView.DataSource = _elementList;
             };
 
-            newEnterForm.Closed += (_, _) =>
+            newAddForm.Closed += (_, _) =>
             {
                 buttonAdd.Enabled = true;
             };

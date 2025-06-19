@@ -17,14 +17,14 @@ namespace View
         /// Список отфильтрованных элементов.
         /// </summary>
         public BindingList<PassiveElementBase> ElementListFiltered
-        { get; private set; }
+               { get; private set; }
 
         /// <summary>
         /// Конструктор события.
         /// </summary>
         /// <param name="elementListFiltered">Список отфильтрованых элементов.</param>
         public ElementEventArgsList
-            (BindingList<PassiveElementBase> elementListFiltered)
+               (BindingList<PassiveElementBase> elementListFiltered)
         {
             ElementListFiltered = elementListFiltered;
         }
