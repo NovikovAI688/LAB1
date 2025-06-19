@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class capacitorUserControl1
+    partial class CapacitorUserControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -66,7 +66,7 @@
             textBoxFrequency.Size = new Size(125, 27);
             textBoxFrequency.TabIndex = 3;
             // 
-            // capacitorUserControl1
+            // CapacitorUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -74,7 +74,7 @@
             Controls.Add(textBoxCapacity);
             Controls.Add(Frequency);
             Controls.Add(Capacity);
-            Name = "capacitorUserControl1";
+            Name = "CapacitorUserControl";
             Size = new Size(218, 78);
             ResumeLayout(false);
             PerformLayout();

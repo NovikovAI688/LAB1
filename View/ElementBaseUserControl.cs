@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace View
 {
     /// <summary>
-    /// Class ElementBaseUserControl.
+    /// Класс ElementBaseUserControl.
     /// </summary>
     public abstract partial class ElementBaseUserControl : UserControl
     {

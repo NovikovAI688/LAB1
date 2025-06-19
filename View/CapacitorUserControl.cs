@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,41 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class capacitorUserControl1 : UserControl
+    public partial class CapacitorUserControl : UserControl
     {
-        public capacitorUserControl1()
+        /// <summary>
+        /// CapacitorUserControl instance constructor.
+        /// </summary>
+        public CapacitorUserControl()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Get passive element object.
+        /// </summary>
+        /// <returns>Passive Element.</returns>
+        public override PassiveElementBase GetElement()
+        {
+            var newCapacitor = new Capacitor();
+
+            var actions = new List<Action>()
+            {
+                () =>
+                {
+                    newCapacitor.Capacity = Convert.ToDouble
+                    (textBoxCapacity.Text.DotToComma());
+                },
+                () =>
+                {
+                    newCapacitor.Frequency = Convert.ToDouble
+                    (textBoxFrequency.Text.DotToComma());
+                }
+            };
+
+            InputParameters(actions);
+
+            return newCapacitor;
         }
     }
 }

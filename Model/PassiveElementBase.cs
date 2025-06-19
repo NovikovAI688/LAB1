@@ -111,5 +111,5 @@ namespace Model
             return newComplex;
         }
     }
-    }
+    
 }

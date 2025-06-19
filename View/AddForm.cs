@@ -38,7 +38,7 @@ namespace View
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
                 {elementTypes[0], resistorUserControl1},
-                {elementTypes[1], capacitorUserControl1},
+                {elementTypes[1], CapacitorUserControl},
                 {elementTypes[2], inductorCoilUserControl1},
             };
 
@@ -164,7 +164,7 @@ namespace View
         private void EnterForm_Load(object sender, EventArgs e)
         {
             resistorUserControl1.Visible = false;
-            capacitorUserControl1.Visible = false;
+            CapacitorUserControl.Visible = false;
             inductorCoilUserControl1.Visible = false;
         }
     }
