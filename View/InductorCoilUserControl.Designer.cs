@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Inductance = new Label();
-            Frequency = new Label();
+            label1 = new Label();
+            label2 = new Label();
             textBoxInductance = new TextBox();
             textBoxFrequency = new TextBox();
             SuspendLayout();
             // 
-            // Inductance
+            // label1
             // 
-            Inductance.AutoSize = true;
-            Inductance.Location = new Point(3, 13);
-            Inductance.Name = "Inductance";
-            Inductance.Size = new Size(81, 20);
-            Inductance.TabIndex = 0;
-            Inductance.Text = "Inductance";
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Inductance";
             // 
-            // Frequency
+            // label2
             // 
-            Frequency.AutoSize = true;
-            Frequency.Location = new Point(3, 46);
-            Frequency.Name = "Frequency";
-            Frequency.Size = new Size(76, 20);
-            Frequency.TabIndex = 1;
-            Frequency.Text = "Frequency";
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 46);
+            label2.Name = "label2";
+            label2.Size = new Size(76, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Frequency";
             // 
             // textBoxInductance
             // 
@@ -72,8 +72,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(textBoxFrequency);
             Controls.Add(textBoxInductance);
-            Controls.Add(Frequency);
-            Controls.Add(Inductance);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Name = "InductorCoilUserControl";
             Size = new Size(241, 84);
             ResumeLayout(false);
@@ -82,8 +82,8 @@
 
         #endregion
 
-        private Label Inductance;
-        private Label Frequency;
+        private Label label1;
+        private Label label2;
         private TextBox textBoxInductance;
         private TextBox textBoxFrequency;
     }

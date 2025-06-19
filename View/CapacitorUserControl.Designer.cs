@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Capacity = new Label();
-            Frequency = new Label();
+            label1 = new Label();
+            label2 = new Label();
             textBoxCapacity = new TextBox();
             textBoxFrequency = new TextBox();
             SuspendLayout();
             // 
-            // Capacity
+            // label1
             // 
-            Capacity.AutoSize = true;
-            Capacity.Location = new Point(4, 11);
-            Capacity.Name = "Capacity";
-            Capacity.Size = new Size(66, 20);
-            Capacity.TabIndex = 0;
-            Capacity.Text = "Capacity";
+            label1.AutoSize = true;
+            label1.Location = new Point(4, 11);
+            label1.Name = "label1";
+            label1.Size = new Size(66, 20);
+            label1.TabIndex = 0;
+            label1.Text = "Capacity";
             // 
-            // Frequency
+            // label2
             // 
-            Frequency.AutoSize = true;
-            Frequency.Location = new Point(4, 45);
-            Frequency.Name = "Frequency";
-            Frequency.Size = new Size(76, 20);
-            Frequency.TabIndex = 1;
-            Frequency.Text = "Frequency";
+            label2.AutoSize = true;
+            label2.Location = new Point(4, 45);
+            label2.Name = "label2";
+            label2.Size = new Size(76, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Frequency";
             // 
             // textBoxCapacity
             // 
@@ -72,8 +72,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(textBoxFrequency);
             Controls.Add(textBoxCapacity);
-            Controls.Add(Frequency);
-            Controls.Add(Capacity);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Name = "CapacitorUserControl";
             Size = new Size(218, 78);
             ResumeLayout(false);
@@ -82,8 +82,8 @@
 
         #endregion
 
-        private Label Capacity;
-        private Label Frequency;
+        private Label label1;
+        private Label label2;
         private TextBox textBoxCapacity;
         private TextBox textBoxFrequency;
     }

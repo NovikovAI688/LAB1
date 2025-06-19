@@ -72,9 +72,9 @@ namespace LAB4
             (PassiveElementBase passiveElementBase, int digits)
         {
             double realResistance = Math.Round
-                (passiveElementBase.Impedance.Real, digits);
+                (passiveElementBase.Impedance.real, digits);
             double imaginaryResistance = Math.Round
-                (passiveElementBase.Impedance.Imaginary, digits);
+                (passiveElementBase.Impedance.imaginary, digits);
 
             Console.WriteLine($"Сопротивление = {realResistance}" +
                 $" + ({imaginaryResistance})j Ом");

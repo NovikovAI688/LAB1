@@ -97,6 +97,8 @@ namespace View
         {
             var eventArgs = new ElementEventArgsList(ElementList);
             ElementListFiltered?.Invoke(this, eventArgs);
+
+            Close();
         }
 
         /// <summary>

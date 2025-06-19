@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,6 +31,15 @@ namespace View
         public AddForm()
         {
             InitializeComponent();
+            foreach (var Element in _comboBoxToUserControl)
+            {
+                ElementTypesComboBox.Items.Add(Text);
+                const int paddingHeight = 5;
+                Text.Value.Location = new Point(label1.Location.X,
+                    label1.Location.Y + label1.Height + paddingHeight);
+                Element.Value.Visible = false;
+                Controls.Add(Element.Value);
+            }
 #if DEBUG
             buttonAddRandomElement.Visible = true;
 #endif
@@ -37,9 +47,9 @@ namespace View
             string[] elementTypes = { "Resistor", "Capacitor", "InductorCoil" };
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
-                {elementTypes[0], resistorUserControl1},
-                {elementTypes[1], CapacitorUserControl},
-                {elementTypes[2], inductorCoilUserControl1},
+                {elementTypes[0], new ResistorUserControl()},
+                {elementTypes[1], new CapacitorUserControl()},
+                {elementTypes[2], new InductorCoilUserControl()},
             };
 
             ElementTypesComboBox.Items.AddRange(elementTypes);
@@ -163,9 +173,9 @@ namespace View
         /// <param name="e">Аргумент.</param>
         private void EnterForm_Load(object sender, EventArgs e)
         {
-            resistorUserControl1.Visible = false;
-            CapacitorUserControl.Visible = false;
-            inductorCoilUserControl1.Visible = false;
+            new ResistorUserControl().Visible = false;
+            new CapacitorUserControl().Visible = false;
+            new InductorCoilUserControl().Visible = false;
         }
     }
 }
