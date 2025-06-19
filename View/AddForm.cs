@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,21 +10,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace View
-{
-    /// <summary>
-    /// Dictionary of UserControls.
-    /// </summary>
-    private readonly Dictionary<string,
-        UserControl> _comboBoxToUserControl;
-
-    /// <summary>
-    /// Gets or sets EventHandler _elementEventHandler field's property.
-    /// </summary>
-    public EventHandler<ElementEventArgs> ElementEventHandler;
+{ 
     public partial class AddForm : Form
     {
         /// <summary>
-        /// AddForm.
+        /// Словарь для UserControls.
+        /// </summary>
+        private readonly Dictionary<string,
+            UserControl> _comboBoxToUserControl;
+
+        /// <summary>
+        /// Возвращает или устанавливает свойство поля EventHandler _elementEventHandler.
+        /// </summary>
+        public EventHandler<ElementEventArgs> ElementEventHandler { get; set; }
+
+        /// <summary>
+        /// Форма AddForm.
         /// </summary>
         public AddForm()
         {
@@ -40,14 +42,19 @@ namespace View
                 {elementTypes[2], inductorCoilUserControl1},
             };
 
-            ElementTypesComboBox_SelectedIndexChanged.Items.AddRange(elementTypes);
+            ElementTypesComboBox.Items.AddRange(elementTypes);
 
-            ElementTypesComboBox_SelectedIndexChanged.SelectedIndexChanged +=
+            ElementTypesComboBox.SelectedIndexChanged +=
                 ElementTypesComboBox_SelectedIndexChanged;
 
             buttonOK.Enabled = false;
         }
 
+        /// <summary>
+        /// Добавление нового элемента.
+        /// </summary>
+        /// <param name="sender">ОК.</param>
+        /// <param name="e">Аргумент.</param>
         private void buttonOK_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(ElementTypesComboBox.Text.ToString()))
@@ -91,24 +98,53 @@ namespace View
             }
 
         }
-        }
 
+        /// <summary>
+        /// Закрыть форму.
+        /// </summary>
+        /// <param name="sender">Закрыть кнопка.</param>
+        /// <param name="e">Аргумент.</param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
+        /// <summary>
+        /// Добавление рандомного элемента.
+        /// </summary>
+        /// <param name="sender">Кнопка рандома.</param>
+        /// <param name="e">Аргумент.</param>
         private void buttonAddRandomElement_Click(object sender, EventArgs e)
         {
+            Random random = new Random();
 
+            var elementTypes = new Dictionary<int, PassiveElementType>
+            {
+                {0, PassiveElementType.Resistor },
+                {1, PassiveElementType.Capacitor },
+                {2, PassiveElementType.InductorCoil}
+            };
+
+            var randomType = random.Next(elementTypes.Count);
+            var randomElement =
+                new RandomPassiveElement()
+                .GetRandomParameters(elementTypes[randomType]);
+            var eventArgs = new ElementEventArgs(randomElement);
+            ElementEventHandler?.Invoke(this, eventArgs);
         }
 
-        private void ElementTypesComboBox_SelectedIndexChanged_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Посмотреть содержимое (изменение) комбобокса.
+        /// </summary>
+        /// <param name="sender">Виды элемента.</param>
+        /// <param name="e">Аргумент.</param>
+        private void ElementTypesComboBox_SelectedIndexChanged
+            (object sender, EventArgs e)
         {
             string selectedElement =
                 ElementTypesComboBox.SelectedItem.ToString();
 
-            OKButton.Enabled = true;
+            buttonOK.Enabled = true;
 
             foreach (var (key, value) in _comboBoxToUserControl)
             {
@@ -118,6 +154,18 @@ namespace View
                     value.Visible = true;
                 }
             }
+        }
+
+        /// <summary>
+        /// Загрузка формы.
+        /// </summary>
+        /// <param name="sender">AddForm.</param>
+        /// <param name="e">Аргумент.</param>
+        private void EnterForm_Load(object sender, EventArgs e)
+        {
+            resistorUserControl1.Visible = false;
+            capacitorUserControl1.Visible = false;
+            inductorCoilUserControl1.Visible = false;
         }
     }
 }

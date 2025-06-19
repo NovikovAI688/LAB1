@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             SelectElementGroupBox = new GroupBox();
-            ElementTypesComboBox_SelectedIndexChanged = new ComboBox();
+            ElementTypesComboBox = new ComboBox();
             ParametersGgroupBox = new GroupBox();
             buttonOK = new Button();
             buttonCancel = new Button();
@@ -39,7 +39,7 @@
             // 
             // SelectElementGroupBox
             // 
-            SelectElementGroupBox.Controls.Add(ElementTypesComboBox_SelectedIndexChanged);
+            SelectElementGroupBox.Controls.Add(ElementTypesComboBox);
             SelectElementGroupBox.Location = new Point(18, 16);
             SelectElementGroupBox.Name = "SelectElementGroupBox";
             SelectElementGroupBox.Size = new Size(202, 69);
@@ -47,14 +47,14 @@
             SelectElementGroupBox.TabStop = false;
             SelectElementGroupBox.Text = "Select of elements";
             // 
-            // ElementTypesComboBox_SelectedIndexChanged
+            // ElementTypesComboBox
             // 
-            ElementTypesComboBox_SelectedIndexChanged.FormattingEnabled = true;
-            ElementTypesComboBox_SelectedIndexChanged.Location = new Point(6, 26);
-            ElementTypesComboBox_SelectedIndexChanged.Name = "ElementTypesComboBox_SelectedIndexChanged";
-            ElementTypesComboBox_SelectedIndexChanged.Size = new Size(190, 28);
-            ElementTypesComboBox_SelectedIndexChanged.TabIndex = 1;
-            ElementTypesComboBox_SelectedIndexChanged.SelectedIndexChanged += ElementTypesComboBox_SelectedIndexChanged_SelectedIndexChanged;
+            ElementTypesComboBox.FormattingEnabled = true;
+            ElementTypesComboBox.Location = new Point(6, 26);
+            ElementTypesComboBox.Name = "ElementTypesComboBox";
+            ElementTypesComboBox.Size = new Size(190, 28);
+            ElementTypesComboBox.TabIndex = 1;
+            ElementTypesComboBox.SelectedIndexChanged += ElementTypesComboBox_SelectedIndexChanged;
             // 
             // ParametersGgroupBox
             // 
@@ -114,7 +114,7 @@
         #endregion
 
         private GroupBox SelectElementGroupBox;
-        private ComboBox ElementTypesComboBox_SelectedIndexChanged;
+        private ComboBox ElementTypesComboBox;
         private GroupBox ParametersGgroupBox;
         private Button buttonOK;
         private Button buttonCancel;

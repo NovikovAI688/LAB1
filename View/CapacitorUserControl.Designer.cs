@@ -37,7 +37,7 @@
             // Capacity
             // 
             Capacity.AutoSize = true;
-            Capacity.Location = new Point(4, 17);
+            Capacity.Location = new Point(4, 11);
             Capacity.Name = "Capacity";
             Capacity.Size = new Size(66, 20);
             Capacity.TabIndex = 0;
@@ -46,7 +46,7 @@
             // Frequency
             // 
             Frequency.AutoSize = true;
-            Frequency.Location = new Point(4, 51);
+            Frequency.Location = new Point(4, 45);
             Frequency.Name = "Frequency";
             Frequency.Size = new Size(76, 20);
             Frequency.TabIndex = 1;
@@ -54,14 +54,14 @@
             // 
             // textBoxCapacity
             // 
-            textBoxCapacity.Location = new Point(86, 14);
+            textBoxCapacity.Location = new Point(86, 8);
             textBoxCapacity.Name = "textBoxCapacity";
             textBoxCapacity.Size = new Size(125, 27);
             textBoxCapacity.TabIndex = 2;
             // 
             // textBoxFrequency
             // 
-            textBoxFrequency.Location = new Point(86, 48);
+            textBoxFrequency.Location = new Point(86, 42);
             textBoxFrequency.Name = "textBoxFrequency";
             textBoxFrequency.Size = new Size(125, 27);
             textBoxFrequency.TabIndex = 3;
@@ -75,7 +75,7 @@
             Controls.Add(Frequency);
             Controls.Add(Capacity);
             Name = "capacitorUserControl1";
-            Size = new Size(218, 93);
+            Size = new Size(218, 78);
             ResumeLayout(false);
             PerformLayout();
         }
