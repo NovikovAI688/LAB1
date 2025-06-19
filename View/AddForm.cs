@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class AddElements : Form
+    public partial class AddForm : Form
     {
-        public AddElements()
+        public AddForm()
         {
             InitializeComponent();
         }
