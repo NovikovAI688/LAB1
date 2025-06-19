@@ -18,6 +18,21 @@ namespace Model
         private double _resistance;
 
         /// <summary>
+        /// Вид элемента для DataGridView.
+        /// </summary>
+        public override string PassiveElement => "Resistor";
+
+        /// <summary>
+        /// Параметры для DataGridView.
+        /// </summary>
+        public override string Parameters => $"R = {Resistance} Ом";
+
+        /// <summary>
+        /// Полное сопртивление для DataGridView.
+        /// </summary>
+        public override string Impedance => RoundImpedance(GetImpedance, 3);
+
+        /// <summary>
         /// Значение сопротивления.
         /// </summary>
         public double Resistance
@@ -36,9 +51,16 @@ namespace Model
         }
 
         /// <summary>
+        /// Пустой элемент
+        /// </summary>
+        public Resistor()
+        {
+        }
+
+        /// <summary>
         /// Расчет комплексного сопротивления.
         /// </summary>
-        public override Complex Impedance =>
+        public override Complex GetImpedance =>
             new Complex(Resistance, 0);
 
         /// <summary>

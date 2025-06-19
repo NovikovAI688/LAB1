@@ -23,6 +23,23 @@ namespace Model
         private double _frequency;
 
         /// <summary>
+        /// Виды элементов для DataGridView.
+        /// </summary>
+        public override string PassiveElement => "Capacitor";
+
+        /// <summary>
+        /// Параметры для DataGridView.
+        /// </summary>
+        public override string Parameters =>
+            $"C = {Capacity} Ф, " +
+            $"f = {Frequency} Гц";
+
+        /// <summary>
+        /// Полное сопротивление для DataGridView.
+        /// </summary>
+        public override string Impedance => RoundImpedance(GetImpedance, 3);
+
+        /// <summary>
         /// Значение емкости.
         /// </summary>
         public double Capacity
@@ -59,7 +76,7 @@ namespace Model
         /// <summary>
         /// Расчет комплексного сопротивления.
         /// </summary>
-        public override Complex Impedance =>
+        public override Complex GetImpedance =>
             new Complex(0, (1 / (2 * Math.PI * Frequency * Capacity)));
 
         /// <summary>
