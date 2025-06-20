@@ -25,7 +25,7 @@ namespace View
         }
 
         /// <summary>
-        /// Элемент.
+        /// Элемент резистор.
         /// </summary>
         /// <returns>Элемент.</returns>
         public override PassiveElementBase GetElement()

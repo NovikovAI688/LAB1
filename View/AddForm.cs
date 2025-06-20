@@ -31,15 +31,6 @@ namespace View
         public AddForm()
         {
             InitializeComponent();
-            foreach (var Element in _comboBoxToUserControl)
-            {
-                ElementTypesComboBox.Items.Add(Text);
-                const int paddingHeight = 5;
-                Text.Value.Location = new Point(label1.Location.X,
-                    label1.Location.Y + label1.Height + paddingHeight);
-                Element.Value.Visible = false;
-                Controls.Add(Element.Value);
-            }
 #if DEBUG
             buttonAddRandomElement.Visible = true;
 #endif
@@ -51,6 +42,16 @@ namespace View
                 {elementTypes[1], new CapacitorUserControl()},
                 {elementTypes[2], new InductorCoilUserControl()},
             };
+
+            foreach (var Element in _comboBoxToUserControl)
+            {
+                ElementTypesComboBox.Items.Add(Element);
+                const int paddingHeight = 1;
+                Element.Value.Location = new Point(ParametersGgroupBox.Location.X,
+                   ParametersGgroupBox.Location.Y + ParametersGgroupBox.Height + paddingHeight);
+                Element.Value.Visible = false;
+                Controls.Add(Element.Value);
+            }
 
             ElementTypesComboBox.Items.AddRange(elementTypes);
 

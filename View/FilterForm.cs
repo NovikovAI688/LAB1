@@ -31,8 +31,7 @@ namespace View
         /// <summary>
         /// Возвращает или устанавливает свойство поля EventHandler _elementListFiltered.
         /// </summary>
-        public EventHandler<ElementEventArgsList> ElementListFiltered
-        { get; set; }
+        public EventHandler<ElementEventArgsList> ElementListFiltered { get; set; }
 
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.

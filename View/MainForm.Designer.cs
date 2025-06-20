@@ -50,18 +50,21 @@
             groupBox1.Controls.Add(buttonRemove);
             groupBox1.Controls.Add(buttonAdd);
             groupBox1.Controls.Add(ElementDataGridView);
-            groupBox1.Location = new Point(12, 31);
+            groupBox1.Location = new Point(12, 23);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(441, 282);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(512, 212);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Element List";
             // 
             // buttonFilter
             // 
-            buttonFilter.Location = new Point(324, 241);
+            buttonFilter.Location = new Point(424, 181);
+            buttonFilter.Margin = new Padding(3, 2, 3, 2);
             buttonFilter.Name = "buttonFilter";
-            buttonFilter.Size = new Size(94, 29);
+            buttonFilter.Size = new Size(82, 22);
             buttonFilter.TabIndex = 7;
             buttonFilter.Text = "Filter";
             buttonFilter.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@
             // 
             // buttonClear
             // 
-            buttonClear.Location = new Point(224, 241);
+            buttonClear.Location = new Point(336, 181);
+            buttonClear.Margin = new Padding(3, 2, 3, 2);
             buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(94, 29);
+            buttonClear.Size = new Size(82, 22);
             buttonClear.TabIndex = 6;
             buttonClear.Text = "Clear";
             buttonClear.UseVisualStyleBackColor = true;
@@ -79,10 +83,9 @@
             // 
             // buttonRemove
             // 
-            buttonRemove.Location = new Point(124, 241);
-            buttonRemove.Margin = new Padding(3, 4, 3, 4);
+            buttonRemove.Location = new Point(94, 181);
             buttonRemove.Name = "buttonRemove";
-            buttonRemove.Size = new Size(94, 29);
+            buttonRemove.Size = new Size(82, 22);
             buttonRemove.TabIndex = 5;
             buttonRemove.Text = "Remove";
             buttonRemove.UseVisualStyleBackColor = true;
@@ -90,9 +93,10 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(24, 241);
+            buttonAdd.Location = new Point(6, 181);
+            buttonAdd.Margin = new Padding(3, 2, 3, 2);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(94, 29);
+            buttonAdd.Size = new Size(82, 22);
             buttonAdd.TabIndex = 3;
             buttonAdd.Text = "Add";
             buttonAdd.UseVisualStyleBackColor = true;
@@ -101,11 +105,10 @@
             // ElementDataGridView
             // 
             ElementDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ElementDataGridView.Location = new Point(24, 28);
-            ElementDataGridView.Margin = new Padding(3, 4, 3, 4);
+            ElementDataGridView.Location = new Point(6, 21);
             ElementDataGridView.Name = "ElementDataGridView";
             ElementDataGridView.RowHeadersWidth = 51;
-            ElementDataGridView.Size = new Size(394, 200);
+            ElementDataGridView.Size = new Size(500, 150);
             ElementDataGridView.TabIndex = 4;
             // 
             // menuStrip1
@@ -114,7 +117,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(473, 28);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(536, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -122,32 +126,31 @@
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(224, 26);
+            openToolStripMenuItem.Size = new Size(103, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(224, 26);
+            saveToolStripMenuItem.Size = new Size(103, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(473, 326);
+            ClientSize = new Size(536, 244);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             Text = "Calculator impedance";
             groupBox1.ResumeLayout(false);

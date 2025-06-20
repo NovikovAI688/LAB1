@@ -30,7 +30,6 @@
         {
             SelectElementGroupBox = new GroupBox();
             ElementTypesComboBox = new ComboBox();
-            ParametersGgroupBox = new GroupBox();
             buttonOK = new Button();
             buttonCancel = new Button();
             buttonAddRandomElement = new Button();
@@ -40,9 +39,11 @@
             // SelectElementGroupBox
             // 
             SelectElementGroupBox.Controls.Add(ElementTypesComboBox);
-            SelectElementGroupBox.Location = new Point(18, 16);
+            SelectElementGroupBox.Location = new Point(16, 12);
+            SelectElementGroupBox.Margin = new Padding(3, 2, 3, 2);
             SelectElementGroupBox.Name = "SelectElementGroupBox";
-            SelectElementGroupBox.Size = new Size(202, 69);
+            SelectElementGroupBox.Padding = new Padding(3, 2, 3, 2);
+            SelectElementGroupBox.Size = new Size(177, 52);
             SelectElementGroupBox.TabIndex = 0;
             SelectElementGroupBox.TabStop = false;
             SelectElementGroupBox.Text = "Select of elements";
@@ -50,26 +51,19 @@
             // ElementTypesComboBox
             // 
             ElementTypesComboBox.FormattingEnabled = true;
-            ElementTypesComboBox.Location = new Point(6, 26);
+            ElementTypesComboBox.Location = new Point(5, 20);
+            ElementTypesComboBox.Margin = new Padding(3, 2, 3, 2);
             ElementTypesComboBox.Name = "ElementTypesComboBox";
-            ElementTypesComboBox.Size = new Size(190, 28);
+            ElementTypesComboBox.Size = new Size(167, 23);
             ElementTypesComboBox.TabIndex = 1;
             ElementTypesComboBox.SelectedIndexChanged += ElementTypesComboBox_SelectedIndexChanged;
             // 
-            // ParametersGgroupBox
-            // 
-            ParametersGgroupBox.Location = new Point(18, 100);
-            ParametersGgroupBox.Name = "ParametersGgroupBox";
-            ParametersGgroupBox.Size = new Size(202, 125);
-            ParametersGgroupBox.TabIndex = 1;
-            ParametersGgroupBox.TabStop = false;
-            ParametersGgroupBox.Text = "Parameters";
-            // 
             // buttonOK
             // 
-            buttonOK.Location = new Point(18, 231);
+            buttonOK.Location = new Point(16, 173);
+            buttonOK.Margin = new Padding(3, 2, 3, 2);
             buttonOK.Name = "buttonOK";
-            buttonOK.Size = new Size(94, 29);
+            buttonOK.Size = new Size(82, 22);
             buttonOK.TabIndex = 2;
             buttonOK.Text = "OK";
             buttonOK.UseVisualStyleBackColor = true;
@@ -77,9 +71,10 @@
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(126, 231);
+            buttonCancel.Location = new Point(110, 173);
+            buttonCancel.Margin = new Padding(3, 2, 3, 2);
             buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(94, 29);
+            buttonCancel.Size = new Size(82, 22);
             buttonCancel.TabIndex = 3;
             buttonCancel.Text = "Cancel";
             buttonCancel.UseVisualStyleBackColor = true;
@@ -87,9 +82,10 @@
             // 
             // buttonAddRandomElement
             // 
-            buttonAddRandomElement.Location = new Point(18, 266);
+            buttonAddRandomElement.Location = new Point(16, 200);
+            buttonAddRandomElement.Margin = new Padding(3, 2, 3, 2);
             buttonAddRandomElement.Name = "buttonAddRandomElement";
-            buttonAddRandomElement.Size = new Size(202, 29);
+            buttonAddRandomElement.Size = new Size(177, 22);
             buttonAddRandomElement.TabIndex = 4;
             buttonAddRandomElement.Text = "Add Random Element";
             buttonAddRandomElement.UseVisualStyleBackColor = true;
@@ -97,14 +93,14 @@
             // 
             // AddForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(240, 316);
+            ClientSize = new Size(210, 237);
             Controls.Add(buttonAddRandomElement);
             Controls.Add(buttonCancel);
             Controls.Add(buttonOK);
-            Controls.Add(ParametersGgroupBox);
             Controls.Add(SelectElementGroupBox);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AddForm";
             Text = "AddElements";
             SelectElementGroupBox.ResumeLayout(false);
@@ -115,7 +111,6 @@
 
         private GroupBox SelectElementGroupBox;
         private ComboBox ElementTypesComboBox;
-        private GroupBox ParametersGgroupBox;
         private Button buttonOK;
         private Button buttonCancel;
         private Button buttonAddRandomElement;
