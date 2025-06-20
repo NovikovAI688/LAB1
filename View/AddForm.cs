@@ -45,7 +45,6 @@ namespace View
 
             foreach (var Element in _comboBoxToUserControl)
             {
-                ElementTypesComboBox.Items.Add(Element);
                 const int paddingHeight = 0;
                 Element.Value.Location = new Point(label1.Location.X,
                    label1.Location.Y + label1.Height + paddingHeight);
