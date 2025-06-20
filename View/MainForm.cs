@@ -4,7 +4,10 @@ using System.Xml.Serialization;
 
 namespace View
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Класс MainForm.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -17,7 +20,10 @@ namespace View
         /// </summary>
         private BindingList<PassiveElementBase> _filteredList = new BindingList<PassiveElementBase>();
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Класс MainForm.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -26,13 +32,13 @@ namespace View
             ElementDataGridView.DataSource = source;
         }
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Нажатие на кнопку "добавление" элемемента в список.
         /// </summary>
         /// <param name="sender">Кнопка добавить.</param>
         /// <param name="e">Аргумент.</param>
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             var newAddForm = new AddForm();
 
@@ -46,14 +52,19 @@ namespace View
 
             newAddForm.Closed += (_, _) =>
             {
-                buttonAdd.Enabled = true;
+                ButtonAdd.Enabled = true;
             };
 
-            buttonAdd.Enabled = false;
+            ButtonAdd.Enabled = false;
         }
 
-        //TODO: RSDN
-        private void buttonRemove_Click(object sender, EventArgs e)
+        //TODO: RSDN +
+        /// <summary>
+        /// Нажатие на кнопку "удаление" элемемента в списоке.
+        /// </summary>
+        /// <param name="sender">Кнопка удалить.</param>
+        /// <param name="e">Аргумент.</param>
+        private void ButtonRemove_Click(object sender, EventArgs e)
         {
             if (ElementDataGridView.SelectedCells.Count != 0)
             {
@@ -69,15 +80,25 @@ namespace View
             }
         }
 
-        //TODO: RSDN
-        private void buttonClear_Click(object sender, EventArgs e)
+        //TODO: RSDN +
+        /// <summary>
+        /// Нажатие на кнопку "очистить" список.
+        /// </summary>
+        /// <param name="sender">Кнопка очистить.</param>
+        /// <param name="e">Аргумент.</param>
+        private void ButtonClear_Click(object sender, EventArgs e)
         {
             _elementList.Clear();
             _filteredList.Clear();
         }
 
-        //TODO: RSDN
-        private void buttonFilter_Click(object sender, EventArgs e)
+        //TODO: RSDN +
+        /// <summary>
+        /// Нажатие на кнопку "фильтр" списока.
+        /// </summary>
+        /// <param name="sender">Кнопка фильтр.</param>
+        /// <param name="e">Аргумент.</param>
+        private void ButtonFilter_Click(object sender, EventArgs e)
         {
             var newFilterForm = new FilterForm();
 
@@ -93,14 +114,19 @@ namespace View
 
             newFilterForm.Closed += (_, _) =>
             {
-                buttonFilter.Enabled = true;
+                ButtonFilter.Enabled = true;
             };
 
-            buttonFilter.Enabled = false;
+            ButtonFilter.Enabled = false;
         }
 
-        //TODO: RSDN
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        //TODO: RSDN +
+        /// <summary>
+        /// Нажатие на кнопку "Open".
+        /// </summary>
+        /// <param name="sender">Кнопка Open.</param>
+        /// <param name="e">Аргумент.</param>
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fileBrowser = new OpenFileDialog
             {
@@ -137,8 +163,13 @@ namespace View
             }
         }
 
-        //TODO: RSDN
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        //TODO: RSDN +
+        /// <summary>
+        /// Нажатие на кнопку "Save".
+        /// </summary>
+        /// <param name="sender">Кнопка Save.</param>
+        /// <param name="e">Аргумент.</param>
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fileBrowser = new SaveFileDialog
             {

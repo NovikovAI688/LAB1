@@ -30,9 +30,9 @@
         {
             SelectElementGroupBox = new GroupBox();
             ElementTypesComboBox = new ComboBox();
-            buttonOK = new Button();
-            buttonCancel = new Button();
-            buttonAddRandomElement = new Button();
+            ButtonOK = new Button();
+            ButtonCancel = new Button();
+            ButtonAddRandomElement = new Button();
             label1 = new Label();
             SelectElementGroupBox.SuspendLayout();
             SuspendLayout();
@@ -60,38 +60,38 @@
             ElementTypesComboBox.TabIndex = 1;
             ElementTypesComboBox.SelectedIndexChanged += ElementTypesComboBox_SelectedIndexChanged;
             // 
-            // buttonOK
+            // ButtonOK
             // 
-            buttonOK.Location = new Point(16, 173);
-            buttonOK.Margin = new Padding(3, 2, 3, 2);
-            buttonOK.Name = "buttonOK";
-            buttonOK.Size = new Size(82, 22);
-            buttonOK.TabIndex = 2;
-            buttonOK.Text = "OK";
-            buttonOK.UseVisualStyleBackColor = true;
-            buttonOK.Click += buttonOK_Click;
+            ButtonOK.Location = new Point(16, 173);
+            ButtonOK.Margin = new Padding(3, 2, 3, 2);
+            ButtonOK.Name = "ButtonOK";
+            ButtonOK.Size = new Size(82, 22);
+            ButtonOK.TabIndex = 2;
+            ButtonOK.Text = "OK";
+            ButtonOK.UseVisualStyleBackColor = true;
+            ButtonOK.Click += ButtonOK_Click;
             // 
-            // buttonCancel
+            // ButtonCancel
             // 
-            buttonCancel.Location = new Point(120, 174);
-            buttonCancel.Margin = new Padding(3, 2, 3, 2);
-            buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(82, 22);
-            buttonCancel.TabIndex = 3;
-            buttonCancel.Text = "Cancel";
-            buttonCancel.UseVisualStyleBackColor = true;
-            buttonCancel.Click += buttonCancel_Click;
+            ButtonCancel.Location = new Point(120, 174);
+            ButtonCancel.Margin = new Padding(3, 2, 3, 2);
+            ButtonCancel.Name = "ButtonCancel";
+            ButtonCancel.Size = new Size(82, 22);
+            ButtonCancel.TabIndex = 3;
+            ButtonCancel.Text = "Cancel";
+            ButtonCancel.UseVisualStyleBackColor = true;
+            ButtonCancel.Click += ButtonCancel_Click;
             // 
-            // buttonAddRandomElement
+            // ButtonAddRandomElement
             // 
-            buttonAddRandomElement.Location = new Point(16, 200);
-            buttonAddRandomElement.Margin = new Padding(3, 2, 3, 2);
-            buttonAddRandomElement.Name = "buttonAddRandomElement";
-            buttonAddRandomElement.Size = new Size(186, 22);
-            buttonAddRandomElement.TabIndex = 4;
-            buttonAddRandomElement.Text = "Add Random Element";
-            buttonAddRandomElement.UseVisualStyleBackColor = true;
-            buttonAddRandomElement.Click += buttonAddRandomElement_Click;
+            ButtonAddRandomElement.Location = new Point(16, 200);
+            ButtonAddRandomElement.Margin = new Padding(3, 2, 3, 2);
+            ButtonAddRandomElement.Name = "ButtonAddRandomElement";
+            ButtonAddRandomElement.Size = new Size(186, 22);
+            ButtonAddRandomElement.TabIndex = 4;
+            ButtonAddRandomElement.Text = "Add Random Element";
+            ButtonAddRandomElement.UseVisualStyleBackColor = true;
+            ButtonAddRandomElement.Click += ButtonAddRandomElement_Click;
             // 
             // label1
             // 
@@ -108,9 +108,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(232, 237);
             Controls.Add(label1);
-            Controls.Add(buttonAddRandomElement);
-            Controls.Add(buttonCancel);
-            Controls.Add(buttonOK);
+            Controls.Add(ButtonAddRandomElement);
+            Controls.Add(ButtonCancel);
+            Controls.Add(ButtonOK);
             Controls.Add(SelectElementGroupBox);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
@@ -126,9 +126,9 @@
 
         private GroupBox SelectElementGroupBox;
         private ComboBox ElementTypesComboBox;
-        private Button buttonOK;
-        private Button buttonCancel;
-        private Button buttonAddRandomElement;
+        private Button ButtonOK;
+        private Button ButtonCancel;
+        private Button ButtonAddRandomElement;
         private Label label1;
     }
 }

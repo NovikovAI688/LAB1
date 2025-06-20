@@ -11,7 +11,10 @@ using System.Windows.Forms;
 
 namespace View
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Класс FilterForm.
+    /// </summary>
     public partial class FilterForm : Form
     {
         /// <summary>
@@ -34,11 +37,11 @@ namespace View
         /// </summary>
         public EventHandler<ElementEventArgsList> ElementListFiltered { get; set; }
 
-        //TODO: encapsulation
+        //TODO: encapsulation +
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>
-        public BindingList<PassiveElementBase> ElementList { get; set; }
+        protected BindingList<PassiveElementBase> ElementList { get; set; }
 
         /// <summary>
         /// Конструктор фильтра.

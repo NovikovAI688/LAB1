@@ -11,8 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace View
-{ 
-    //TODO: XML
+{
+    //TODO: XML +
+    /// <summary>
+    /// Класс AddForm.
+    /// </summary>
     public partial class AddForm : Form
     {
         /// <summary>
@@ -33,7 +36,7 @@ namespace View
         {
             InitializeComponent();
 #if DEBUG
-            buttonAddRandomElement.Visible = true;
+            ButtonAddRandomElement.Visible = true;
 #endif
 
             string[] elementTypes = { "Resistor", "Capacitor", "InductorCoil" };
@@ -58,16 +61,16 @@ namespace View
             ElementTypesComboBox.SelectedIndexChanged +=
                 ElementTypesComboBox_SelectedIndexChanged;
 
-            buttonOK.Enabled = false;
+            ButtonOK.Enabled = false;
         }
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Добавление нового элемента.
         /// </summary>
         /// <param name="sender">ОК.</param>
         /// <param name="e">Аргумент.</param>
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void ButtonOK_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(ElementTypesComboBox.Text.ToString()))
             {
@@ -108,24 +111,24 @@ namespace View
 
         }
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Закрыть форму.
         /// </summary>
         /// <param name="sender">Закрыть кнопка.</param>
         /// <param name="e">Аргумент.</param>
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Добавление рандомного элемента.
         /// </summary>
         /// <param name="sender">Кнопка рандома.</param>
         /// <param name="e">Аргумент.</param>
-        private void buttonAddRandomElement_Click(object sender, EventArgs e)
+        private void ButtonAddRandomElement_Click(object sender, EventArgs e)
         {
             Random random = new Random();
 
@@ -155,7 +158,7 @@ namespace View
             string selectedElement =
                 ElementTypesComboBox.SelectedItem.ToString();
 
-            buttonOK.Enabled = true;
+            ButtonOK.Enabled = true;
 
             foreach (var (key, value) in _comboBoxToUserControl)
             {
@@ -165,19 +168,6 @@ namespace View
                     value.Visible = true;
                 }
             }
-        }
-
-        /// <summary>
-        /// Загрузка формы.
-        /// </summary>
-        /// <param name="sender">AddForm.</param>
-        /// <param name="e">Аргумент.</param>
-        private void EnterForm_Load(object sender, EventArgs e)
-        {
-            //TODO: remove
-            new ResistorUserControl().Visible = false;
-            new CapacitorUserControl().Visible = false;
-            new InductorCoilUserControl().Visible = false;
         }
     }
 }

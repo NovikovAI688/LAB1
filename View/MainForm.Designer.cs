@@ -30,13 +30,13 @@
         {
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            openToolStripMenuItem = new ToolStripMenuItem();
-            saveToolStripMenuItem = new ToolStripMenuItem();
+            OpenToolStripMenuItem = new ToolStripMenuItem();
+            SaveToolStripMenuItem = new ToolStripMenuItem();
             ElementDataGridView = new DataGridView();
-            buttonAdd = new Button();
-            buttonRemove = new Button();
-            buttonClear = new Button();
-            buttonFilter = new Button();
+            ButtonAdd = new Button();
+            ButtonRemove = new Button();
+            ButtonClear = new Button();
+            ButtonFilter = new Button();
             groupBox1 = new GroupBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ElementDataGridView).BeginInit();
@@ -56,24 +56,24 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { OpenToolStripMenuItem, SaveToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
             // 
-            // openToolStripMenuItem
+            // OpenToolStripMenuItem
             // 
-            openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(103, 22);
-            openToolStripMenuItem.Text = "Open";
-            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
+            OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
+            OpenToolStripMenuItem.Size = new Size(180, 22);
+            OpenToolStripMenuItem.Text = "Open";
+            OpenToolStripMenuItem.Click += OpenToolStripMenuItem_Click;
             // 
-            // saveToolStripMenuItem
+            // SaveToolStripMenuItem
             // 
-            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(103, 22);
-            saveToolStripMenuItem.Text = "Save";
-            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
+            SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            SaveToolStripMenuItem.Size = new Size(180, 22);
+            SaveToolStripMenuItem.Text = "Save";
+            SaveToolStripMenuItem.Click += SaveToolStripMenuItem_Click;
             // 
             // ElementDataGridView
             // 
@@ -86,56 +86,56 @@
             ElementDataGridView.Size = new Size(905, 150);
             ElementDataGridView.TabIndex = 4;
             // 
-            // buttonAdd
+            // ButtonAdd
             // 
-            buttonAdd.Location = new Point(6, 176);
-            buttonAdd.Margin = new Padding(3, 2, 3, 2);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(82, 22);
-            buttonAdd.TabIndex = 3;
-            buttonAdd.Text = "Add";
-            buttonAdd.UseVisualStyleBackColor = true;
-            buttonAdd.Click += buttonAdd_Click;
+            ButtonAdd.Location = new Point(6, 176);
+            ButtonAdd.Margin = new Padding(3, 2, 3, 2);
+            ButtonAdd.Name = "ButtonAdd";
+            ButtonAdd.Size = new Size(82, 22);
+            ButtonAdd.TabIndex = 3;
+            ButtonAdd.Text = "Add";
+            ButtonAdd.UseVisualStyleBackColor = true;
+            ButtonAdd.Click += ButtonAdd_Click;
             // 
-            // buttonRemove
+            // ButtonRemove
             // 
-            buttonRemove.Location = new Point(94, 176);
-            buttonRemove.Name = "buttonRemove";
-            buttonRemove.Size = new Size(82, 22);
-            buttonRemove.TabIndex = 5;
-            buttonRemove.Text = "Remove";
-            buttonRemove.UseVisualStyleBackColor = true;
-            buttonRemove.Click += buttonRemove_Click;
+            ButtonRemove.Location = new Point(94, 176);
+            ButtonRemove.Name = "ButtonRemove";
+            ButtonRemove.Size = new Size(82, 22);
+            ButtonRemove.TabIndex = 5;
+            ButtonRemove.Text = "Remove";
+            ButtonRemove.UseVisualStyleBackColor = true;
+            ButtonRemove.Click += ButtonRemove_Click;
             // 
-            // buttonClear
+            // ButtonClear
             // 
-            buttonClear.Location = new Point(741, 176);
-            buttonClear.Margin = new Padding(3, 2, 3, 2);
-            buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(82, 22);
-            buttonClear.TabIndex = 6;
-            buttonClear.Text = "Clear";
-            buttonClear.UseVisualStyleBackColor = true;
-            buttonClear.Click += buttonClear_Click;
+            ButtonClear.Location = new Point(741, 176);
+            ButtonClear.Margin = new Padding(3, 2, 3, 2);
+            ButtonClear.Name = "ButtonClear";
+            ButtonClear.Size = new Size(82, 22);
+            ButtonClear.TabIndex = 6;
+            ButtonClear.Text = "Clear";
+            ButtonClear.UseVisualStyleBackColor = true;
+            ButtonClear.Click += ButtonClear_Click;
             // 
-            // buttonFilter
+            // ButtonFilter
             // 
-            buttonFilter.Location = new Point(829, 176);
-            buttonFilter.Margin = new Padding(3, 2, 3, 2);
-            buttonFilter.Name = "buttonFilter";
-            buttonFilter.Size = new Size(82, 22);
-            buttonFilter.TabIndex = 7;
-            buttonFilter.Text = "Filter";
-            buttonFilter.UseVisualStyleBackColor = true;
-            buttonFilter.Click += buttonFilter_Click;
+            ButtonFilter.Location = new Point(829, 176);
+            ButtonFilter.Margin = new Padding(3, 2, 3, 2);
+            ButtonFilter.Name = "ButtonFilter";
+            ButtonFilter.Size = new Size(82, 22);
+            ButtonFilter.TabIndex = 7;
+            ButtonFilter.Text = "Filter";
+            ButtonFilter.UseVisualStyleBackColor = true;
+            ButtonFilter.Click += ButtonFilter_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(buttonFilter);
+            groupBox1.Controls.Add(ButtonFilter);
             groupBox1.Controls.Add(ElementDataGridView);
-            groupBox1.Controls.Add(buttonAdd);
-            groupBox1.Controls.Add(buttonClear);
-            groupBox1.Controls.Add(buttonRemove);
+            groupBox1.Controls.Add(ButtonAdd);
+            groupBox1.Controls.Add(ButtonClear);
+            groupBox1.Controls.Add(ButtonRemove);
             groupBox1.Location = new Point(12, 23);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
@@ -168,13 +168,13 @@
         #endregion
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
-        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem OpenToolStripMenuItem;
+        private ToolStripMenuItem SaveToolStripMenuItem;
         private DataGridView ElementDataGridView;
-        private Button buttonAdd;
-        private Button buttonRemove;
-        private Button buttonClear;
-        private Button buttonFilter;
+        private Button ButtonAdd;
+        private Button ButtonRemove;
+        private Button ButtonClear;
+        private Button ButtonFilter;
         private GroupBox groupBox1;
     }
 }
