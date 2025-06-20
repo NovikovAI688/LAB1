@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace View
 {
+    //TODO: XML
     public partial class FilterForm : Form
     {
         /// <summary>
@@ -33,6 +34,7 @@ namespace View
         /// </summary>
         public EventHandler<ElementEventArgsList> ElementListFiltered { get; set; }
 
+        //TODO: encapsulation
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>

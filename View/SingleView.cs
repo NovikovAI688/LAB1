@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace View
 {
+    //TODO: XML
     public static class SingleView
     {
         /// <summary>

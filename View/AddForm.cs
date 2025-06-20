@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace View
 { 
+    //TODO: XML
     public partial class AddForm : Form
     {
         /// <summary>
@@ -60,6 +61,7 @@ namespace View
             buttonOK.Enabled = false;
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Добавление нового элемента.
         /// </summary>
@@ -89,12 +91,9 @@ namespace View
                 }
                 catch (Exception exception)
                 {
-                    if (exception.GetType() == typeof
-                        (ArgumentOutOfRangeException) ||
-                        exception.GetType() == typeof
-                        (FormatException) ||
-                        exception.GetType() == typeof
-                        (ArgumentException))
+                    if (exception.GetType() == typeof(ArgumentOutOfRangeException) 
+                        || exception.GetType() == typeof(FormatException) 
+                        || exception.GetType() == typeof(ArgumentException))
                     {
                         _ = MessageBox.Show
                             ($"Неверно введены параметры.\n" +
@@ -109,6 +108,7 @@ namespace View
 
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Закрыть форму.
         /// </summary>
@@ -119,6 +119,7 @@ namespace View
             Close();
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Добавление рандомного элемента.
         /// </summary>
@@ -173,6 +174,7 @@ namespace View
         /// <param name="e">Аргумент.</param>
         private void EnterForm_Load(object sender, EventArgs e)
         {
+            //TODO: remove
             new ResistorUserControl().Visible = false;
             new CapacitorUserControl().Visible = false;
             new InductorCoilUserControl().Visible = false;

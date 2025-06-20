@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 
 namespace View
 {
+    //TODO: XML
     public partial class MainForm : Form
     {
         /// <summary>
@@ -15,6 +16,8 @@ namespace View
         /// Отфильтрованный список элементов.
         /// </summary>
         private BindingList<PassiveElementBase> _filteredList = new BindingList<PassiveElementBase>();
+
+        //TODO: XML
         public MainForm()
         {
             InitializeComponent();
@@ -23,6 +26,7 @@ namespace View
             ElementDataGridView.DataSource = source;
         }
 
+        //TODO: RSDN
         /// <summary>
         /// Нажатие на кнопку "добавление" элемемента в список.
         /// </summary>
@@ -48,6 +52,7 @@ namespace View
             buttonAdd.Enabled = false;
         }
 
+        //TODO: RSDN
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             if (ElementDataGridView.SelectedCells.Count != 0)
@@ -64,12 +69,14 @@ namespace View
             }
         }
 
+        //TODO: RSDN
         private void buttonClear_Click(object sender, EventArgs e)
         {
             _elementList.Clear();
             _filteredList.Clear();
         }
 
+        //TODO: RSDN
         private void buttonFilter_Click(object sender, EventArgs e)
         {
             var newFilterForm = new FilterForm();
@@ -92,6 +99,7 @@ namespace View
             buttonFilter.Enabled = false;
         }
 
+        //TODO: RSDN
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fileBrowser = new OpenFileDialog
@@ -122,12 +130,14 @@ namespace View
             }
             catch (Exception)
             {
+                //TODO: Добавить сообщение о внутреннем исключении
                 _ = MessageBox.Show("Файл не может быть открыт.\n",
                     "Файл поврежден или имеет неверный формат.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //TODO: RSDN
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fileBrowser = new SaveFileDialog

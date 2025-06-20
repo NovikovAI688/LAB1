@@ -22,6 +22,7 @@ namespace View
         /// <returns>Элемент.</returns>
         public abstract PassiveElementBase GetElement();
 
+        //TODO: encapsulation
         /// <summary>
         /// Параметры для ввода.
         /// </summary>
