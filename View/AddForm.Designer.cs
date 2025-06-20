@@ -33,6 +33,7 @@
             buttonOK = new Button();
             buttonCancel = new Button();
             buttonAddRandomElement = new Button();
+            label1 = new Label();
             SelectElementGroupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,15 +44,16 @@
             SelectElementGroupBox.Margin = new Padding(3, 2, 3, 2);
             SelectElementGroupBox.Name = "SelectElementGroupBox";
             SelectElementGroupBox.Padding = new Padding(3, 2, 3, 2);
-            SelectElementGroupBox.Size = new Size(177, 52);
+            SelectElementGroupBox.Size = new Size(186, 52);
             SelectElementGroupBox.TabIndex = 0;
             SelectElementGroupBox.TabStop = false;
             SelectElementGroupBox.Text = "Select of elements";
             // 
             // ElementTypesComboBox
             // 
+            ElementTypesComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             ElementTypesComboBox.FormattingEnabled = true;
-            ElementTypesComboBox.Location = new Point(5, 20);
+            ElementTypesComboBox.Location = new Point(11, 20);
             ElementTypesComboBox.Margin = new Padding(3, 2, 3, 2);
             ElementTypesComboBox.Name = "ElementTypesComboBox";
             ElementTypesComboBox.Size = new Size(167, 23);
@@ -71,7 +73,7 @@
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(110, 173);
+            buttonCancel.Location = new Point(120, 174);
             buttonCancel.Margin = new Padding(3, 2, 3, 2);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(82, 22);
@@ -85,26 +87,39 @@
             buttonAddRandomElement.Location = new Point(16, 200);
             buttonAddRandomElement.Margin = new Padding(3, 2, 3, 2);
             buttonAddRandomElement.Name = "buttonAddRandomElement";
-            buttonAddRandomElement.Size = new Size(177, 22);
+            buttonAddRandomElement.Size = new Size(186, 22);
             buttonAddRandomElement.TabIndex = 4;
             buttonAddRandomElement.Text = "Add Random Element";
             buttonAddRandomElement.UseVisualStyleBackColor = true;
             buttonAddRandomElement.Click += buttonAddRandomElement_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(21, 66);
+            label1.Name = "label1";
+            label1.Size = new Size(60, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Parametrs";
+            // 
             // AddForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(210, 237);
+            ClientSize = new Size(232, 237);
+            Controls.Add(label1);
             Controls.Add(buttonAddRandomElement);
             Controls.Add(buttonCancel);
             Controls.Add(buttonOK);
             Controls.Add(SelectElementGroupBox);
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AddForm";
             Text = "AddElements";
             SelectElementGroupBox.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -114,5 +129,6 @@
         private Button buttonOK;
         private Button buttonCancel;
         private Button buttonAddRandomElement;
+        private Label label1;
     }
 }

@@ -35,27 +35,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 9);
+            label1.Location = new Point(0, 7);
             label1.Name = "label1";
-            label1.Size = new Size(78, 20);
+            label1.Size = new Size(62, 15);
             label1.TabIndex = 0;
             label1.Text = "Resistance";
             // 
             // resistanceTextBox
             // 
-            resistanceTextBox.Location = new Point(87, 6);
+            resistanceTextBox.Location = new Point(68, 4);
+            resistanceTextBox.Margin = new Padding(3, 2, 3, 2);
             resistanceTextBox.Name = "resistanceTextBox";
-            resistanceTextBox.Size = new Size(125, 27);
+            resistanceTextBox.Size = new Size(110, 23);
             resistanceTextBox.TabIndex = 1;
             // 
             // ResistorUserControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(resistanceTextBox);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ResistorUserControl";
-            Size = new Size(223, 38);
+            Size = new Size(195, 28);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -46,9 +46,9 @@ namespace View
             foreach (var Element in _comboBoxToUserControl)
             {
                 ElementTypesComboBox.Items.Add(Element);
-                const int paddingHeight = 1;
-                Element.Value.Location = new Point(ParametersGgroupBox.Location.X,
-                   ParametersGgroupBox.Location.Y + ParametersGgroupBox.Height + paddingHeight);
+                const int paddingHeight = 0;
+                Element.Value.Location = new Point(label1.Location.X,
+                   label1.Location.Y + label1.Height + paddingHeight);
                 Element.Value.Visible = false;
                 Controls.Add(Element.Value);
             }

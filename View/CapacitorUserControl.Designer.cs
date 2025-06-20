@@ -37,45 +37,48 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(4, 11);
+            label1.Location = new Point(0, 9);
             label1.Name = "label1";
-            label1.Size = new Size(66, 20);
+            label1.Size = new Size(53, 15);
             label1.TabIndex = 0;
             label1.Text = "Capacity";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(4, 45);
+            label2.Location = new Point(0, 35);
             label2.Name = "label2";
-            label2.Size = new Size(76, 20);
+            label2.Size = new Size(62, 15);
             label2.TabIndex = 1;
             label2.Text = "Frequency";
             // 
             // textBoxCapacity
             // 
-            textBoxCapacity.Location = new Point(86, 8);
+            textBoxCapacity.Location = new Point(68, 5);
+            textBoxCapacity.Margin = new Padding(3, 2, 3, 2);
             textBoxCapacity.Name = "textBoxCapacity";
-            textBoxCapacity.Size = new Size(125, 27);
+            textBoxCapacity.Size = new Size(110, 23);
             textBoxCapacity.TabIndex = 2;
             // 
             // textBoxFrequency
             // 
-            textBoxFrequency.Location = new Point(86, 42);
+            textBoxFrequency.Location = new Point(68, 32);
+            textBoxFrequency.Margin = new Padding(3, 2, 3, 2);
             textBoxFrequency.Name = "textBoxFrequency";
-            textBoxFrequency.Size = new Size(125, 27);
+            textBoxFrequency.Size = new Size(110, 23);
             textBoxFrequency.TabIndex = 3;
             // 
             // CapacitorUserControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(textBoxFrequency);
             Controls.Add(textBoxCapacity);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CapacitorUserControl";
-            Size = new Size(218, 78);
+            Size = new Size(191, 58);
             ResumeLayout(false);
             PerformLayout();
         }
