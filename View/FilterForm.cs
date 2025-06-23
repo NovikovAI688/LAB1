@@ -37,11 +37,11 @@ namespace View
         /// </summary>
         public EventHandler<ElementEventArgsList> ElementListFiltered { get; set; }
 
-        //TODO: encapsulation
+        //TODO: encapsulation +
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>
-        public BindingList<PassiveElementBase> ElementList { get; set; }
+        public BindingList<PassiveElementBase> ElementList { private get; set; }
 
         /// <summary>
         /// Конструктор фильтра.
@@ -81,36 +81,36 @@ namespace View
             }
 
             var action = new List<Action<BindingList<PassiveElementBase>>>
-                {
-                    typeFilteredList =>
-                    {
-                        foreach (var element in ElementList)
-                        {
-                            foreach (var checkedElement in
-                                     ElementCheckedListBox.CheckedItems)
-                            {
-                                if (element.GetType() ==
-                                    _elementTypes[_listBoxToElementType
-                                    [checkedElement.ToString()]])
-                                {
+            {
+               typeFilteredList =>
+               {
+                   foreach (var element in ElementList)
+                   {
+                       foreach (var checkedElement in
+                                ElementCheckedListBox.CheckedItems)
+                       {
+                           if (element.GetType() ==
+                               _elementTypes[_listBoxToElementType
+                               [checkedElement.ToString()]])
+                           {
 
-                                    typeFilteredList.Add(element);
-                                }
-                            }
-                        }
-                    },
+                               typeFilteredList.Add(element);
+                           }
+                       }
+                   }
+               },
 
-                    typeFilteredList =>
-                    {
-                        foreach (var element in typeFilteredList)
-                        {
-                            if (element.Impedance.Contains(searchValue.ToString()))
-                            {
-                                valueFilteredList.Add(element);
-                            }
-                        }
-                    }
-                };
+               typeFilteredList =>
+               {
+                   foreach (var element in typeFilteredList)
+                   {
+                       if (element.Impedance.Contains(searchValue.ToString()))
+                       {
+                           valueFilteredList.Add(element);
+                       }
+                   }
+               }
+            };
 
             if (string.IsNullOrEmpty(searchValue.ToString()))
             {
