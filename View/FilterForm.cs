@@ -37,11 +37,11 @@ namespace View
         /// </summary>
         public EventHandler<ElementEventArgsList> ElementListFiltered { get; set; }
 
-        //TODO: encapsulation +
+        //TODO: encapsulation
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>
-        protected BindingList<PassiveElementBase> ElementList { get; set; }
+        public BindingList<PassiveElementBase> ElementList { get; set; }
 
         /// <summary>
         /// Конструктор фильтра.
@@ -70,26 +70,72 @@ namespace View
             var valueFilteredList = new BindingList<PassiveElementBase>();
             var typeFilteredList = new BindingList<PassiveElementBase>();
 
-            var action = new List<Action<BindingList<PassiveElementBase>>>
-            {
-                typeFilteredList =>
-                {
-                    foreach (var element in ElementList)
-                    {
-                        foreach (var checkedElement in
-                                 ElementCheckedListBox.CheckedItems)
-                        {
-                            if (element.GetType() ==
-                                _elementTypes[_listBoxToElementType
-                                [checkedElement.ToString()]])
-                            {
+            var searchValueFilled = double.TryParse
+                (SearchTextBox.Text.DotToComma(), out double searchValue);
 
-                                typeFilteredList.Add(element);
+            if (!string.IsNullOrEmpty(SearchTextBox.Text.DotToComma()) &&
+                !searchValueFilled)
+            {
+                _ = MessageBox.Show("Введенное значение некорректного формата!");
+                SearchTextBox.Clear();
+            }
+
+            var action = new List<Action<BindingList<PassiveElementBase>>>
+                {
+                    typeFilteredList =>
+                    {
+                        foreach (var element in ElementList)
+                        {
+                            foreach (var checkedElement in
+                                     ElementCheckedListBox.CheckedItems)
+                            {
+                                if (element.GetType() ==
+                                    _elementTypes[_listBoxToElementType
+                                    [checkedElement.ToString()]])
+                                {
+
+                                    typeFilteredList.Add(element);
+                                }
+                            }
+                        }
+                    },
+
+                    typeFilteredList =>
+                    {
+                        foreach (var element in typeFilteredList)
+                        {
+                            if (element.Impedance.Contains(searchValue.ToString()))
+                            {
+                                valueFilteredList.Add(element);
                             }
                         }
                     }
+                };
+
+            if (string.IsNullOrEmpty(searchValue.ToString()))
+            {
+                action[0].Invoke(typeFilteredList);
+
+                var eventArgs = new ElementEventArgsList(typeFilteredList);
+                ElementListFiltered?.Invoke(this, eventArgs);
+            }
+            else
+            {
+                if (ElementCheckedListBox.SelectedItems.Count == 0)
+                {
+                    typeFilteredList = ElementList;
+                    action[1].Invoke(typeFilteredList);
                 }
-            };
+                else
+                {
+                    action[0].Invoke(typeFilteredList);
+                    action[1].Invoke(typeFilteredList);
+                }
+
+                var eventArgs = new ElementEventArgsList
+                    (valueFilteredList);
+                ElementListFiltered?.Invoke(this, eventArgs);
+            }
         }
 
         /// <summary>
@@ -102,7 +148,10 @@ namespace View
             var eventArgs = new ElementEventArgsList(ElementList);
             ElementListFiltered?.Invoke(this, eventArgs);
 
-            Close();
+            if (!string.IsNullOrEmpty(SearchTextBox.Text.DotToComma()))
+            {
+                SearchTextBox.Clear();
+            }
         }
 
         /// <summary>
