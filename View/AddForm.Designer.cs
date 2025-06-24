@@ -40,11 +40,9 @@
             // SelectElementGroupBox
             // 
             SelectElementGroupBox.Controls.Add(ElementTypesComboBox);
-            SelectElementGroupBox.Location = new Point(16, 12);
-            SelectElementGroupBox.Margin = new Padding(3, 2, 3, 2);
+            SelectElementGroupBox.Location = new Point(18, 16);
             SelectElementGroupBox.Name = "SelectElementGroupBox";
-            SelectElementGroupBox.Padding = new Padding(3, 2, 3, 2);
-            SelectElementGroupBox.Size = new Size(186, 52);
+            SelectElementGroupBox.Size = new Size(213, 69);
             SelectElementGroupBox.TabIndex = 0;
             SelectElementGroupBox.TabStop = false;
             SelectElementGroupBox.Text = "Select of elements";
@@ -53,19 +51,17 @@
             // 
             ElementTypesComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             ElementTypesComboBox.FormattingEnabled = true;
-            ElementTypesComboBox.Location = new Point(11, 20);
-            ElementTypesComboBox.Margin = new Padding(3, 2, 3, 2);
+            ElementTypesComboBox.Location = new Point(13, 27);
             ElementTypesComboBox.Name = "ElementTypesComboBox";
-            ElementTypesComboBox.Size = new Size(167, 23);
+            ElementTypesComboBox.Size = new Size(190, 28);
             ElementTypesComboBox.TabIndex = 1;
             ElementTypesComboBox.SelectedIndexChanged += ElementTypesComboBox_SelectedIndexChanged;
             // 
             // ButtonOK
             // 
-            ButtonOK.Location = new Point(16, 173);
-            ButtonOK.Margin = new Padding(3, 2, 3, 2);
+            ButtonOK.Location = new Point(18, 231);
             ButtonOK.Name = "ButtonOK";
-            ButtonOK.Size = new Size(82, 22);
+            ButtonOK.Size = new Size(94, 29);
             ButtonOK.TabIndex = 2;
             ButtonOK.Text = "OK";
             ButtonOK.UseVisualStyleBackColor = true;
@@ -73,10 +69,9 @@
             // 
             // ButtonCancel
             // 
-            ButtonCancel.Location = new Point(120, 174);
-            ButtonCancel.Margin = new Padding(3, 2, 3, 2);
+            ButtonCancel.Location = new Point(137, 232);
             ButtonCancel.Name = "ButtonCancel";
-            ButtonCancel.Size = new Size(82, 22);
+            ButtonCancel.Size = new Size(94, 29);
             ButtonCancel.TabIndex = 3;
             ButtonCancel.Text = "Cancel";
             ButtonCancel.UseVisualStyleBackColor = true;
@@ -84,10 +79,9 @@
             // 
             // ButtonAddRandomElement
             // 
-            ButtonAddRandomElement.Location = new Point(16, 200);
-            ButtonAddRandomElement.Margin = new Padding(3, 2, 3, 2);
+            ButtonAddRandomElement.Location = new Point(18, 267);
             ButtonAddRandomElement.Name = "ButtonAddRandomElement";
-            ButtonAddRandomElement.Size = new Size(186, 22);
+            ButtonAddRandomElement.Size = new Size(213, 29);
             ButtonAddRandomElement.TabIndex = 4;
             ButtonAddRandomElement.Text = "Add Random Element";
             ButtonAddRandomElement.UseVisualStyleBackColor = true;
@@ -96,23 +90,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(21, 66);
+            label1.Location = new Point(24, 88);
             label1.Name = "label1";
-            label1.Size = new Size(60, 15);
+            label1.Size = new Size(74, 20);
             label1.TabIndex = 5;
             label1.Text = "Parametrs";
             // 
             // AddForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(232, 237);
+            ClientSize = new Size(265, 316);
             Controls.Add(label1);
             Controls.Add(ButtonAddRandomElement);
             Controls.Add(ButtonCancel);
             Controls.Add(ButtonOK);
             Controls.Add(SelectElementGroupBox);
-            Margin = new Padding(3, 2, 3, 2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AddForm";

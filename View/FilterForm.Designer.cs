@@ -102,6 +102,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(223, 211);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FilterForm";
