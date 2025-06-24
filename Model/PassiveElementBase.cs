@@ -66,10 +66,10 @@ namespace Model
         /// <exception cref="ArgumentException">Неправильное значение.</exception>
         protected static double CheckValue(double value)
         {
-            if (value <= _minValue)
+            if (double.IsNaN(value) || value <= _minValue)
             {
                 throw new ArgumentException
-                    ("Значение не может быть отрицательным");
+                    ("Значение не может быть отрицательным или NaN");
             }
             else
             {

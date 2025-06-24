@@ -154,10 +154,10 @@ namespace View
 
                 ElementDataGridView.DataSource = _elementList;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //TODO: Добавить сообщение о внутреннем исключении
-                _ = MessageBox.Show("Файл не может быть открыт.\n",
+                //TODO: Добавить сообщение о внутреннем исключении +
+                _ = MessageBox.Show("Файл не может быть открыт.\n" + ex.Message,
                     "Файл поврежден или имеет неверный формат.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
