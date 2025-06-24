@@ -22,12 +22,12 @@ namespace View
         /// <returns>Элемент.</returns>
         public abstract PassiveElementBase GetElement();
 
-        //TODO: encapsulation
+        //TODO: encapsulation +
         /// <summary>
         /// Параметры для ввода.
         /// </summary>
         /// <param name="actions">Список действий.</param>
-        public void InputParameters(List<Action> actions)
+        protected void InputParameters(List<Action> actions)
         {
             foreach (var action in actions)
             {

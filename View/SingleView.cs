@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace View
 {
-    //TODO: XML
+    //TODO: XML +
+    /// <summary>
+    /// Класс SingleView.
+    /// </summary>
     public static class SingleView
     {
         /// <summary>
-        /// Dot are chanded to comma.
+        /// Меняется запятая на точку.
         /// </summary>
-        /// <param name="str">string from textbox.</param>
-        /// <returns>Correct string.</returns>
+        /// <param name="str">сточка из текстбокса.</param>
+        /// <returns>Правильная сторка.</returns>
         internal static string DotToComma(this string str)
         {
             return str.Replace(".", ",");
