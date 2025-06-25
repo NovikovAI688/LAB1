@@ -1,18 +1,7 @@
 ﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace View
 {
-    //TODO: XML +
     /// <summary>
     /// Класс AddForm.
     /// </summary>
@@ -64,7 +53,6 @@ namespace View
             ButtonOK.Enabled = false;
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Добавление нового элемента.
         /// </summary>
@@ -111,7 +99,6 @@ namespace View
 
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Закрыть форму.
         /// </summary>
@@ -122,7 +109,6 @@ namespace View
             Close();
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Добавление рандомного элемента.
         /// </summary>

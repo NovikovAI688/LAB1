@@ -4,7 +4,6 @@ using System.Xml.Serialization;
 
 namespace View
 {
-    //TODO: XML +
     /// <summary>
     /// Класс MainForm.
     /// </summary>
@@ -20,7 +19,6 @@ namespace View
         /// </summary>
         private BindingList<PassiveElementBase> _filteredList = new BindingList<PassiveElementBase>();
 
-        //TODO: XML +
         /// <summary>
         /// Класс MainForm.
         /// </summary>
@@ -32,7 +30,6 @@ namespace View
             ElementDataGridView.DataSource = source;
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Нажатие на кнопку "добавление" элемемента в список.
         /// </summary>
@@ -58,7 +55,6 @@ namespace View
             ButtonAdd.Enabled = false;
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Нажатие на кнопку "удаление" элемемента в списоке.
         /// </summary>
@@ -80,7 +76,6 @@ namespace View
             }
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Нажатие на кнопку "очистить" список.
         /// </summary>
@@ -92,7 +87,6 @@ namespace View
             _filteredList.Clear();
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Нажатие на кнопку "фильтр" списока.
         /// </summary>
@@ -120,7 +114,6 @@ namespace View
             ButtonFilter.Enabled = false;
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Нажатие на кнопку "Open".
         /// </summary>
@@ -156,14 +149,12 @@ namespace View
             }
             catch (Exception ex)
             {
-                //TODO: Добавить сообщение о внутреннем исключении +
                 _ = MessageBox.Show("Файл не может быть открыт.\n" + ex.Message,
                     "Файл поврежден или имеет неверный формат.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        //TODO: RSDN +
         /// <summary>
         /// Нажатие на кнопку "Save".
         /// </summary>

@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace View
 {
-    //TODO: XML +
     /// <summary>
     /// Класс FilterForm.
     /// </summary>
@@ -37,7 +36,7 @@ namespace View
         /// </summary>
         public EventHandler<ElementEventArgsList> ElementListFiltered { get; set; }
 
-        //TODO: encapsulation +
+        //TODO: encapsulation
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>
@@ -60,6 +59,8 @@ namespace View
                 (_listBoxToElementType.Keys.ToArray());
             OKbutton.Enabled = false;
         }
+
+        //TODO: refactoring
         /// <summary>
         /// Информация для DataGrid.
         /// </summary>
