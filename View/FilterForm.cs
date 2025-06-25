@@ -40,7 +40,7 @@ namespace View
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>
-        public BindingList<PassiveElementBase> ElementList { private get; set; }
+        public BindingList<PassiveElementBase> ElementListBase { private get; set; }
 
         /// <summary>
         /// Конструктор фильтра.
@@ -60,7 +60,7 @@ namespace View
             OKbutton.Enabled = false;
         }
 
-        //TODO: refactoring
+        //TODO: refactoring +
         /// <summary>
         /// Информация для DataGrid.
         /// </summary>
@@ -68,75 +68,78 @@ namespace View
         /// <param name="e">Аргумент.</param>
         private void OKbutton_Click(object sender, EventArgs e)
         {
-            var valueFilteredList = new BindingList<PassiveElementBase>();
+            if (!TryGetSearchValue(out double searchValue))
+            {
+                return;
+            }
+
+            var typeFilteredList = GetTypeFilteredElements();
+            var valueFilteredList = GetValueFilteredElements(typeFilteredList, searchValue);
+
+            var eventArgs = string.IsNullOrEmpty(searchValue.ToString())
+                ? new ElementEventArgsList(typeFilteredList)
+                : new ElementEventArgsList(valueFilteredList);
+
+            ElementListFiltered?.Invoke(this, eventArgs);
+        }
+
+        /// <summary>
+        /// Поиск значения.
+        /// </summary>
+        private bool TryGetSearchValue(out double searchValue)
+        {
+            var input = SearchTextBox.Text.DotToComma();
+            var isValid = double.TryParse(input, out searchValue);
+
+            if (!string.IsNullOrEmpty(input) && !isValid)
+            {
+                MessageBox.Show("Введенное значение некорректного формата!");
+                SearchTextBox.Clear();
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Элементы GetTypeFilteredElements.
+        /// </summary>
+        private BindingList<PassiveElementBase> GetTypeFilteredElements()
+        {
             var typeFilteredList = new BindingList<PassiveElementBase>();
 
-            var searchValueFilled = double.TryParse
-                (SearchTextBox.Text.DotToComma(), out double searchValue);
-
-            if (!string.IsNullOrEmpty(SearchTextBox.Text.DotToComma()) &&
-                !searchValueFilled)
+            foreach (var checkedElement in ElementCheckedListBox.CheckedItems)
             {
-                _ = MessageBox.Show("Введенное значение некорректного формата!");
-                SearchTextBox.Clear();
-            }
+                var elementType = _elementTypes[_listBoxToElementType[checkedElement.ToString()]];
 
-            var action = new List<Action<BindingList<PassiveElementBase>>>
-            {
-               typeFilteredList =>
-               {
-                   foreach (var element in ElementList)
-                   {
-                       foreach (var checkedElement in
-                                ElementCheckedListBox.CheckedItems)
-                       {
-                           if (element.GetType() ==
-                               _elementTypes[_listBoxToElementType
-                               [checkedElement.ToString()]])
-                           {
-
-                               typeFilteredList.Add(element);
-                           }
-                       }
-                   }
-               },
-
-               typeFilteredList =>
-               {
-                   foreach (var element in typeFilteredList)
-                   {
-                       if (element.Impedance.Contains(searchValue.ToString()))
-                       {
-                           valueFilteredList.Add(element);
-                       }
-                   }
-               }
-            };
-
-            if (string.IsNullOrEmpty(searchValue.ToString()))
-            {
-                action[0].Invoke(typeFilteredList);
-
-                var eventArgs = new ElementEventArgsList(typeFilteredList);
-                ElementListFiltered?.Invoke(this, eventArgs);
-            }
-            else
-            {
-                if (ElementCheckedListBox.SelectedItems.Count == 0)
+                foreach (var element in ElementListBase)
                 {
-                    typeFilteredList = ElementList;
-                    action[1].Invoke(typeFilteredList);
+                    if (element.GetType() == elementType)
+                    {
+                        typeFilteredList.Add(element);
+                    }
                 }
-                else
-                {
-                    action[0].Invoke(typeFilteredList);
-                    action[1].Invoke(typeFilteredList);
-                }
-
-                var eventArgs = new ElementEventArgsList
-                    (valueFilteredList);
-                ElementListFiltered?.Invoke(this, eventArgs);
             }
+
+            return typeFilteredList.Count > 0 ? typeFilteredList : ElementListBase;
+        }
+
+        /// <summary>
+        /// Получить значения элементов GetTypeFilteredElements.
+        /// </summary>
+        private BindingList<PassiveElementBase> GetValueFilteredElements(BindingList<PassiveElementBase> typeFilteredList, double searchValue)
+        {
+            var valueFilteredList = new BindingList<PassiveElementBase>();
+
+            foreach (var element in typeFilteredList)
+            {
+                if (element.Impedance.Contains(searchValue.ToString()))
+                {
+                    valueFilteredList.Add(element);
+                }
+            }
+
+            return valueFilteredList;
         }
 
         /// <summary>
@@ -146,7 +149,7 @@ namespace View
         /// <param name="e">Аргумент.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            var eventArgs = new ElementEventArgsList(ElementList);
+            var eventArgs = new ElementEventArgsList(ElementListBase);
             ElementListFiltered?.Invoke(this, eventArgs);
 
             if (!string.IsNullOrEmpty(SearchTextBox.Text.DotToComma()))

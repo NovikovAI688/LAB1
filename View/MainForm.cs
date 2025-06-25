@@ -96,7 +96,7 @@ namespace View
         {
             var newFilterForm = new FilterForm();
 
-            newFilterForm.ElementList = _elementList;
+            newFilterForm.ElementListBase = _elementList;
 
             newFilterForm.Show();
 
