@@ -40,12 +40,12 @@ namespace View
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>
-        public BindingList<PassiveElementBase> ElementListBase { private get; set; }
+        private BindingList<PassiveElementBase> _elementListBase;
 
         /// <summary>
         /// Конструктор фильтра.
         /// </summary>
-        public FilterForm()
+        public FilterForm(BindingList<PassiveElementBase> ElementListBase)
         {
             InitializeComponent();
 
@@ -112,7 +112,7 @@ namespace View
             {
                 var elementType = _elementTypes[_listBoxToElementType[checkedElement.ToString()]];
 
-                foreach (var element in ElementListBase)
+                foreach (var element in _elementListBase)
                 {
                     if (element.GetType() == elementType)
                     {
@@ -121,7 +121,7 @@ namespace View
                 }
             }
 
-            return typeFilteredList.Count > 0 ? typeFilteredList : ElementListBase;
+            return typeFilteredList.Count > 0 ? typeFilteredList : _elementListBase;
         }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace View
         /// <param name="e">Аргумент.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            var eventArgs = new ElementEventArgsList(ElementListBase);
+            var eventArgs = new ElementEventArgsList(_elementListBase);
             ElementListFiltered?.Invoke(this, eventArgs);
 
             if (!string.IsNullOrEmpty(SearchTextBox.Text.DotToComma()))

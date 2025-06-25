@@ -94,9 +94,7 @@ namespace View
         /// <param name="e">Аргумент.</param>
         private void ButtonFilter_Click(object sender, EventArgs e)
         {
-            var newFilterForm = new FilterForm();
-
-            newFilterForm.ElementListBase = _elementList;
+            var newFilterForm = new FilterForm(_elementList);
 
             newFilterForm.Show();
 
