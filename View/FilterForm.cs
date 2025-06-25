@@ -48,6 +48,8 @@ namespace View
         public FilterForm(BindingList<PassiveElementBase> ElementListBase)
         {
             InitializeComponent();
+            _elementListBase = ElementListBase;
+            
 
             _listBoxToElementType = new Dictionary<string, string>()
             {
