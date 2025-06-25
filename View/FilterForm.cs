@@ -167,5 +167,22 @@ namespace View
         {
             OKbutton.Enabled = true;
         }
+
+        /// <summary>
+        /// Закрыть.
+        /// </summary>
+        /// <param name="sender">Закрыть.</param>
+        /// <param name="e">Аргумент.</param>
+        private void FilterForm_FormClosing(object sender, EventArgs e)
+        {
+            var eventArgs = new ElementEventArgsList(_elementListBase);
+            ElementListFiltered?.Invoke(this, eventArgs);
+
+            if (!string.IsNullOrEmpty(SearchTextBox.Text.DotToComma()))
+            {
+                SearchTextBox.Clear();
+            }
+            Close();
+        }
     }
 }
