@@ -114,6 +114,7 @@
             MinimizeBox = false;
             Name = "FilterForm";
             Text = "Filter";
+            FormClosing += FilterForm_FormClosing;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

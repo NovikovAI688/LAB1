@@ -49,7 +49,7 @@ namespace View
         {
             InitializeComponent();
             _elementListBase = ElementListBase;
-            
+
 
             _listBoxToElementType = new Dictionary<string, string>()
             {
@@ -175,7 +175,7 @@ namespace View
         /// </summary>
         /// <param name="sender">Закрыть.</param>
         /// <param name="e">Аргумент.</param>
-        private void FilterForm_FormClosing(object sender, EventArgs e)
+        private void FilterForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             var eventArgs = new ElementEventArgsList(_elementListBase);
             ElementListFiltered?.Invoke(this, eventArgs);
@@ -184,7 +184,6 @@ namespace View
             {
                 SearchTextBox.Clear();
             }
-            Close();
         }
     }
 }
