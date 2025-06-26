@@ -11,7 +11,7 @@ namespace View
         /// Словарь для UserControls.
         /// </summary>
         private readonly Dictionary<string,
-            UserControl> _comboBoxToUserControl;
+           ElementBaseUserControl> _comboBoxToUserControl;
 
         /// <summary>
         /// Возвращает или устанавливает свойство поля EventHandler _elementEventHandler.
@@ -29,7 +29,7 @@ namespace View
 #endif
 
             string[] elementTypes = { "Resistor", "Capacitor", "InductorCoil" };
-            _comboBoxToUserControl = new Dictionary<string, UserControl>()
+            _comboBoxToUserControl = new Dictionary<string, ElementBaseUserControl>()
             {
                 {elementTypes[0], new ResistorUserControl()},
                 {elementTypes[1], new CapacitorUserControl()},
