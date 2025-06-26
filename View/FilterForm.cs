@@ -44,7 +44,6 @@ namespace View
         /// <summary>
         /// Конструктор фильтра.
         /// </summary>
-        /// TODO: rsdn +
         public FilterForm(BindingList<PassiveElementBase> elementListBase)
         {
             InitializeComponent();
@@ -128,7 +127,6 @@ namespace View
         /// <summary>
         /// Получить значения элементов GetTypeFilteredElements.
         /// </summary>
-        /// TODO: rsdn +
         private BindingList<PassiveElementBase> GetValueFilteredElements
             (BindingList<PassiveElementBase> typeFilteredList, double searchValue)
         {
