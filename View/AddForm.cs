@@ -148,11 +148,7 @@ namespace View
 
             foreach (var (key, value) in _comboBoxToUserControl)
             {
-                value.Visible = false;
-                if (selectedElement == key)
-                {
-                    value.Visible = true;
-                }
+                value.Visible = selectedElement == key;
             }
         }
     }

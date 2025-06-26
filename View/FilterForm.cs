@@ -36,7 +36,6 @@ namespace View
         /// </summary>
         public EventHandler<ElementEventArgsList> ElementListFiltered { get; set; }
 
-        //TODO: encapsulation
         /// <summary>
         /// Возврат или установка BindingList для MainForm _elementList.
         /// </summary>
@@ -45,6 +44,7 @@ namespace View
         /// <summary>
         /// Конструктор фильтра.
         /// </summary>
+        /// TODO: rsdn
         public FilterForm(BindingList<PassiveElementBase> ElementListBase)
         {
             InitializeComponent();
@@ -62,7 +62,6 @@ namespace View
             OKbutton.Enabled = false;
         }
 
-        //TODO: refactoring +
         /// <summary>
         /// Информация для DataGrid.
         /// </summary>
@@ -129,6 +128,7 @@ namespace View
         /// <summary>
         /// Получить значения элементов GetTypeFilteredElements.
         /// </summary>
+        /// TODO: rsdn
         private BindingList<PassiveElementBase> GetValueFilteredElements(BindingList<PassiveElementBase> typeFilteredList, double searchValue)
         {
             var valueFilteredList = new BindingList<PassiveElementBase>();
