@@ -44,11 +44,11 @@ namespace View
         /// <summary>
         /// Конструктор фильтра.
         /// </summary>
-        /// TODO: rsdn
-        public FilterForm(BindingList<PassiveElementBase> ElementListBase)
+        /// TODO: rsdn +
+        public FilterForm(BindingList<PassiveElementBase> elementListBase)
         {
             InitializeComponent();
-            _elementListBase = ElementListBase;
+            _elementListBase = elementListBase;
 
 
             _listBoxToElementType = new Dictionary<string, string>()
@@ -128,8 +128,9 @@ namespace View
         /// <summary>
         /// Получить значения элементов GetTypeFilteredElements.
         /// </summary>
-        /// TODO: rsdn
-        private BindingList<PassiveElementBase> GetValueFilteredElements(BindingList<PassiveElementBase> typeFilteredList, double searchValue)
+        /// TODO: rsdn +
+        private BindingList<PassiveElementBase> GetValueFilteredElements
+            (BindingList<PassiveElementBase> typeFilteredList, double searchValue)
         {
             var valueFilteredList = new BindingList<PassiveElementBase>();
 

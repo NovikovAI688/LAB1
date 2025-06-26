@@ -147,7 +147,7 @@ namespace View
             }
             catch (Exception ex)
             {
-                _ = MessageBox.Show("Файл не может быть открыт.\n" + ex.Message,
+                _ = MessageBox.Show("Файл не может быть открыт.\n" + ex.InnerException.Message,
                     "Файл поврежден или имеет неверный формат.",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
