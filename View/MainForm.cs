@@ -107,9 +107,15 @@ namespace View
             newFilterForm.Closed += (_, _) =>
             {
                 ButtonFilter.Enabled = true;
+                ButtonAdd.Enabled = true;
+                ButtonClear.Enabled = true;
+                ButtonRemove.Enabled = true;
             };
 
             ButtonFilter.Enabled = false;
+            ButtonAdd.Enabled = false;
+            ButtonClear.Enabled = false;
+            ButtonRemove.Enabled = false;
         }
 
         /// <summary>
